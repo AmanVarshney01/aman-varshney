@@ -1,9 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Name from '../components/name.tsx';
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
-		<h1>Welcome to Pain</h1>
+		<Name client:only />
 	</main>
 </Layout>
