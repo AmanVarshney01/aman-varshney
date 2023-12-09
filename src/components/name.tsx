@@ -13,7 +13,7 @@ const NameTag = () => {
 
       </div>
     </div>
-  );
+  );  
 };
 
 export default NameTag;

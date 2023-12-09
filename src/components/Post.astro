@@ -1,0 +1,16 @@
+---
+import { type CollectionEntry } from "astro:content";
+
+type Props = {
+  post: CollectionEntry<'posts'>;
+};
+
+const { post } = Astro.props;
+---
+
+<article>
+  <h1>{post.data.title}</h1>
+  <p>{post.data.date}</p>
+  <p>{post.data.author}</p>
+  <p>{post.slug}</p>
+</article>
