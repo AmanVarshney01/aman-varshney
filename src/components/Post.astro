@@ -8,7 +8,7 @@ type Props = {
 const { post } = Astro.props;
 ---
 
-<a class="flex flex-row justify-between" href=`blog/${post.slug}`>
+<a class="flex flex-row justify-between sm:text-base text-sm" href=`blog/${post.slug}`>
   <p>{post.data.title}</p>
   <p>{post.data.date}</p>
 </a>
