@@ -13,5 +13,8 @@ export default defineConfig({
     webAnalytics: {
       enabled: true,
     }
-  })
+  }),
+  markdown: {
+    syntaxHighlight: 'prism'
+  }
 });

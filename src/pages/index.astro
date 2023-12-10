@@ -8,15 +8,23 @@ import ProjectCardGrid from "../components/ProjectCardGrid.astro";
 
 <Layout title="Aman Varshney">
   <!-- <Name client:only /> -->
-  <div class="flex flex-col gap-5">
-    <h1 class="text-xl">Aman Varshney</h1>
-    <p class="">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia,
-      perferendis! Enim, sequi consequuntur aliquid mollitia quae excepturi
-      suscipit culpa obcaecati! Ducimus eaque itaque molestias autem assumenda!
-      Quibusdam, esse! Voluptas, similique.
-    </p>
-    <ProjectCardGrid />
-    <FeaturedPostList />
+  <div class="flex flex-col gap-10">
+    <div class="flex flex-col gap-4">
+      <h1 class="text-xl">Aman Varshney</h1>
+      <p class="">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia,
+        perferendis! Enim, sequi consequuntur aliquid mollitia quae excepturi
+        suscipit culpa obcaecati! Ducimus eaque itaque molestias autem
+        assumenda! Quibusdam, esse! Voluptas, similique.
+      </p>
+    </div>
+    <div class="flex flex-col gap-4">
+      <h2 class="text-lg">Projects</h2>
+      <ProjectCardGrid />
+    </div>
+    <div class="flex flex-col gap-4">
+      <h2 class="text-lg">Blog</h2>
+      <FeaturedPostList />
+    </div>
   </div>
 </Layout>

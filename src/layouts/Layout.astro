@@ -26,11 +26,12 @@ const {
     <meta name="generator" content={Astro.generator} />
     <meta property="og:image" content={image} />
     <title>{title}</title>
+    <link href="/prism-atom-dark.css" rel="stylesheet" />
     <ViewTransitions />
   </head>
   <body class="min-h-screen w-full mx-auto max-w-2xl max-sm:px-5">
     <Header />
-    <main class=" min-h-screen">
+    <main class="min-h-screen">
       <slot />
     </main>
     <Footer />
@@ -39,7 +40,7 @@ const {
         color-scheme: dark;
       }
       html {
-        @apply selection:bg-[#91f2da] selection:text-black text-neutral-100;
+        @apply selection:bg-[#91f2da] selection:text-black text-neutral-300 prose-headings:text-neutral-100 prose-a:underline prose-a:decoration-neutral-500 hover:prose-a:decoration-neutral-300;
         /* color: #ededed; */
         font-family: Arial, Helvetica, sans-serif;
         background: #000000;
@@ -58,22 +59,3 @@ const {
     </style>
   </body>
 </html>
-
-
-<!-- ::-webkit-scrollbar {
-  width: 5px;
-  height: 10px;
-}
-
-::-webkit-scrollbar-track {
-  /*@apply dark:bg-[#121212] bg-white*/
-  @apply bg-transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-neutral-100;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-neutral-700;
-} -->
