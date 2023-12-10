@@ -1,22 +1,21 @@
 ---
-const pathname = Astro.url.pathname;
-const currentPath = pathname.slice(1);
-// console.log(currentPath);
+const currentPath = Astro.url.pathname;
+// const currentPath = pathname.slice(1);
+console.log(currentPath);
 ---
 
-<header class=" mb-8 pt-20">
+<header class="mb-8 pt-20">
   <nav class="flex flex-row gap-8">
-    <a class=`${currentPath == '' ? 'underline' : 'no-underline'}` href="/"
+    <a class=`${currentPath == '/' ? 'underline' : 'no-underline'}` href="/"
       >Home</a
     >
     <a
-      class=`${currentPath == 'about' ? 'underline' : 'no-underline'}`
+      class=`${currentPath == '/about' || currentPath == '/about/' ? 'underline' : 'no-underline'}`
       href="/about">About</a
     >
     <a
-      class=`${currentPath == 'blog' ? 'underline' : 'no-underline'}`
+      class=`${currentPath == '/blog' || currentPath == '/blog/' ? 'underline' : 'no-underline'}`
       href="/blog">Blog</a
     >
   </nav>
-  <!-- <h1>Header</h1> -->
 </header>
