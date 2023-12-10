@@ -3,7 +3,7 @@ const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.slice(1);
 ---
 
-<header class="flex flex-row gap-8 mb-8 pt-28">
+<header class="flex flex-row gap-8 mb-8 pt-20">
   <!-- <h1>Header</h1> -->
   <a class=`${currentPath == '' ? 'underline' : 'no-underline'}` href="/"
     >Home</a
