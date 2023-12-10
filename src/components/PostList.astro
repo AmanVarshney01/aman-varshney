@@ -1,14 +1,10 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import {getCollection} from "astro:content";
 import Post from "./Post.astro";
+const posts = await getCollection("posts");
 
-type Props = {
-  posts: CollectionEntry<"posts">[];
-};
-
-const { posts } = Astro.props;
 ---
 
-<div>
+<div class="flex flex-col gap-2">
   {posts.map((post) => <Post post={post} />)}
 </div>

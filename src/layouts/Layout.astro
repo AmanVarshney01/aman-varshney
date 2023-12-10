@@ -1,13 +1,13 @@
 ---
 import Header from "../components/Header.astro";
-import Main from "../components/Main.astro";
+import Footer from "../components/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
 
-interface Props {
+type Props = {
   title: string;
   description?: string;
   image?: string;
-}
+};
 
 const {
   title,
@@ -28,30 +28,52 @@ const {
     <title>{title}</title>
     <ViewTransitions />
   </head>
-  <body class="min-h-screen">
-    <Main>
-      <Header />
+  <body class="min-h-screen w-full mx-auto max-w-2xl max-sm:px-5">
+    <Header />
+    <main class=" min-h-screen">
       <slot />
-    </Main>
+    </main>
+    <Footer />
+    <style is:global>
+      :root {
+        color-scheme: dark;
+      }
+      html {
+        @apply selection:bg-[#91f2da] selection:text-black text-neutral-100;
+        /* color: #ededed; */
+        font-family: Arial, Helvetica, sans-serif;
+        background: #000000;
+      }
+      code {
+        font-family:
+          Menlo,
+          Monaco,
+          Lucida Console,
+          Liberation Mono,
+          DejaVu Sans Mono,
+          Bitstream Vera Sans Mono,
+          Courier New,
+          monospace;
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  /* :root {
-  } */
-  html {
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #000000;
-  }
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
-  }
-</style>
+
+
+<!-- ::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  /*@apply dark:bg-[#121212] bg-white*/
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-neutral-100;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-neutral-700;
+} -->

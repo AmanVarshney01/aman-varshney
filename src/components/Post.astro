@@ -8,9 +8,7 @@ type Props = {
 const { post } = Astro.props;
 ---
 
-<article>
-  <h1>{post.data.title}</h1>
+<a class="flex flex-row justify-between hover:underline decoration-[#91f2da] hover:text-[#91f2da]" href=`blog/${post.slug}`>
+  <p>{post.data.title}</p>
   <p>{post.data.date}</p>
-  <p>{post.data.author}</p>
-  <a href=`blog/${post.slug}`>{post.slug}</a>
-</article>
+</a>

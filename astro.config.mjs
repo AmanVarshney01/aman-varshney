@@ -9,5 +9,9 @@ import mdx from "@astrojs/mdx";
 export default defineConfig({
   integrations: [solidJs(), mdx(), tailwind()],
   output: "hybrid",
-  adapter: vercel()
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    }
+  })
 });

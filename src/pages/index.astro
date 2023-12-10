@@ -1,10 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Name from "../components/name.tsx";
+import { getCollection } from "astro:content";
+import FeaturedPostList from "../components/FeaturedPostList.astro";
+import ProjectCardGrid from "../components/ProjectCardGrid.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-  <main class="">
-    <Name client:only />
-  </main>
+<Layout title="Aman Varshney">
+  <!-- <Name client:only /> -->
+  <div class="flex flex-col gap-5">
+    <h1 class="text-xl">Aman Varshney</h1>
+    <p class="">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia,
+      perferendis! Enim, sequi consequuntur aliquid mollitia quae excepturi
+      suscipit culpa obcaecati! Ducimus eaque itaque molestias autem assumenda!
+      Quibusdam, esse! Voluptas, similique.
+    </p>
+    <ProjectCardGrid />
+    <FeaturedPostList />
+  </div>
 </Layout>
