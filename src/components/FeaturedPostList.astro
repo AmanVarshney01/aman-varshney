@@ -2,14 +2,8 @@
 import { getCollection } from "astro:content";
 import Post from "./Post.astro";
 const posts = await getCollection("posts");
-
-// type Props = {
-//   posts: CollectionEntry<"posts">[];
-// };
-
-// const { posts } = Astro.props;
 ---
 
-<div class="flex flex-col gap-2">
-  {posts.map((post) => post.data.featured && <Post post={post} />)}
+<div class="flex flex-col gap-3">
+  {posts.reverse().map((post) => post.data.featured && <Post post={post} />)}
 </div>
