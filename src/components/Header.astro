@@ -1,11 +1,22 @@
 ---
-export const prerender = false
-const pathname = new URL(Astro.request.url).pathname;
+const pathname = Astro.url.pathname;
 const currentPath = pathname.slice(1);
-import { NavBar } from "./NavBar";
+// console.log(currentPath);
 ---
 
-<header class="mb-8 pt-20">
+<header class=" mb-8 pt-20">
+  <nav class="flex flex-row gap-8">
+    <a class=`${currentPath == '' ? 'underline' : 'no-underline'}` href="/"
+      >Home</a
+    >
+    <a
+      class=`${currentPath == 'about' ? 'underline' : 'no-underline'}`
+      href="/about">About</a
+    >
+    <a
+      class=`${currentPath == 'blog' ? 'underline' : 'no-underline'}`
+      href="/blog">Blog</a
+    >
+  </nav>
   <!-- <h1>Header</h1> -->
-  <NavBar client:load currentPath={currentPath} />
 </header>
