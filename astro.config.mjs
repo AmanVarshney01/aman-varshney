@@ -12,7 +12,8 @@ export default defineConfig({
   adapter: vercel({
     webAnalytics: {
       enabled: true,
-    }
+    },
+    imageService: true,
   }),
   markdown: {
     syntaxHighlight: 'prism'
