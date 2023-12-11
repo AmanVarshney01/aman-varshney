@@ -1,9 +1,27 @@
 ---
 import ProjectCard from "./ProjectCard.astro";
+import glaappreimagined from "../../public/gla-app-reimagined.webp";
+import amanvarshney from "../../public/amanvarshney.webp";
+import suggestmeaman from "../../public/suggestmeaman.webp";
 ---
 
 <div class="grid sm:grid-cols-3 grid-cols-2 gap-4">
-  <ProjectCard projectName="Gla App Reimagined" />
-  <ProjectCard projectName="SuggestMeAman" />
-  <ProjectCard projectName="News Verifier" />
+  <ProjectCard
+    image={glaappreimagined}
+    name="Gla App Reimagined"
+    description="Gla app prototype using react native"
+    link="https://github.com/AmanVarshney01/gla-app-reimagined"
+  />
+  <ProjectCard
+    name="Aman Varshney"
+    image={amanvarshney}
+    description="3D portfolio using nextjs and threejs"
+    link="https://github.com/AmanVarshney01/amanvarshney"
+  />
+  <ProjectCard
+    name="SuggestMeAman"
+    image={suggestmeaman}
+    description="Movie recommendations using svelte"
+    link="https://github.com/AmanVarshney01/SuggestMeAman"
+  />
 </div>
