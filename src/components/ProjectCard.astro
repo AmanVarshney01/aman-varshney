@@ -11,8 +11,8 @@ type props = {
 const { name, description, image, link } = Astro.props;
 ---
 
-<a class="border border-neutral-900 hover:border-neutral-600 transition duration-200 no-underline" href={link} target="_blank">
-  <Image class=" aspect-square object-contain" src={image} alt={description} width={400} height={400} quality={'low'} />
+<a class="border border-neutral-900 hover:border-neutral-600 transition duration-200 no-underline shadow-lg shadow-black" href={link} target="_blank">
+  <Image class="p-1 aspect-video object-contain" src={image} alt={description} width={400} height={400} quality={'low'} />
   <div class="p-3 flex flex-col justify-center gap-2">
     <h3>{name}</h3>
     <p class=" text-sm">{description}</p>

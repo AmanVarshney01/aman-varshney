@@ -1,9 +1,30 @@
 ---
+import { Image } from "astro:assets";
 
+import github from "../../public/icons/github.svg";
+import linkedin from "../../public/icons/linkedin.svg";
+import x from "../../public/icons/x.svg";
 ---
 
-<footer class="pb-28 w-full">
-  unhappy none treated shine receive police library main grabbed crew nearest
-  circle correct fresh growth guide composition victory screen certainly simply
-  quickly addition accident
+<footer
+  class="pb-28 w-full flex flex-row justify-between border-t pt-3 border-neutral-400"
+>
+  <h3>Aman Varshney</h3>
+  <div class="flex -flex-row gap-4">
+    <a href="https://github.com/AmanVarshney01" target="_blank"
+      ><Image
+        src={github}
+        alt="github"
+        width={20}
+        height={20}
+        class="rounded-full"
+      /></a
+    >
+    <a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank">
+      <Image src={linkedin} alt="linkedin" width={20} height={20} />
+    </a>
+    <a href="https://twitter.com/amanvarshney01" target="_blank">
+      <Image src={x} alt="x" width={20} height={20} />
+    </a>
+  </div>
 </footer>
