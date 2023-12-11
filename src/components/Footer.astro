@@ -4,13 +4,17 @@ import { Image } from "astro:assets";
 import github from "../../public/icons/github.svg";
 import linkedin from "../../public/icons/linkedin.svg";
 import x from "../../public/icons/x.svg";
+import email from "../../public/icons/email.png";
 ---
 
 <footer
-  class="pb-28 w-full flex flex-row justify-between border-t pt-3 border-neutral-400"
+  class="pb-28 w-full flex flex-row justify-between border-t pt-3 mt-8 border-neutral-400"
 >
   <h3>Aman Varshney</h3>
   <div class="flex -flex-row gap-4">
+    <a href="mailto:av.amanvarshney11@gmail.com" target="_blank">
+      <Image src={email} alt="email" width={20} height={20} class="bg-white" />
+    </a>
     <a href="https://github.com/AmanVarshney01" target="_blank"
       ><Image
         src={github}
@@ -26,5 +30,6 @@ import x from "../../public/icons/x.svg";
     <a href="https://twitter.com/amanvarshney01" target="_blank">
       <Image src={x} alt="x" width={20} height={20} />
     </a>
+    
   </div>
 </footer>

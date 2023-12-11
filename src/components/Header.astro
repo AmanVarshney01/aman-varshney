@@ -1,11 +1,33 @@
 ---
 const currentPath = Astro.url.pathname;
+const { page } = Astro.props;
 ---
 
 <header class="mb-8 pt-20">
-  <nav class="flex flex-row gap-8">
-    <a class=`${currentPath == '/' ? 'underline text-neutral-100' : 'no-underline'} transition duration-200` href="/">Home</a>
-    <a class=`${currentPath.startsWith('/about') ? 'underline text-neutral-100' : 'no-underline'} transition duration-200` href="/about">About</a>
-    <a class=`${currentPath.startsWith('/blog') ? 'underline text-neutral-100' : 'no-underline'} transition duration-200` href="/blog">Blog</a>
+  <nav class="flex flex-row justify-between">
+    <div class="flex flex-row gap-8">
+      <a
+        class=`${currentPath == '/' ? 'underline text-neutral-100' : 'no-underline'} transition duration-200`
+        href="/">Home</a
+      >
+      <a
+        class=`${currentPath.startsWith('/about') ? 'underline text-neutral-100' : 'no-underline'} transition duration-200`
+        href="/about">About</a
+      >
+      <a
+        class=`${currentPath.startsWith('/blog') ? 'underline text-neutral-100' : 'no-underline'} transition duration-200`
+        href="/blog">Blog</a
+      >
+    </div>
+    <!-- {
+      currentPath !== "/" ? (
+        <a
+          class="underline text-neutral-100 transition duration-200"
+          href="javascript:history.back()"
+        >
+          Back
+        </a>
+      ) : null
+    } -->
   </nav>
 </header>
