@@ -4,8 +4,8 @@ const currentPath = Astro.url.pathname;
 
 <header class="mb-8 pt-20">
   <nav class="flex flex-row gap-8">
-    <a class=`${currentPath == '/' ? 'underline' : 'no-underline'} transition duration-200` href="/">Home</a>
-    <a class=`${currentPath.startsWith('/about') ? 'underline' : 'no-underline'} transition duration-200` href="/about">About</a>
-    <a class=`${currentPath.startsWith('/blog') ? 'underline' : 'no-underline'} transition duration-200` href="/blog">Blog</a>
+    <a class=`${currentPath == '/' ? 'underline text-neutral-100' : 'no-underline'} transition duration-200` href="/">Home</a>
+    <a class=`${currentPath.startsWith('/about') ? 'underline text-neutral-100' : 'no-underline'} transition duration-200` href="/about">About</a>
+    <a class=`${currentPath.startsWith('/blog') ? 'underline text-neutral-100' : 'no-underline'} transition duration-200` href="/blog">Blog</a>
   </nav>
 </header>
