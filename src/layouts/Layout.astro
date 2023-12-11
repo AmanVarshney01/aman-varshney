@@ -36,6 +36,13 @@ const {
     </main>
     <Footer />
     <style is:global>
+      @font-face {
+        font-family: "Geist";
+        src: url("/Geist-Regular.woff2") format("woff2");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
       :root {
         color-scheme: dark;
       }
@@ -43,7 +50,7 @@ const {
         @apply selection:bg-[#91f2da] selection:text-black text-neutral-400 prose-headings:text-neutral-100 prose-a:underline underline-offset-4 prose-a:decoration-neutral-500 hover:prose-a:decoration-neutral-300;
         @apply hover:prose-a:text-neutral-100 prose-strong:text-neutral-100;
         /* color: #ededed; */
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Geist', Arial, Helvetica, sans-serif;
         background: #030303;
       }
       code {
