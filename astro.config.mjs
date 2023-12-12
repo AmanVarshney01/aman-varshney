@@ -13,10 +13,7 @@ export default defineConfig({
     webAnalytics: {
       enabled: true,
     },
-    imageService: true,
-    speedInsights: {
-      enabled: true,
-    },
+    imageService: true
   }),
   markdown: {
     syntaxHighlight: 'prism'
