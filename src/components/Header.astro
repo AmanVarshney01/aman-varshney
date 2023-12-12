@@ -9,15 +9,15 @@ const { page } = Astro.props;
   <nav class="flex flex-row justify-between">
     <div class="flex flex-row gap-8">
       <a
-        class=`${currentPath == '/' ? 'underline text-neutral-900 dark:text-neutral-100' : 'no-underline'}`
+        class=`${currentPath == '/' ? 'underline underline-offset-4 text-neutral-900 dark:text-neutral-100' : 'no-underline dark:hover:text-neutral-100'}`
         href="/">Home</a
       >
       <a
-        class=`${currentPath.startsWith('/about') ? 'underline text-neutral-900 dark:text-neutral-100' : 'no-underline'} `
+        class=`${currentPath.startsWith('/about') ? 'underline underline-offset-4 text-neutral-900 dark:text-neutral-100' : 'no-underline dark:hover:text-neutral-100'} `
         href="/about">About</a
       >
       <a
-        class=`${currentPath.startsWith('/blog') ? 'underline text-neutral-900 dark:text-neutral-100' : 'no-underline'} `
+        class=`${currentPath.startsWith('/blog') ? 'underline underline-offset-4 text-neutral-900 dark:text-neutral-100' : 'no-underline dark:hover:text-neutral-100'} `
         href="/blog">Blog</a
       >
     </div>
