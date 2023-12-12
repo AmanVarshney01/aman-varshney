@@ -4,7 +4,7 @@ const NameTag = () => {
   const [count, setCount] = createSignal(1);
 
   return (
-    <div class="text-white text-2xl">
+    <div class="text-2xl">
       <div>
         <p class="">{count()}</p>
         <button

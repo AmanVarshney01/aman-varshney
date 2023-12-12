@@ -1,4 +1,6 @@
 ---
+import ThemeToggle from './themeToggle.tsx'
+
 const currentPath = Astro.url.pathname;
 const { page } = Astro.props;
 ---
@@ -7,15 +9,15 @@ const { page } = Astro.props;
   <nav class="flex flex-row justify-between">
     <div class="flex flex-row gap-8">
       <a
-        class=`${currentPath == '/' ? 'underline text-neutral-100' : 'no-underline'} transition duration-200`
+        class=`${currentPath == '/' ? 'underline text-neutral-900 dark:text-neutral-100' : 'no-underline'}`
         href="/">Home</a
       >
       <a
-        class=`${currentPath.startsWith('/about') ? 'underline text-neutral-100' : 'no-underline'} transition duration-200`
+        class=`${currentPath.startsWith('/about') ? 'underline text-neutral-900 dark:text-neutral-100' : 'no-underline'} `
         href="/about">About</a
       >
       <a
-        class=`${currentPath.startsWith('/blog') ? 'underline text-neutral-100' : 'no-underline'} transition duration-200`
+        class=`${currentPath.startsWith('/blog') ? 'underline text-neutral-900 dark:text-neutral-100' : 'no-underline'} `
         href="/blog">Blog</a
       >
     </div>
@@ -29,5 +31,6 @@ const { page } = Astro.props;
         </a>
       ) : null
     } -->
+    <ThemeToggle lightImage="/icons/sun.svg" darkImage='/icons/moon.svg' client:only="solid-js" />
   </nav>
 </header>

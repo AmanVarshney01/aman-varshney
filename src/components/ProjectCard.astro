@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
 type props = {
   name: string;
@@ -11,10 +11,21 @@ type props = {
 const { name, description, image, link } = Astro.props;
 ---
 
-<a class="border border-neutral-900 hover:border-neutral-600 transition duration-200 no-underline shadow-lg shadow-black" href={link} target="_blank">
-  <Image class="p-1 aspect-video object-contain" src={image} alt={description} width={400} height={400} quality={'low'} />
+<a
+  class="border border-neutral-300 hover:border-neutral-800 dark:border-neutral-900 dark:hover:border-neutral-600 hover:transition hover:duration-200 no-underline rounded-sm"
+  href={link}
+  target="_blank"
+>
+  <Image
+    class="p-1 aspect-video object-contain"
+    src={image}
+    alt={description}
+    width={400}
+    height={400}
+    quality={"low"}
+  />
   <div class="p-3 flex flex-col justify-center gap-2">
     <h3>{name}</h3>
-    <p class=" text-sm">{description}</p>
+    <p class="text-sm">{description}</p>
   </div>
 </a>
