@@ -14,6 +14,9 @@ export default defineConfig({
       enabled: true,
     },
     imageService: true,
+    speedInsights: {
+      enabled: true,
+    },
   }),
   markdown: {
     syntaxHighlight: 'prism'

@@ -2,7 +2,6 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
-import { injectSpeedInsights } from '@vercel/speed-insights';
 
 type Props = {
   title: string;
@@ -37,7 +36,6 @@ const {
   }
   window.localStorage.setItem("theme", theme);
 
-  injectSpeedInsights();
 </script>
 
 <html lang="en">
