@@ -1,6 +1,5 @@
 ---
 import { type CollectionEntry } from "astro:content";
-import { getRelativeDate } from "./getRelativeData";
 
 type Props = {
   post: CollectionEntry<'posts'>;
@@ -11,5 +10,5 @@ const { post } = Astro.props;
 
 <a class="flex flex-row justify-between sm:text-base text-sm gap-4" href=`blog/${post.slug}`>
   <h2>{post.data.title}</h2>
-  <p class="min-w-fit">{getRelativeDate(post.data.date.toString())}</p>
+  <p class="min-w-fit">{post.data.date.toString()}</p>
 </a>
