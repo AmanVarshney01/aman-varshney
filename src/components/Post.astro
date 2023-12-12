@@ -8,7 +8,7 @@ type Props = {
 const { post } = Astro.props;
 ---
 
-<a class="flex flex-row justify-between sm:text-base text-sm gap-4" href=`blog/${post.slug}`>
-  <h2>{post.data.title}</h2>
+<a class="flex flex-row justify-between sm:text-base text-sm gap-4 dark:hover:text-neutral-100" href=`blog/${post.slug}`>
+  <h3 class="underline underline-offset-4 decoration-neutral-400 dark:hover:decoration-neutral-100">{post.data.title}</>
   <p class="min-w-fit">{post.data.date.toString()}</p>
 </a>
