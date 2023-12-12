@@ -25,10 +25,17 @@ const { Content } = await post.render();
 <Layout title={post.data.title}>
   <div class="mb-8 flex flex-col gap-2">
     <h2 class="text-2xl font-bold">{post.data.title}</h2>
-      <p>{post.data.date.toString().slice(0,10)} ({getRelativeDate(post.data.date.toString())})</p>
-    </div>
+    <p>
+      {post.data.date.toString().slice(0, 10)} ({
+        getRelativeDate(post.data.date.toString())
+      })
+    </p>
+  </div>
   <div
-    class="prose prose-strong:text-neutral-950 prose-headings:text-neutral-900 text-neutral-800 dark:prose-strong:text-neutral-100 dark:prose-headings:text-neutral-100 dark:text-neutral-400"
+    class="prose dark:prose-invert prose-strong:text-neutral-950 prose-headings:text-neutral-900 text-neutral-800
+    dark:prose-strong:text-neutral-100
+    dark:prose-headings:text-neutral-100 dark:text-neutral-400 dark:prose-a:text-[#91f2da]
+    dark:hover:prose-a:text-[#91f2da] dark:hover:prose-a:decoration-[#91f2da]"
   >
     <Content />
   </div>
