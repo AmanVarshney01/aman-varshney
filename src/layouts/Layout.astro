@@ -2,6 +2,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
+import { injectSpeedInsights } from '@vercel/speed-insights';
 
 type Props = {
   title: string;
@@ -14,6 +15,8 @@ const {
   description = "Portfolio of Aman Varshney",
   image,
 } = Astro.props;
+
+
 ---
 
 <script is:inline>
@@ -33,6 +36,8 @@ const {
     document.documentElement.classList.add("dark");
   }
   window.localStorage.setItem("theme", theme);
+
+  injectSpeedInsights();
 </script>
 
 <html lang="en">
