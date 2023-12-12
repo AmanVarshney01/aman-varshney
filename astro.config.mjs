@@ -10,10 +10,10 @@ export default defineConfig({
   integrations: [solidJs(), mdx(), tailwind()],
   output: "hybrid",
   adapter: vercel({
-    // webAnalytics: {
-    //   enabled: true,
-    // },
-    // imageService: true,
+    webAnalytics: {
+      enabled: true,
+    },
+    imageService: true,
   }),
   markdown: {
     syntaxHighlight: 'prism'
