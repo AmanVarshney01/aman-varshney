@@ -12,17 +12,12 @@
   "dependencies": {
     "@astrojs/check": "^0.3.1",
     "@astrojs/mdx": "^2.0.0",
-    "@astrojs/node": "^6.0.0",
     "@astrojs/solid-js": "^3.0.2",
     "@astrojs/tailwind": "^5.0.3",
     "@astrojs/vercel": "^6.0.0",
-    "@resvg/resvg-js": "^2.6.0",
-    "@types/node": "^20.10.4",
     "@vercel/analytics": "^1.1.1",
     "astro": "^4.0.2",
     "astro-seo": "^0.8.0",
-    "satori": "^0.10.11",
-    "satori-html": "^0.3.2",
     "solid-js": "^1.4.3",
     "tailwindcss": "^3.0.24",
     "typescript": "^5.3.2"

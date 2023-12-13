@@ -1,11 +1,11 @@
 ---
 import { Image } from "astro:assets";
 
-type props = {
+type Props = {
   name: string;
-  description?: string;
-  image?: string;
-  link?: string;
+  description: string;
+  image: any;
+  link: string;
 };
 
 const { name, description, image, link } = Astro.props;
