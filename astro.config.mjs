@@ -1,8 +1,7 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import solidJs from "@astrojs/solid-js";
 import vercel from "@astrojs/vercel/serverless";
-
 import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
@@ -13,9 +12,9 @@ export default defineConfig({
     webAnalytics: {
       enabled: true,
     },
-    imageService: true
+    imageService: true,
   }),
   markdown: {
-    syntaxHighlight: 'prism'
-  }
+    syntaxHighlight: "prism",
+  },
 });
