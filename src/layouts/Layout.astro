@@ -2,24 +2,30 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
+import { SEO } from "astro-seo";
 
 type Props = {
   title: string;
   description?: string;
-  image?: string;
-  // canonicalURL?: string;
   author?: string;
+  ogImage?: {
+    template: string;
+    data?: Record<string, any>;
+  };
 };
 
 const {
   title,
   description = "Portfolio of Aman Varshney",
-  image = "/og-image.png",
   author = "Aman Varshney",
-  // canonicalURL = new URL(Astro.url.pathname, Astro.site)
+  ogImage,
 } = Astro.props;
 
-// console.log(Astro.url.href);
+const ogImageUrl = `${Astro.url.origin}/og/${
+  ogImage?.template ?? "default"
+}.png?${new URLSearchParams(ogImage?.data)}`;
+// console.log(ogImageUrl);
+
 ---
 
 <script is:inline>
@@ -48,14 +54,28 @@ const {
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <link rel="canonical" href={Astro.url.href} />
     <meta name="author" content={author} />
     <meta name="theme-color" content="#030303" />
-    <!-- <meta property="og:image" content={image} /> -->
     <title>{title}</title>
     <link href="/prism-atom-dark.css" rel="stylesheet" />
 
-    <meta property="og:site_name" content="Aman Varshney" />
+    <SEO
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          type: "website",
+          title: title,
+          image: ogImageUrl,
+        },
+      }}
+      twitter={{
+        card: "summary_large_image",
+        image: ogImageUrl,
+        creator: "@amanvarshney01",
+      }}
+    />
+    <!-- <meta property="og:site_name" content="Aman Varshney" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
@@ -74,12 +94,12 @@ const {
     <meta name="twitter:image:width" content="1200" />
     <meta name="twitter:image:height" content="600" />
     <meta name="twitter:url" content={Astro.url.href} />
-    <meta name="twitter:domain" content="amanvarshney.tech" />
+    <meta name="twitter:domain" content="amanvarshney.tech" /> -->
 
     <ViewTransitions />
   </head>
   <body
-    class="selection:bg-[#91f2da] dark:selection:text-black
+    class="antialiased selection:bg-[#91f2da] dark:selection:text-black
     text-neutral-800
      dark:text-neutral-400 prose-headings:text-neutral-950 dark:prose-headings:text-neutral-100
     prose-strong:text-neutral-950 dark:prose-strong:text-neutral-100 bg-neutral-100

@@ -17,4 +17,9 @@ export default defineConfig({
   markdown: {
     syntaxHighlight: "prism",
   },
+  vite: {
+    optimizeDeps: {
+      exclude: ['@resvg/resvg-js'],
+    },
+  },
 });

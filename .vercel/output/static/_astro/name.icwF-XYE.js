@@ -1,0 +1,1 @@
+import{d as i,c,g as r,i as o,r as d,t as g}from"./web.4NQvbWIR.js";const m=g('<div class=text-2xl><div><p class=""></p><button class=active:bg-pink-500>Increment'),u=()=>{const[t,n]=c(1);return(()=>{const e=r(m),a=e.firstChild,s=a.firstChild,l=s.nextSibling;return o(s,t),l.$$click=()=>n(t()+1),d(),e})()};i(["click"]);export{u as default};
