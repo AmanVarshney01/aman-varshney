@@ -1,0 +1,18 @@
+---
+type Props = {
+  name: string;
+  href: string;
+  isActive: boolean;
+};
+
+const { name, href, isActive } = Astro.props;
+---
+
+<a
+  href={href}
+  class={isActive
+    ? "underline underline-offset-4 text-neutral-900 dark:text-neutral-100"
+    : "no-underline dark:hover:text-neutral-100"}
+>
+  {name}
+</a>

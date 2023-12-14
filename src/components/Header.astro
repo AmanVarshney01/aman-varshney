@@ -1,4 +1,5 @@
 ---
+import NavButton from './NavButton.astro';
 import ThemeToggle from './themeToggle.tsx'
 
 const currentPath = Astro.url.pathname;
@@ -7,29 +8,10 @@ const currentPath = Astro.url.pathname;
 <header class="mb-8 pt-20">
   <nav class="flex flex-row justify-between">
     <div class="flex flex-row gap-8">
-      <a
-        class=`${currentPath == '/' ? 'underline underline-offset-4 text-neutral-900 dark:text-neutral-100' : 'no-underline dark:hover:text-neutral-100'}`
-        href="/">Home</a
-      >
-      <a
-        class=`${currentPath.startsWith('/about') ? 'underline underline-offset-4 text-neutral-900 dark:text-neutral-100' : 'no-underline dark:hover:text-neutral-100'} `
-        href="/about">About</a
-      >
-      <a
-        class=`${currentPath.startsWith('/blog') ? 'underline underline-offset-4 text-neutral-900 dark:text-neutral-100' : 'no-underline dark:hover:text-neutral-100'} `
-        href="/blog">Blog</a
-      >
+      <NavButton href="/" name="Home" isActive={currentPath == '/'} />
+      <NavButton href="/about" name="About" isActive={currentPath.startsWith('/about')} />
+      <NavButton href="/blog" name="Blog" isActive={currentPath.startsWith('/blog')} />
     </div>
-    <!-- {
-      currentPath !== "/" ? (
-        <a
-          class="underline text-neutral-100 transition duration-200"
-          href="javascript:history.back()"
-        >
-          Back
-        </a>
-      ) : null
-    } -->
     <ThemeToggle lightImage="/icons/sun.svg" darkImage='/icons/moon.svg' client:only="solid-js" />
   </nav>
 </header>
