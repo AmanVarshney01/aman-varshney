@@ -9,6 +9,6 @@ posts.sort(
 );
 ---
 
-<div class="flex flex-col gap-4">
+<div transition:name="post-list" class="flex flex-col gap-4">
   {posts.map((post) => <Post post={post} />)}
 </div>

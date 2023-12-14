@@ -24,7 +24,9 @@ const { Content } = await post.render();
 
 <Layout title={post.data.title}>
   <div class="mb-8 flex flex-col gap-2">
-    <h2 class="text-2xl font-bold">{post.data.title}</h2>
+    <h2 transition:animate="slide" class="text-2xl font-bold">
+      {post.data.title}
+    </h2>
     <p>
       {post.data.date}
       <!-- ({
