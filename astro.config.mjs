@@ -6,6 +6,7 @@ import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://amanvarshney.tech/',
   integrations: [solidJs(), mdx(), tailwind()],
   output: "hybrid",
   adapter: vercel({
@@ -16,10 +17,5 @@ export default defineConfig({
   }),
   markdown: {
     syntaxHighlight: "prism",
-  },
-  vite: {
-    optimizeDeps: {
-      exclude: ['@resvg/resvg-js'],
-    },
   },
 });

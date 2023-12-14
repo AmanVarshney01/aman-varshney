@@ -18,6 +18,7 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImageURL = new URL('/og-image.png', Astro.url);
+// console.log(socialImageURL);
 ---
 
 <script is:inline>
@@ -59,7 +60,7 @@ const socialImageURL = new URL('/og-image.png', Astro.url);
         basic: {
           type: "website",
           title: title,
-          image: '/og-image.png',
+          image: '/og-image.png'
         },
       }}
       twitter={{
