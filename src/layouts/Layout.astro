@@ -43,14 +43,14 @@ const socialImageURL = new URL('/og-image.png', Astro.url);
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content={description} />
+    <!-- <meta name="description" content={description} /> -->
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <meta name="author" content={author} />
     <meta name="theme-color" content="#030303" />
-    <title>{title}</title>
-    <link rel="canonical" href={canonicalURL} />
+    <!-- <title>{title}</title> -->
+    <!-- <link rel="canonical" href={canonicalURL} /> -->
     <link href="/prism-atom-dark.css" rel="stylesheet" />
 
     <SEO
@@ -70,26 +70,6 @@ const socialImageURL = new URL('/og-image.png', Astro.url);
         creator: "@amanvarshney01",
       }}
     />
-    <meta property="og:url" content={socialImageURL.href} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <!-- <meta property="og:site_name" content="Aman Varshney" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content={image} />
-    <meta property="og:image:alt" content={title} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@amanvarshney01" />
-    <meta name="twitter:creator" content="@amanvarshney01" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={image} />
-    <meta name="twitter:image:alt" content={title} />
-    <meta name="twitter:image:width" content="1200" />
-    <meta name="twitter:image:height" content="600" />
-    <meta name="twitter:url" content={Astro.url.href} />
-    <meta name="twitter:domain" content="amanvarshney.tech" /> -->
 
     <ViewTransitions />
   </head>
@@ -117,20 +97,7 @@ const socialImageURL = new URL('/og-image.png', Astro.url);
         color-scheme: dark;
       }
       html {
-        /* color: #ededed; */
         font-family: "Geist", Arial, Helvetica, sans-serif;
-        /* background: #030303; */
-      }
-      code {
-        font-family:
-          Menlo,
-          Monaco,
-          Lucida Console,
-          Liberation Mono,
-          DejaVu Sans Mono,
-          Bitstream Vera Sans Mono,
-          Courier New,
-          monospace;
       }
     </style>
   </body>

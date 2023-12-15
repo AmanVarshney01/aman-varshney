@@ -13,7 +13,6 @@ export const getStaticPaths = async () => {
   return paths;
 };
 
-// export const prerender = true;
 type Props = {
   post: CollectionEntry<"posts">;
 };
@@ -24,14 +23,11 @@ const { Content } = await post.render();
 
 <Layout title={post.data.title}>
   <div class="mb-8 flex flex-col gap-2">
-    <h2 transition:animate="slide" class="text-2xl font-bold">
+    <h2 class="text-2xl font-bold">
       {post.data.title}
     </h2>
     <p>
       {post.data.date}
-      <!-- ({
-        getRelativeDate(post.data.date.toString())
-      }) -->
     </p>
   </div>
   <div
