@@ -4,22 +4,37 @@ import { Image } from "astro:assets";
 import github from "../../public/icons/github.svg";
 import linkedin from "../../public/icons/linkedin.svg";
 import x from "../../public/icons/x.svg";
-import email from "../../public/icons/email.png";
+import email from "../../public/icons/email.svg";
 ---
 
 <footer
   class="pb-28 w-full flex flex-row justify-between border-t pt-3 mt-8 border-neutral-400"
 >
   <h3>Aman Varshney</h3>
-  <div class="flex -flex-row gap-4">
+  <div class="flex flex-row gap-4 items-center ">
     <a href="mailto:av.amanvarshney11@gmail.com" target="_blank">
-      <Image src={email} alt="email" width={20} height={20} quality={"low"} />
+      <Image
+        class={"border border-neutral-900 dark:border-neutral-100 bg-neutral-100 rounded-sm"}
+        src={email}
+        alt="email"
+        width={20}
+        height={20}
+        quality={"low"}
+      />
     </a>
     <a href="https://github.com/AmanVarshney01" target="_blank">
-      <Image src={github} alt="github" width={20} height={20} quality={"low"} />
+      <Image
+        class={"border border-neutral-900 dark:border-neutral-100 bg-neutral-100 rounded-sm"}
+        src={github}
+        alt="github"
+        width={20}
+        height={20}
+        quality={"low"}
+      />
     </a>
     <a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank">
       <Image
+        class={"border border-neutral-900 dark:border-neutral-100 bg-neutral-100 rounded-sm"}
         src={linkedin}
         alt="linkedin"
         width={20}
@@ -28,7 +43,14 @@ import email from "../../public/icons/email.png";
       />
     </a>
     <a href="https://twitter.com/amanvarshney01" target="_blank">
-      <Image src={x} alt="x" width={20} height={20} quality={"low"} />
+      <Image
+        class={"border border-neutral-900 dark:border-neutral-100 bg-neutral-100 rounded-sm"}
+        src={x}
+        alt="x"
+        width={20}
+        height={20}
+        quality={"low"}
+      />
     </a>
   </div>
 </footer>
