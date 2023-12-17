@@ -109,3 +109,188 @@ struct Node {
 
 Node constructor takes two arguments, the value of the node and a pointer to the next node.
 The default value of the next pointer is nullptr. Sets the value and next variables to the passed arguments.
+
+### Enqueue
+
+This function adds an element to the end of the queue.
+If the queue is empty, a new node is created and both head and tail point to it.
+If the queue is not empty, a new node is created and added to the end of the queue,
+and tail is updated to point to this new node.
+The length is incremented by 1.
+
+```cpp
+void enqueue(T item) {
+    // If the queue is empty, create a new node and set head and tail to it
+    if (!this->tail) {
+        this->tail = new Node(item);
+        this->head = this->tail;
+    }
+    // If the queue is not empty, create a new node and add it to the end of the queue
+    else {
+        this->tail->next = new Node(item);
+        this->tail = this->tail->next;
+    }
+
+    this->length++;
+}
+```
+
+### Dequeue
+
+This function removes an element from the front of the queue. If the queue is empty,
+it returns a default-constructed value of type T. If the queue is not empty,
+it saves the value of the head node, updates head to point to the next node,
+deletes the old head node, and decrements length by 1.
+If the queue becomes empty after the dequeue operation, tail is also set to nullptr.
+
+```cpp
+T dequeue() {
+    if (!this->head) {
+        return T(); // Return default-constructed value if queue is empty
+    }
+
+    this->length--;
+
+    Node* previousHead = this->head;
+    this->head = this->head->next;
+
+    previousHead->next = nullptr;
+
+    T previousValue = previousHead->value;
+    delete previousHead;
+
+    if (this->length == 0) {
+        delete this->tail;
+        this->tail = nullptr;
+    }
+
+    return previousValue;
+}
+```
+
+### Peek
+
+This function returns the value of the front element without removing it.
+If the queue is empty, it returns a default-constructed value of type T.
+
+```cpp
+T peek() {
+    if (this->head) { // If the queue is not empty
+        return this->head->value; // Return the value of the head node
+    }
+    return T(); // Return default-constructed value if queue is empty
+}
+```
+
+### IsEmpty
+
+This function checks if the queue is empty. It returns true if length is 0, and false otherwise.
+
+```cpp
+bool isEmpty() {
+    return this->length == 0;
+}
+``` 
+
+### Full Code
+
+```cpp
+#include <iostream>
+
+template <typename T>
+class Queue {
+
+private:
+
+	struct Node {
+		T value;
+		Node* next;
+
+		Node(T value, Node* next = nullptr) {
+			this->value = value;
+			this->next = next;
+		}
+
+	};
+
+	Node* head;
+	Node* tail;
+
+public:
+
+	int length;
+
+	Queue() {
+		this->head = nullptr;
+		this->tail = nullptr;
+		this->length = 0;
+	}
+
+	void enqueue(T item) {
+		if (!this->tail) {
+			this->tail = new Node(item);
+			this->head = this->tail;
+		}
+		else {
+			this->tail->next = new Node(item);
+			this->tail = this->tail->next;
+		}
+
+		this->length++;
+	}
+
+	T dequeue() {
+		if (!this->head) {
+			return T();
+		}
+
+		this->length--;
+
+		Node* previousHead = this->head;
+		this->head = this->head->next;
+
+		previousHead->next = nullptr;
+
+		T previousValue = previousHead->value;
+		delete previousHead;
+
+		if (this->length == 0) {
+			delete this->tail;
+			this->tail = nullptr;
+		}
+
+		return previousValue;
+
+	}
+
+	T peek() {
+		if (this->head) {
+			return this->head->value;
+		}
+		return T();
+	}
+
+	bool isEmpty() {
+		return this->length == 0;
+	}
+
+};
+
+int main() {
+
+	Queue<int> q;
+
+    std::cout << q.isEmpty() << '\n'; // 1
+	q.enqueue(7);
+	q.enqueue(3);
+	q.enqueue(6);
+	q.enqueue(0);
+	std::cout << q.peek() << '\n'; // 7
+	std::cout << q.dequeue() << '\n'; // 7
+	std::cout << q.peek() << '\n'; // 3 
+	std::cout << q.length << '\n'; // 3
+	std::cout << q.isEmpty() << '\n'; // 0
+
+	return 0;
+}
+```
