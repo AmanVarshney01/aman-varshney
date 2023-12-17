@@ -4,10 +4,12 @@ import solidJs from "@astrojs/solid-js";
 import vercel from "@astrojs/vercel/serverless";
 import mdx from "@astrojs/mdx";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://amanvarshney.tech/',
-  integrations: [solidJs(), mdx(), tailwind()],
+  site: "https://amanvarshney.tech/",
+  integrations: [solidJs(), mdx(), tailwind(), sitemap()],
   output: "hybrid",
   adapter: vercel({
     webAnalytics: {
@@ -17,5 +19,5 @@ export default defineConfig({
   }),
   markdown: {
     syntaxHighlight: "prism",
-  }
+  },
 });
