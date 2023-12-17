@@ -29,7 +29,7 @@ dependencies:
     specifier: ^1.4.3
     version: 1.8.7
   tailwindcss:
-    specifier: ^3.0.24
+    specifier: ^3.3.6
     version: 3.3.6
   typescript:
     specifier: ^5.3.3

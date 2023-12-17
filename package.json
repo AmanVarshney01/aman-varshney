@@ -19,7 +19,7 @@
     "astro": "^4.0.2",
     "astro-seo": "^0.8.0",
     "solid-js": "^1.4.3",
-    "tailwindcss": "^3.0.24",
+    "tailwindcss": "^3.3.6",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
