@@ -1,0 +1,111 @@
+---
+title: "How to Implement a Queue from Scratch in C++"
+date: 2023-12-16
+featured: true
+---
+
+## Introduction
+
+A queue is a data structure that stores items in a First In First Out (FIFO) manner. This means that the first item to be inserted into the queue is the first one to be removed.
+
+we can implement a queue using an array or a linked list. In this article, we will implement a queue using a linked list.
+
+we will use the concepts of templates, pointers, and object-oriented programming.
+
+## Queue Operations
+
+- Enqueue: Adds an item to the queue.
+- Dequeue: Removes an item from the queue.
+- Peek: Returns the front item of the queue without removing it.
+- IsEmpty: Checks if the queue is empty.
+
+## Queue Implementation
+
+we will start by defining all the methods and variables that we will need in our queue class.
+
+```cpp
+
+template <typename T> // T The type of elements stored in the Queue.
+class Queue {
+
+private:
+
+    struct Node {
+        T value; // Value of the node
+        Node* next; // Pointer to the next node
+
+        Node() {
+
+        }
+    };
+
+    Node* head; // Pointer to the first node in the queue
+    Node* tail; // Pointer to the last node in the queue
+
+public:
+
+    int length; // Number of elements in the queue
+
+    Queue() {
+
+    }
+
+    void enqueue(T value) {
+
+    }
+
+    T dequeue() {
+
+    }
+
+    T peek() {
+
+    }
+};
+
+int main () {
+
+    // Queue q;
+
+    return 0;
+}
+
+```
+
+### Queue class
+
+The Queue class has two private pointers, head and tail, which point to the first and last nodes in the queue respectively.
+It also has a public integer length which keeps track of the number of elements in the queue.
+To make the queue generic, we will use templates.
+
+```cpp
+Queue() {
+    this->head = nullptr;
+    this->tail = nullptr;
+    this->length = 0;
+}
+```
+
+The constructor initializes an empty queue. head and tail are set to nullptr and length is set to 0.
+
+### Node Structure
+
+The Queue is implemented using a linked list.
+Each node in the list contains a value of a generic type T and a pointer to the next node.
+The Node structure is defined within the Queue class and is private,
+meaning it can only be accessed by members of the Queue class.
+
+```cpp
+struct Node {
+    T value;
+    Node* next;
+
+    Node( T value, Node* next = nullptr) {
+        this->value = value;
+        this->next = next;
+    }
+};
+```
+
+Node constructor takes two arguments, the value of the node and a pointer to the next node.
+The default value of the next pointer is nullptr. Sets the value and next variables to the passed arguments.
