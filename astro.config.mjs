@@ -12,6 +12,9 @@ export default defineConfig({
   integrations: [solidJs(), mdx(), tailwind(), sitemap()],
   output: "hybrid",
   adapter: vercel({
+    speedInsights: {
+      enabled: true,
+    },
     webAnalytics: {
       enabled: true,
     },
