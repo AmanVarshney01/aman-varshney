@@ -9,7 +9,7 @@ const currentPath = Astro.url.pathname;
   <nav class="flex flex-row justify-between">
     <div class="flex flex-row gap-8">
       <NavButton href="/" name="Home" isActive={currentPath == '/'} />
-      <NavButton href="/about" name="About" isActive={currentPath.startsWith('/about')} />
+      <!-- <NavButton href="/about" name="About" isActive={currentPath.startsWith('/about')} /> -->
       <NavButton href="/blog" name="Blog" isActive={currentPath.startsWith('/blog')} />
     </div>
     <ThemeToggle lightImage="/icons/sun.svg" darkImage='/icons/moon.svg' client:only="solid-js" />
