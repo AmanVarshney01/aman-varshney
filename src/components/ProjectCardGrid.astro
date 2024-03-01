@@ -3,9 +3,16 @@ import ProjectCard from "./ProjectCard.astro";
 import glaappreimagined from "../../public/project-images/gla-app-reimagined.webp";
 import amanvarshney from "../../public/project-images/amanvarshney.webp";
 import suggestmeaman from "../../public/project-images/suggestmeaman.webp";
+import oxabags from "../../public/project-images/oxabags.png";
 ---
 
 <div class="grid sm:grid-cols-3 grid-cols-2 gap-4">
+  <ProjectCard
+    image={oxabags}
+    name="Oxabags Ecommerce"
+    description="An ecommerce site using Next.js, Shadcn/UI, Razorpay, and Sanity.io"
+    link="https://github.com/AmanVarshney01/oxabags"
+  />
   <ProjectCard
     image={glaappreimagined}
     name="Gla App Reimagined"
