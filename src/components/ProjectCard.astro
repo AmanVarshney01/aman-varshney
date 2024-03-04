@@ -17,7 +17,7 @@ const { name, description, image, link } = Astro.props;
   target="_blank"
 >
   <Image
-    class="p-1 aspect-video object-contain"
+    class="p-1 m-0 aspect-video object-contain"
     src={image}
     alt={description}
     width={400}
@@ -25,8 +25,8 @@ const { name, description, image, link } = Astro.props;
     quality={"low"}
     loading="eager"
   />
-  <div class="p-3 flex flex-col justify-center gap-2">
-    <h3>{name}</h3>
-    <p class="text-sm">{description}</p>
+  <div class="p-3 flex flex-col justify-center">
+    <h3 class="m-0">{name}</h3>
+    <p class="m-0 text-sm">{description}</p>
   </div>
 </a>

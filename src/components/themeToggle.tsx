@@ -12,7 +12,7 @@ const initializeTheme = () => {
   return theme;
 };
 
-const ThemeToggle = (props: {lightImage: string, darkImage: string}) => {
+const ThemeToggle = (props: { lightImage: string; darkImage: string }) => {
   const [theme, setTheme] = createSignal(initializeTheme());
   const toggleTheme = () => {
     setTheme(theme() === "light" ? "dark" : "light");
@@ -30,9 +30,21 @@ const ThemeToggle = (props: {lightImage: string, darkImage: string}) => {
   return (
     <button onClick={toggleTheme}>
       {theme() === "dark" ? (
-        <img src={props.lightImage} alt={"light mode"} width={20} height={20} />
+        <img
+          class="m-0"
+          src={props.lightImage}
+          alt={"light mode"}
+          width={20}
+          height={20}
+        />
       ) : (
-        <img src={props.darkImage} alt={"dark mode"} width={20} height={20} />
+        <img
+          class="m-0"
+          src={props.darkImage}
+          alt={"dark mode"}
+          width={20}
+          height={20}
+        />
       )}
     </button>
   );

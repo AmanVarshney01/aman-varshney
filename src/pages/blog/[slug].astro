@@ -23,26 +23,23 @@ const { Content } = await post.render();
 
 <Layout title={post.data.title}>
   <div class="mb-8 flex flex-col gap-2">
-    <h2 class="text-2xl font-bold">
-      {post.data.title}
-    </h2>
-    <p>
+    <span class="pb-2">
       {post.data.date}
-    </p>
-    <p class="pt-2">
+    </span>
+    <h1 class="my-2 font-bold text-pretty">
+      {post.data.title}
+    </h1>
+    <span class="mt-10">
       <a
         class="underline"
         href=`https://amanvarshney.hashnode.dev/${post.slug}`
         target="_blank">Read on Hashnode</a
       >
-    </p>
+    </span>
   </div>
-  <div
-    class="prose prose-a:underline underline-offset-4 prose-a:decoration-neutral-800 prose-strong:text-neutral-950 prose-headings:text-neutral-900 text-neutral-800
-    dark:prose-strong:text-neutral-100
-    dark:prose-headings:text-neutral-100 dark:text-neutral-400 dark:prose-a:text-[#91f2da]
-   dark:hover:prose-a:decoration-[#91f2da] max-w-3xl"
+  <article
+    class="prose dark:prose-invert prose-a:underline underline-offset-4 max-w-3xl"
   >
     <Content />
-  </div>
+  </article>
 </Layout>

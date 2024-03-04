@@ -11,9 +11,7 @@ const { name, href, isActive } = Astro.props;
 <a
   href={href}
   rel="noopener noreferrer"
-  class={isActive
-    ? "underline underline-offset-4 text-neutral-900 dark:text-neutral-100"
-    : "no-underline dark:hover:text-neutral-100"}
+  class={isActive ? "underline" : "no-underline"}
 >
   {name}
 </a>
