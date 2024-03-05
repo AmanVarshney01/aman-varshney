@@ -9,10 +9,10 @@ const { post } = Astro.props;
 ---
 
 <a
-  class="flex flex-row justify-between items-center gap-4"
+  class="flex flex-row justify-between items-center gap-4 md:text-base"
   rel="noopener noreferrer"
   href=`blog/${post.slug}`
 >
   {post.data.title}
-  <span class="no-underline">{post.data.date.toString()}</span>
+  <span class="no-underline hidden md:block">{post.data.date.toString()}</span>
 </a>
