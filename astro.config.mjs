@@ -11,10 +11,8 @@ export default defineConfig({
   site: "https://amanvarshney.tech/",
   integrations: [solidJs(), mdx(), tailwind(), sitemap()],
   output: "hybrid",
+  prefetch: true,
   adapter: vercel({
-    speedInsights: {
-      enabled: true,
-    },
     webAnalytics: {
       enabled: true,
     },
