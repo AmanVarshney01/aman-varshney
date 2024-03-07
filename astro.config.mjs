@@ -10,7 +10,7 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://amanvarshney.tech/",
   integrations: [solidJs(), mdx(), tailwind(), sitemap()],
-  output: "hybrid",
+  output: "static",
   prefetch: true,
   adapter: vercel({
     webAnalytics: {
