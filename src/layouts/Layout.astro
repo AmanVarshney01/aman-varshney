@@ -2,6 +2,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SEO } from "astro-seo";
+import { ViewTransitions } from "astro:transitions";
 
 type Props = {
   title: string;
@@ -40,6 +41,7 @@ const socialImageURL = new URL("/og-image.png", Astro.url);
 
 <html lang="en">
   <head>
+    <ViewTransitions fallback="none" />
     <meta charset="UTF-8" />
     <!-- <meta name="description" content={description} /> -->
     <meta name="viewport" content="width=device-width" />
