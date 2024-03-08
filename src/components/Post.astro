@@ -9,7 +9,7 @@ const { post } = Astro.props;
 ---
 
 <div class="flex flex-col md:flex-row justify-between">
-  <a class="" rel="noopener noreferrer" href=`blog/${post.slug}`>
+  <a transition:name="post-name" class="not-prose" href=`blog/${post.slug}`>
     {post.data.title}
   </a>
   <span class="no-underline">{post.data.date.toString()}</span>

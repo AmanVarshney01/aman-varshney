@@ -11,7 +11,6 @@ export default defineConfig({
   site: "https://amanvarshney.tech/",
   integrations: [solidJs(), mdx(), tailwind(), sitemap()],
   output: "static",
-  prefetch: true,
   adapter: vercel({
     webAnalytics: {
       enabled: true,
