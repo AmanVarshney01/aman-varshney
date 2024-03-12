@@ -1,7 +1,7 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-// import { getRelativeDate } from "../../components/getRelativeData";
+
 export const getStaticPaths = async () => {
   const posts = await getCollection("posts");
   const paths = posts.map((post) => {

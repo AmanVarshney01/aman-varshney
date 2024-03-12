@@ -1,0 +1,41 @@
+---
+export const prerender = false;
+import { db, Guestbook as gb, desc } from "astro:db";
+import Layout from "../layouts/Layout.astro";
+
+if (Astro.request.method === "POST") {
+  const formData = await Astro.request.formData();
+  const name = formData.get("name");
+  const message = formData.get("message");
+  if (typeof name === "string" && typeof message === "string") {
+    await db.insert(gb).values({ name, message });
+  }
+}
+const guestbookData = await db.select().from(gb).orderBy(desc(gb.published));
+---
+
+<Layout title="Guestbook | Aman Varshney">
+  <h1>Guestbook</h1>
+  <form method="POST" class="flex flex-row gap-2">
+    <input
+      id="name"
+      name="name"
+      placeholder="Name"
+      class="py-1 px-2 rounded-lg"
+    />
+    <input name="message" placeholder="Message" class="py-1 px-2 rounded-lg" />
+    <button type="submit" class="py-1 px-2 ring rounded-lg">Submit</button>
+  </form>
+  <section class="pt-10">
+    {
+      guestbookData.map(({ name, message }) => {
+        return (
+          <div class=" flex flex-row gap-2">
+            <strong>{name}:</strong>
+            <p class=" m-0 p-0">{message}</p>
+          </div>
+        );
+      })
+    }
+  </section>
+</Layout>
