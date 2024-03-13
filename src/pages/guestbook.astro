@@ -26,13 +26,13 @@ const guestbookData = await db.select().from(gb).orderBy(desc(gb.published));
     <input name="message" placeholder="Message" class="py-1 px-2 rounded-lg" />
     <button type="submit" class="py-1 px-2 ring rounded-lg">Submit</button>
   </form>
-  <section class="pt-10">
+  <section class="pt-10 flex flex-col gap-2">
     {
       guestbookData.map(({ name, message }) => {
         return (
-          <div class=" flex flex-row gap-2">
+          <div>
             <strong>{name}:</strong>
-            <p class=" m-0 p-0">{message}</p>
+            {message}
           </div>
         );
       })
