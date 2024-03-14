@@ -11,6 +11,7 @@ if (Astro.request.method === "POST") {
     await db.insert(gb).values({ name, message });
   }
 }
+
 const guestbookData = await db.select().from(gb).orderBy(desc(gb.published));
 ---
 
@@ -18,13 +19,14 @@ const guestbookData = await db.select().from(gb).orderBy(desc(gb.published));
   <h1>Guestbook</h1>
   <form method="POST" class="flex flex-col md:flex-row gap-2">
     <input
-      id="name"
+      type="text"
       name="name"
       placeholder="Name"
       class="py-1 px-2 rounded-lg"
       required
     />
     <input
+      type="text"
       name="message"
       placeholder="Message"
       class="py-1 px-2 rounded-lg"
