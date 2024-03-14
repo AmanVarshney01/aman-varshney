@@ -22,8 +22,14 @@ const guestbookData = await db.select().from(gb).orderBy(desc(gb.published));
       name="name"
       placeholder="Name"
       class="py-1 px-2 rounded-lg"
+      required
     />
-    <input name="message" placeholder="Message" class="py-1 px-2 rounded-lg" />
+    <input
+      name="message"
+      placeholder="Message"
+      class="py-1 px-2 rounded-lg"
+      required
+    />
     <button type="submit" class="py-1 px-2 ring rounded-lg">Submit</button>
   </form>
   <section class="pt-10 flex flex-col gap-2">
