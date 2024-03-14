@@ -12,19 +12,23 @@ export default defineConfig({
   site: "https://amanvarshney.tech/",
   image: {
     domains: ["img.shields.io"],
-    remotePatterns: [{
-      protocol: "https"
-    }]
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "img.shields.io",
+        pathname: "/**/*",
+      },
+    ],
   },
   integrations: [solidJs(), mdx(), tailwind(), sitemap(), db()],
   output: "hybrid",
   adapter: vercel({
     webAnalytics: {
-      enabled: true
+      enabled: true,
     },
-    imageService: true
+    imageService: true,
   }),
   markdown: {
-    syntaxHighlight: "prism"
-  }
+    syntaxHighlight: "prism",
+  },
 });
