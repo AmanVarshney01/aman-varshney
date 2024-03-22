@@ -1,5 +1,5 @@
 ---
-  import { Image } from "astro:assets";
+import { Image } from "astro:assets";
 
 type Props = {
   name: string;
@@ -13,11 +13,9 @@ type Props = {
 const { name, description, image, githubLink, liveLink, loading } = Astro.props;
 ---
 
-<div
-  class="hover:outline outline-1 no-underline rounded-sm flex flex-col justify-center"
->
+<div class="no-underline rounded-sm flex flex-col justify-center">
   <Image
-    class="p-1 m-0 aspect-video object-contain"
+    class="p-1 m-0 aspect-video object-contain rounded-lg"
     src={image}
     alt={description}
     width={400}
