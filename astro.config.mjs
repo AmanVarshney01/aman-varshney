@@ -4,22 +4,15 @@ import solidJs from "@astrojs/solid-js";
 import vercel from "@astrojs/vercel/serverless";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-
 import db from "@astrojs/db";
+import {
+  transformerNotationHighlight,
+  // ...
+} from "@shikijs/transformers";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://amanvarshney.tech/",
-  image: {
-    domains: ["img.shields.io"],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "img.shields.io",
-        pathname: "/**/*",
-      },
-    ],
-  },
   integrations: [solidJs(), mdx(), tailwind(), sitemap(), db()],
   output: "hybrid",
   adapter: vercel({
@@ -29,6 +22,9 @@ export default defineConfig({
     imageService: true,
   }),
   markdown: {
-    syntaxHighlight: "prism",
+    shikiConfig: {
+      theme: "material-theme-darker",
+      transformers: [transformerNotationHighlight()],
+    },
   },
 });
