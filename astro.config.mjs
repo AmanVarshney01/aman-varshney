@@ -7,10 +7,10 @@ import sitemap from "@astrojs/sitemap";
 import db from "@astrojs/db";
 import {
   transformerNotationHighlight,
-  // ...
+  transformerMetaHighlight,
+  transformerNotationDiff,
 } from "@shikijs/transformers";
 
-// https://astro.build/config
 export default defineConfig({
   site: "https://amanvarshney.tech/",
   integrations: [solidJs(), mdx(), tailwind(), sitemap(), db()],
@@ -24,7 +24,13 @@ export default defineConfig({
   markdown: {
     shikiConfig: {
       theme: "material-theme-darker",
-      transformers: [transformerNotationHighlight()],
+      langs: ["markdown", "cpp"],
+      // BUG Transformer not working
+      transformers: [
+        transformerNotationHighlight(),
+        transformerMetaHighlight(),
+        transformerNotationDiff(),
+      ],
     },
   },
 });
