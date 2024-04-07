@@ -10,6 +10,10 @@ import AstroLogo from "../assets/skill-images/Astro.svg";
 import Tailwind from "../assets/skill-images/tailwindcss.svg";
 import Java from "../assets/skill-images/java.svg";
 import Cpp from "../assets/skill-images/cpp.svg";
+import github from "../assets/icons/github.svg";
+import linkedin from "../assets/icons/linkedin.svg";
+import x from "../assets/icons/x.svg";
+import email from "../assets/icons/email.svg";
 import { Image } from "astro:assets";
 ---
 
@@ -27,8 +31,8 @@ import { Image } from "astro:assets";
           >Data Structures and Algorithms</strong
         >.
       </p>
-      <div class="flex flex-row gap-2">
-        <a href="https://github.com/AmanVarshney01" target="_blank">Github</a>
+      <div class="flex flex-row gap-4 prose-img:m-0">
+        <!-- <a href="https://github.com/AmanVarshney01" target="_blank">Github</a>
         <a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank"
           >Linkedin</a
         >
@@ -36,7 +40,51 @@ import { Image } from "astro:assets";
           >Hashnode</a
         >
         <a href="mailto:av.amanvarshney11@gmail.com" target="_blank">Email</a>
-        <a href="https://twitter.com/amanvarshney01" target="_blank">x.com</a>
+        <a href="https://twitter.com/amanvarshney01" target="_blank">x.com</a> -->
+        <a href="mailto:hello@amanvarshney.tech" target="_blank">
+          <Image
+            class={" dark:invert rounded-sm"}
+            src={email}
+            alt="email"
+            width={20}
+            height={20}
+            loading={"lazy"}
+            quality={"low"}
+          />
+        </a>
+        <a href="https://github.com/AmanVarshney01" target="_blank">
+          <Image
+            class={"dark:invert rounded-sm"}
+            src={github}
+            alt="github"
+            width={20}
+            height={20}
+            loading={"lazy"}
+            quality={"low"}
+          />
+        </a>
+        <a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank">
+          <Image
+            class={" rounded-sm dark:invert"}
+            src={linkedin}
+            alt="linkedin"
+            width={20}
+            height={20}
+            loading={"lazy"}
+            quality={"low"}
+          />
+        </a>
+        <a href="https://twitter.com/amanvarshney01" target="_blank">
+          <Image
+            class={" dark:invert rounded-sm"}
+            src={x}
+            alt="x"
+            width={20}
+            height={20}
+            loading={"lazy"}
+            quality={"low"}
+          />
+        </a>
       </div>
     </div>
     <div>
