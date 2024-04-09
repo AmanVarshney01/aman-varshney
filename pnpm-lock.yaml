@@ -9,29 +9,29 @@ dependencies:
     specifier: ^0.5.10
     version: 0.5.10(typescript@5.4.3)
   '@astrojs/db':
-    specifier: ^0.9.4
-    version: 0.9.4
+    specifier: ^0.10.2
+    version: 0.10.2
   '@astrojs/mdx':
-    specifier: ^2.2.1
-    version: 2.2.1(astro@4.5.9)
+    specifier: ^2.2.4
+    version: 2.2.4(astro@4.5.17)
   '@astrojs/sitemap':
-    specifier: ^3.1.1
-    version: 3.1.1
+    specifier: ^3.1.2
+    version: 3.1.2
   '@astrojs/solid-js':
     specifier: ^4.0.1
     version: 4.0.1(solid-js@1.8.16)(vite@5.2.6)
   '@astrojs/tailwind':
     specifier: ^5.1.0
-    version: 5.1.0(astro@4.5.9)(tailwindcss@3.4.1)
+    version: 5.1.0(astro@4.5.17)(tailwindcss@3.4.1)
   '@astrojs/vercel':
-    specifier: ^7.4.0
-    version: 7.4.0(astro@4.5.9)
+    specifier: ^7.5.2
+    version: 7.5.2(astro@4.5.17)
   '@vercel/analytics':
     specifier: ^1.2.2
     version: 1.2.2
   astro:
-    specifier: ^4.5.9
-    version: 4.5.9(typescript@5.4.3)
+    specifier: ^4.5.17
+    version: 4.5.17(typescript@5.4.3)
   astro-seo:
     specifier: ^0.8.3
     version: 0.8.3(typescript@5.4.3)
@@ -88,8 +88,12 @@ packages:
     resolution: {integrity: sha512-XpC8MAaWjD1ff6/IfkRq/5k1EFj6zhCNqXRd5J43SVJEBj/Bsmizkm8N0xOYscGcDFQkRgEw6/eKnI5x/1l6aA==}
     dev: false
 
-  /@astrojs/db@0.9.4:
-    resolution: {integrity: sha512-CfBmFwnsQ+N/zOSvuEvAm6IxQpVAFqMla8uMqXgwvpHojLvkcqpPPKzNLDvuhSrSFaZjlqvt2m4gs4vhtYG2VA==}
+  /@astrojs/compiler@2.7.1:
+    resolution: {integrity: sha512-/POejAYuj8WEw7ZI0J8JBvevjfp9jQ9Wmu/Bg52RiNwGXkMV7JnYpsenVfHvvf1G7R5sXHGKlTcxlQWhoUTiGQ==}
+    dev: false
+
+  /@astrojs/db@0.10.2:
+    resolution: {integrity: sha512-822+vkEKaruLuc1leCOW8/5/UjhmgR2/0MSEgf3gSrf1k20mWyXw8+4maR6ER6ZLBxczcjvxpQl3Q6Z50BakLA==}
     dependencies:
       '@libsql/client': 0.5.6
       async-listen: 3.0.1
@@ -133,8 +137,8 @@ packages:
       - utf-8-validate
     dev: false
 
-  /@astrojs/internal-helpers@0.3.0:
-    resolution: {integrity: sha512-tGmHvrhpzuz0JBHaJX8GywN9g4rldVNHtkoVDC3m/DdzBO70jGoVuc0uuNVglRYnsdwkbG0K02Iw3nOOR3/Y4g==}
+  /@astrojs/internal-helpers@0.4.0:
+    resolution: {integrity: sha512-6B13lz5n6BrbTqCTwhXjJXuR1sqiX/H6rTxzlXx+lN1NnV4jgnq/KJldCQaUWJzPL5SiWahQyinxAbxQtwgPHA==}
     dev: false
 
   /@astrojs/language-server@2.8.4(typescript@5.4.3):
@@ -169,8 +173,8 @@ packages:
       - typescript
     dev: false
 
-  /@astrojs/markdown-remark@4.3.1:
-    resolution: {integrity: sha512-eJFi600tkRjTFiwzY9oD8AgCgB7gFqyWCKWuZ33dATVBgLiROD+zlMZ8STZzU7+ZALvmiUAun/K7umTmP5YfVQ==}
+  /@astrojs/markdown-remark@5.0.0:
+    resolution: {integrity: sha512-QBXbxXZamVRoqCNN2gjDXa7qYPUkJZq7KYFfg3DX7rze3QL6xiz4N+Wg202dNPRaIkQa16BV6D8+EHibQFubRg==}
     dependencies:
       '@astrojs/prism': 3.0.0
       github-slugger: 2.0.0
@@ -194,16 +198,16 @@ packages:
       - supports-color
     dev: false
 
-  /@astrojs/mdx@2.2.1(astro@4.5.9):
-    resolution: {integrity: sha512-bSr/AkvGieD9Pc5ZzMnAk7IHnw0vyt/aOujuYUmYT+NHiWahAUy/+ywNNMhTMmea0irdMYnBVC1AEKMQ/oXxow==}
+  /@astrojs/mdx@2.2.4(astro@4.5.17):
+    resolution: {integrity: sha512-eXCmftMsWj4vTECrc4vgdaXrA8xIvrmJ9rM37BZNK5anQ2PunUm9N8wbnK2VVTE0CAmW5U8v9y3IGps2RYGUvQ==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       astro: ^4.0.0
     dependencies:
-      '@astrojs/markdown-remark': 4.3.1
+      '@astrojs/markdown-remark': 5.0.0
       '@mdx-js/mdx': 3.0.1
       acorn: 8.11.3
-      astro: 4.5.9(typescript@5.4.3)
+      astro: 4.5.17(typescript@5.4.3)
       es-module-lexer: 1.4.2
       estree-util-visit: 2.0.0
       github-slugger: 2.0.0
@@ -227,8 +231,8 @@ packages:
       prismjs: 1.29.0
     dev: false
 
-  /@astrojs/sitemap@3.1.1:
-    resolution: {integrity: sha512-qPgdBIcDUaea98mTtLfi5z9oXZpzSjEn/kes70/Ex8FOZZ+DIHVKRYOLOtvy8p+FTXr/9oc7BjmIbTYmYLLJVg==}
+  /@astrojs/sitemap@3.1.2:
+    resolution: {integrity: sha512-FxOJldIl5ltZ5CNjocQxHkAO9orwHBjqtaU28o4smobp9vowS0nbGp+I9CrPxkzWdl1crSDm9vjL9tnvG1DSug==}
     dependencies:
       sitemap: 7.1.1
       zod: 3.22.4
@@ -248,13 +252,13 @@ packages:
       - vite
     dev: false
 
-  /@astrojs/tailwind@5.1.0(astro@4.5.9)(tailwindcss@3.4.1):
+  /@astrojs/tailwind@5.1.0(astro@4.5.17)(tailwindcss@3.4.1):
     resolution: {integrity: sha512-BJoCDKuWhU9FT2qYg+fr6Nfb3qP4ShtyjXGHKA/4mHN94z7BGcmauQK23iy+YH5qWvTnhqkd6mQPQ1yTZTe9Ig==}
     peerDependencies:
       astro: ^3.0.0 || ^4.0.0
       tailwindcss: ^3.0.24
     dependencies:
-      astro: 4.5.9(typescript@5.4.3)
+      astro: 4.5.17(typescript@5.4.3)
       autoprefixer: 10.4.19(postcss@8.4.38)
       postcss: 8.4.38
       postcss-load-config: 4.0.2(postcss@8.4.38)
@@ -278,16 +282,16 @@ packages:
       - supports-color
     dev: false
 
-  /@astrojs/vercel@7.4.0(astro@4.5.9):
-    resolution: {integrity: sha512-KMCDCOV+UwsJnDX4Q/FE18S0+XwOlu3e6UA/Jr/v2vh0v24aDpkbA0L9DmV4c1ETHLY/vxfjey40gk30iSXNKw==}
+  /@astrojs/vercel@7.5.2(astro@4.5.17):
+    resolution: {integrity: sha512-Wvz5wCvmc1iu22KcVEpEAXsyzAWrVIkcXOReqd6QAUTJ5Kj1oYsZdZqJuibjbM6hDfnhTF78W64XXUKH+Wb0cg==}
     peerDependencies:
       astro: ^4.2.0
     dependencies:
-      '@astrojs/internal-helpers': 0.3.0
+      '@astrojs/internal-helpers': 0.4.0
       '@vercel/analytics': 1.2.2
       '@vercel/edge': 1.1.1
       '@vercel/nft': 0.26.4
-      astro: 4.5.9(typescript@5.4.3)
+      astro: 4.5.17(typescript@5.4.3)
       esbuild: 0.19.12
       fast-glob: 3.3.2
       set-cookie-parser: 2.6.0
@@ -1413,7 +1417,7 @@ packages:
   /@types/sax@1.2.7:
     resolution: {integrity: sha512-rO73L89PJxeYM3s3pPPjiPgVVcymqU490g0YO5n5By0k2Erzj6tay/4lr1CHAAU4JyOWd1rpQ8bCf6cZfHU96A==}
     dependencies:
-      '@types/node': 17.0.45
+      '@types/node': 20.11.30
     dev: false
 
   /@types/unist@2.0.10:
@@ -1682,14 +1686,14 @@ packages:
       - typescript
     dev: false
 
-  /astro@4.5.9(typescript@5.4.3):
-    resolution: {integrity: sha512-GheU72Goz7dYQNKaqTxB2H49cNvHfahGSbNkTvMXk+gyHf/g633qadqlO2ZQbTUacoUWmDzvS5fhMZt2/w4naQ==}
+  /astro@4.5.17(typescript@5.4.3):
+    resolution: {integrity: sha512-fr5onZt7MOe+6v08Ub1AZL9eUVo4f0y0nvL55AFMpVG2bMM1/omcwAH1uU2mkvwMLLtcd4RDtYz4mtJzd54Nfw==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
     dependencies:
-      '@astrojs/compiler': 2.7.0
-      '@astrojs/internal-helpers': 0.3.0
-      '@astrojs/markdown-remark': 4.3.1
+      '@astrojs/compiler': 2.7.1
+      '@astrojs/internal-helpers': 0.4.0
+      '@astrojs/markdown-remark': 5.0.0
       '@astrojs/telemetry': 3.0.4
       '@babel/core': 7.24.3
       '@babel/generator': 7.24.1

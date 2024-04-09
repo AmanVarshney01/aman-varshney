@@ -5,11 +5,11 @@ import vercel from "@astrojs/vercel/serverless";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import db from "@astrojs/db";
-import {
-  transformerNotationHighlight,
-  transformerMetaHighlight,
-  transformerNotationDiff,
-} from "@shikijs/transformers";
+// import {
+//   transformerNotationHighlight,
+//   transformerMetaHighlight,
+//   transformerNotationDiff,
+// } from "@shikijs/transformers";
 
 export default defineConfig({
   site: "https://amanvarshney.tech/",
@@ -24,13 +24,12 @@ export default defineConfig({
   markdown: {
     shikiConfig: {
       theme: "material-theme-darker",
-      langs: ["markdown", "cpp"],
       // BUG Transformer not working
-      transformers: [
-        transformerNotationHighlight(),
-        transformerMetaHighlight(),
-        transformerNotationDiff(),
-      ],
+      // transformers: [
+      //   transformerNotationHighlight(),
+      //   transformerMetaHighlight(),
+      //   transformerNotationDiff(),
+      // ],
     },
   },
 });
