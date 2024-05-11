@@ -10,22 +10,22 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "^0.5.10",
-    "@astrojs/db": "^0.10.5",
-    "@astrojs/mdx": "^2.3.1",
+    "@astrojs/check": "^0.6.0",
+    "@astrojs/db": "^0.11.1",
+    "@astrojs/mdx": "^3.0.0",
     "@astrojs/sitemap": "^3.1.4",
-    "@astrojs/solid-js": "^4.1.0",
+    "@astrojs/solid-js": "^4.2.0",
     "@astrojs/tailwind": "^5.1.0",
-    "@astrojs/vercel": "^7.5.3",
+    "@astrojs/vercel": "^7.6.0",
     "@vercel/analytics": "^1.2.2",
-    "astro": "^4.6.3",
+    "astro": "^4.8.2",
     "astro-seo": "^0.8.3",
-    "solid-js": "^1.8.16",
+    "solid-js": "^1.8.17",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
   },
   "devDependencies": {
-    "@shikijs/transformers": "^1.3.0",
-    "@tailwindcss/typography": "^0.5.12"
+    "@shikijs/transformers": "^1.5.1",
+    "@tailwindcss/typography": "^0.5.13"
   }
 }
