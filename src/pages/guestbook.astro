@@ -43,14 +43,16 @@ const guestbookData = await db.select().from(gb).orderBy(desc(gb.published));
     </form>
     <div class="flex flex-col gap-2">
       {
-        guestbookData.map(({ name, message }) => {
-          return (
-            <div>
-              <strong>{name}:</strong>
-              {message}
-            </div>
-          );
-        })
+        guestbookData.map(
+          ({ name, message }: { name: string; message: string }) => {
+            return (
+              <div>
+                <strong>{name}:</strong>
+                {message}
+              </div>
+            );
+          }
+        )
       }
     </div>
   </section>
