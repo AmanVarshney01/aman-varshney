@@ -1,95 +1,91 @@
 ---
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { SEO } from "astro-seo";
-import { ViewTransitions } from "astro:transitions";
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+import { SEO } from 'astro-seo'
+import { ViewTransitions } from 'astro:transitions'
 
 type Props = {
-  title: string;
-  description?: string;
-  author?: string;
-};
+	title: string
+	description?: string
+	author?: string
+}
 
-const {
-  title,
-  description = "Portfolio of Aman Varshney",
-  author = "Aman Varshney",
-} = Astro.props;
+const { title, description = 'Portfolio of Aman Varshney', author = 'Aman Varshney' } = Astro.props
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const socialImageURL = new URL("/og-image.webp", Astro.url);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const socialImageURL = new URL('/og-image.webp', Astro.url)
 ---
 
 <script is:inline>
-  const theme = (() => {
-    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-      return localStorage.getItem("theme");
-    }
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "dark";
-    }
-    return "light";
-  })();
+	const theme = (() => {
+		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+			return localStorage.getItem('theme')
+		}
+		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			return 'dark'
+		}
+		return 'light'
+	})()
 
-  if (theme === "light") {
-    document.documentElement.classList.remove("dark");
-  } else {
-    document.documentElement.classList.add("dark");
-  }
-  window.localStorage.setItem("theme", theme);
+	if (theme === 'light') {
+		document.documentElement.classList.remove('dark')
+	} else {
+		document.documentElement.classList.add('dark')
+	}
+	window.localStorage.setItem('theme', theme)
 </script>
 
 <html lang="en">
-  <head>
-    <ViewTransitions fallback="none" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="author" content={author} />
-    <meta name="theme-color" content="#030303" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
+	<head>
+		<ViewTransitions fallback="none" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="author" content={author} />
+		<meta name="theme-color" content="#030303" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
 
-    <SEO
-      title={title}
-      description={description}
-      canonical={canonicalURL.href}
-      openGraph={{
-        basic: {
-          type: "website",
-          title: title,
-          image: socialImageURL.href,
-        },
-      }}
-      twitter={{
-        card: "summary_large_image",
-        image: socialImageURL.href,
-        creator: "@amanvarshney01",
-      }}
-    />
-  </head>
-  <body
-    class="antialiased prose prose-sky dark:prose-invert bg-neutral-100 dark:bg-[#111110] min-h-screen w-full mx-auto max-w-2xl max-lg:px-2"
-  >
-    <main>
-      <Header />
-      <slot />
-      <Footer />
-    </main>
-    <style is:global>
-      @font-face {
-        font-family: "Geist";
-        src: url("/fonts/Geist-Regular.woff2") format("woff2");
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
-      }
-      :root {
-        color-scheme: dark;
-      }
-      html {
-        font-family: "Geist", "sans-serif";
-      }
-    </style>
-  </body>
+		<SEO
+			title={title}
+			description={description}
+			canonical={canonicalURL.href}
+			openGraph={{
+				basic: {
+					type: 'website',
+					title: title,
+					image: socialImageURL.href
+				}
+			}}
+			twitter={{
+				card: 'summary_large_image',
+				image: socialImageURL.href,
+				creator: '@amanvarshney01'
+			}}
+		/>
+	</head>
+	<body
+		class="antialiased prose prose-base prose-sky dark:prose-invert bg-neutral-100 dark:bg-[#111110] min-h-screen w-full mx-auto max-w-4xl max-lg:px-2"
+	>
+		<main>
+			<Header />
+			<slot />
+			<Footer />
+		</main>
+		<style is:global>
+			@font-face {
+				font-family: 'Geist';
+				src: url('/fonts/Geist-Regular.woff2') format('woff2');
+				font-weight: normal;
+				font-style: normal;
+				font-display: swap;
+			}
+			:root {
+				color-scheme: dark;
+			}
+			html {
+				font-family: 'Geist', 'sans-serif';
+			}
+		</style>
+	</body>
 </html>

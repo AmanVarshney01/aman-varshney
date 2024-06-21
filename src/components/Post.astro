@@ -1,16 +1,16 @@
 ---
-import { type CollectionEntry } from "astro:content";
+import { type CollectionEntry } from 'astro:content'
 
 type Props = {
-  post: CollectionEntry<"posts">;
-};
+	post: CollectionEntry<'posts'>
+}
 
-const { post } = Astro.props;
+const { post } = Astro.props
 ---
 
 <div class="flex flex-col md:flex-row justify-between">
-  <a transition:name="post-name" class="not-prose" href=`blog/${post.slug}`>
-    {post.data.title}
-  </a>
-  <span class="no-underline">{post.data.date.toString()}</span>
+	<a transition:name="post-name" class="not-prose" href=`blog/${post.slug}`>
+		{post.data.title}
+	</a>
+	<span class="no-underline">{post.data.date.toString()}</span>
 </div>

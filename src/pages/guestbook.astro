@@ -1,59 +1,49 @@
 ---
-export const prerender = false;
-import { db, Guestbook as gb, desc } from "astro:db";
-import Layout from "../layouts/Layout.astro";
+export const prerender = false
+import { db, Guestbook as gb, desc } from 'astro:db'
+import Layout from '../layouts/Layout.astro'
 
-if (Astro.request.method === "POST") {
-  try {
-    const formData = await Astro.request.formData();
-    const name = formData.get("name");
-    const message = formData.get("message");
-    if (typeof name === "string" && typeof message === "string") {
-      await db.insert(gb).values({ name, message });
-    }
-  } catch (error) {
-    console.error("Error:", error);
-  }
+if (Astro.request.method === 'POST') {
+	try {
+		const formData = await Astro.request.formData()
+		const name = formData.get('name')
+		const message = formData.get('message')
+		if (typeof name === 'string' && typeof message === 'string') {
+			await db.insert(gb).values({ name, message })
+		}
+	} catch (error) {
+		console.error('Error:', error)
+	}
 }
 
-const guestbookData = await db.select().from(gb).orderBy(desc(gb.published));
+const guestbookData = await db.select().from(gb).orderBy(desc(gb.published))
 ---
 
 <Layout title="Guestbook | Aman Varshney">
-  <h1>Guestbook</h1>
-  <section class="flex flex-col gap-6 min-h-[70svh]">
-    <form method="POST" class="flex flex-col md:flex-row gap-2">
-      <input
-        type="text"
-        name="name"
-        placeholder="Name"
-        class="py-1 px-2 rounded-lg"
-        required
-      />
-      <input
-        type="text"
-        name="message"
-        placeholder="Message"
-        class="py-1 px-2 rounded-lg"
-        required
-      />
-      <button type="submit" class="py-1 px-2 ring rounded-lg ring-sky-500"
-        >Submit</button
-      >
-    </form>
-    <div class="flex flex-col gap-2">
-      {
-        guestbookData.map(
-          ({ name, message }: { name: string; message: string }) => {
-            return (
-              <div>
-                <strong>{name}:</strong>
-                {message}
-              </div>
-            );
-          }
-        )
-      }
-    </div>
-  </section>
+	<h1>Guestbook</h1>
+	<section class="flex flex-col gap-6 min-h-[70svh]">
+		<form method="POST" class="flex flex-col md:flex-row gap-2">
+			<input type="text" name="name" placeholder="Name" class="py-1 px-2 rounded-lg" required />
+			<input
+				type="text"
+				name="message"
+				placeholder="Message"
+				class="py-1 px-2 rounded-lg w-full"
+				required
+			/>
+			<button type="submit" class="py-1 px-2 ring rounded-lg ring-sky-500">Submit</button>
+		</form>
+		<div class="flex flex-col gap-2">
+			{
+				guestbookData.map(({ name, message }: { name: string; message: string }) => {
+					return (
+						<div>
+							<strong>{name}:</strong>
+							{message}
+						</div>
+					)
+				})
+			}
+		</div>
+	</section>
 </Layout>

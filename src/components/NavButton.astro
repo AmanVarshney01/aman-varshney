@@ -1,17 +1,13 @@
 ---
 type Props = {
-  name: string;
-  href: string;
-  isActive: boolean;
-};
+	name: string
+	href: string
+	isActive: boolean
+}
 
-const { name, href, isActive } = Astro.props;
+const { name, href, isActive } = Astro.props
 ---
 
-<a
-  href={href}
-  rel="noopener noreferrer"
-  class={isActive ? "underline" : "no-underline"}
->
-  {name}
+<a href={href} rel="noopener noreferrer" class={isActive ? 'underline' : 'no-underline'}>
+	{name}
 </a>

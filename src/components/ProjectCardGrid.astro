@@ -1,57 +1,57 @@
 ---
-import ProjectCard from "./ProjectCard.astro";
-import glaappreimagined from "../assets/project-images/gla-app-reimagined.webp";
-import aman_varshney from "../assets/project-images/amanvarshney.webp";
-import suggestmeaman from "../assets/project-images/suggestmeaman.webp";
-import oxabags from "../assets/project-images/oxabags.png";
-import glaProjectTracker from "../assets/project-images/gla-project-tracker.png";
-import amanvarshney from "../../public/og-image.webp";
+import ProjectCard from './ProjectCard.astro'
+import glaappreimagined from '../assets/project-images/gla-app-reimagined.webp'
+import aman_varshney from '../assets/project-images/amanvarshney.webp'
+import suggestmeaman from '../assets/project-images/suggestmeaman.webp'
+import oxabags from '../assets/project-images/oxabags.png'
+import glaProjectTracker from '../assets/project-images/gla-project-tracker.png'
+import amanvarshney from '../../public/og-image.webp'
 ---
 
 <div class="grid sm:grid-cols-3 grid-cols-2 gap-4">
-  <ProjectCard
-    image={glaProjectTracker}
-    name="GLA Project Tracker"
-    description="Project Tracker for students and mentors using Next.js, Shadcn/UI, and Supabase."
-    githubLink="https://github.com/AmanVarshney01/gla-project-tracker"
-    liveLink="https://gla-project-tracker.vercel.app/"
-    loading={"eager"}
-  />
-  <ProjectCard
-    image={oxabags}
-    name="Oxabags Ecommerce"
-    description="An ecommerce site using Next.js, Shadcn/UI, Razorpay, and Sanity.io"
-    githubLink="https://github.com/AmanVarshney01/oxabags"
-    liveLink="https://www.oxabags.com/"
-    loading={"eager"}
-  />
-  <ProjectCard
-    image={amanvarshney}
-    name="Aman Varshney"
-    description="My Portfolio using Astro and Tailwind CSS"
-    githubLink="https://github.com/AmanVarshney01/aman-varshney"
-    liveLink="https://www.amanvarshney.tech/"
-    loading={"eager"}
-  />
-  <ProjectCard
-    image={glaappreimagined}
-    name="Gla App Reimagined"
-    description="A Gla app prototype using React Native"
-    githubLink="https://github.com/AmanVarshney01/gla-app-reimagined"
-    loading={"eager"}
-  />
-  <ProjectCard
-    name="3D Portfolio"
-    image={aman_varshney}
-    description="A 3D portfolio using Next.js and Three.js"
-    githubLink="https://github.com/AmanVarshney01/amanvarshney"
-    liveLink="https://aman-varshney.vercel.app/"
-  />
-  <ProjectCard
-    name="Suggest Me Aman"
-    image={suggestmeaman}
-    description="Movie recommendations using Svelte"
-    githubLink="https://github.com/AmanVarshney01/SuggestMeAman"
-    liveLink="https://suggestmeaman.vercel.app/"
-  />
+	<ProjectCard
+		image={glaProjectTracker}
+		name="GLA Project Tracker"
+		description="Project Tracker for students and mentors using Next.js, Shadcn/UI, and Supabase."
+		githubLink="https://github.com/AmanVarshney01/gla-project-tracker"
+		liveLink="https://gla-project-tracker.vercel.app/"
+		loading={'eager'}
+	/>
+	<ProjectCard
+		image={oxabags}
+		name="Oxabags Ecommerce"
+		description="An ecommerce site using Next.js, Shadcn/UI, Razorpay, and Sanity.io"
+		githubLink="https://github.com/AmanVarshney01/oxabags"
+		liveLink="https://www.oxabags.com/"
+		loading={'eager'}
+	/>
+	<ProjectCard
+		image={amanvarshney}
+		name="Aman Varshney"
+		description="My Portfolio using Astro and Tailwind CSS"
+		githubLink="https://github.com/AmanVarshney01/aman-varshney"
+		liveLink="https://www.amanvarshney.tech/"
+		loading={'eager'}
+	/>
+	<ProjectCard
+		image={glaappreimagined}
+		name="Gla App Reimagined"
+		description="A Gla app prototype using React Native"
+		githubLink="https://github.com/AmanVarshney01/gla-app-reimagined"
+		loading={'eager'}
+	/>
+	<ProjectCard
+		name="3D Portfolio"
+		image={aman_varshney}
+		description="A 3D portfolio using Next.js and Three.js"
+		githubLink="https://github.com/AmanVarshney01/amanvarshney"
+		liveLink="https://aman-varshney.vercel.app/"
+	/>
+	<ProjectCard
+		name="Suggest Me Aman"
+		image={suggestmeaman}
+		description="Movie recommendations using Svelte"
+		githubLink="https://github.com/AmanVarshney01/SuggestMeAman"
+		liveLink="https://suggestmeaman.vercel.app/"
+	/>
 </div>

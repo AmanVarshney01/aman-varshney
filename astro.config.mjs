@@ -24,12 +24,6 @@ export default defineConfig({
   markdown: {
     shikiConfig: {
       theme: "material-theme-darker",
-      // BUG Transformer not working
-      // transformers: [
-      //   transformerNotationHighlight(),
-      //   transformerMetaHighlight(),
-      //   transformerNotationDiff(),
-      // ],
     },
   },
 });

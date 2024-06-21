@@ -1,97 +1,94 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import ProjectCardGrid from "../components/ProjectCardGrid.astro";
-import Next from "../assets/skill-images/Next.svg";
-import React from "../assets/skill-images/React.svg";
-import TypeScript from "../assets/skill-images/typescript.svg";
-import Expo from "../assets/skill-images/expo.svg";
-import ReactNative from "../assets/skill-images/react_native.svg";
-import AstroLogo from "../assets/skill-images/Astro.svg";
-import Tailwind from "../assets/skill-images/tailwindcss.svg";
-import Java from "../assets/skill-images/java.svg";
-import Cpp from "../assets/skill-images/cpp.svg";
-import github from "../assets/icons/github.svg";
-import linkedin from "../assets/icons/linkedin.svg";
-import x from "../assets/icons/x.svg";
-import email from "../assets/icons/email.svg";
-import { Image } from "astro:assets";
+import Layout from '../layouts/Layout.astro'
+import ProjectCardGrid from '../components/ProjectCardGrid.astro'
+import Next from '../assets/skill-images/Next.svg'
+import React from '../assets/skill-images/React.svg'
+import TypeScript from '../assets/skill-images/typescript.svg'
+import Expo from '../assets/skill-images/expo.svg'
+import ReactNative from '../assets/skill-images/react_native.svg'
+import AstroLogo from '../assets/skill-images/Astro.svg'
+import Tailwind from '../assets/skill-images/tailwindcss.svg'
+import Java from '../assets/skill-images/java.svg'
+import Cpp from '../assets/skill-images/cpp.svg'
+import github from '../assets/icons/github.svg'
+import linkedin from '../assets/icons/linkedin.svg'
+import x from '../assets/icons/x.svg'
+import email from '../assets/icons/email.svg'
+import { Image } from 'astro:assets'
 ---
 
 <Layout title="Aman Varshney">
-  <div class="flex flex-col">
-    <div class="flex flex-col">
-      <h1>Aman Varshney</h1>
-      <p>
-        Hello I'm <strong>Aman Varshney</strong>, a <strong>B.Tech CSE</strong> student
-        with a passion for web and app development. On the path to becoming a Software
-        Engineer.
-      </p>
-      <div class="flex flex-row gap-4 prose-img:m-2">
-        <a href="mailto:av.amanvarshney11@gmail.com" target="_blank">
-          <Image
-            class={" dark:invert rounded-sm"}
-            src={email}
-            alt="email"
-            width={20}
-            height={20}
-            loading={"lazy"}
-            quality={"low"}
-          />
-        </a>
-        <a href="https://github.com/AmanVarshney01" target="_blank">
-          <Image
-            class={"dark:invert rounded-sm"}
-            src={github}
-            alt="github"
-            width={20}
-            height={20}
-            loading={"lazy"}
-            quality={"low"}
-          />
-        </a>
-        <a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank">
-          <Image
-            class={" rounded-sm dark:invert"}
-            src={linkedin}
-            alt="linkedin"
-            width={20}
-            height={20}
-            loading={"lazy"}
-            quality={"low"}
-          />
-        </a>
-        <a href="https://twitter.com/amanvarshney01" target="_blank">
-          <Image
-            class={" dark:invert rounded-sm"}
-            src={x}
-            alt="x"
-            width={20}
-            height={20}
-            loading={"lazy"}
-            quality={"low"}
-          />
-        </a>
-      </div>
-    </div>
-    <div>
-      <h2>Skills</h2>
-      <div
-        class="flex flex-row gap-2 flex-wrap prose-img:m-0 prose-img:rounded-sm"
-      >
-        <Image loading={"eager"} src={TypeScript} alt="TypeScript" />
-        <Image loading={"eager"} src={Next} alt="Next.js" />
-        <Image loading={"eager"} src={React} alt="React" />
-        <Image loading={"eager"} src={Expo} alt="Expo" />
-        <Image loading={"eager"} src={ReactNative} alt="React Native" />
-        <Image loading={"eager"} src={AstroLogo} alt="Astro" />
-        <Image loading={"eager"} src={Tailwind} alt="Tailwind CSS" />
-        <Image loading={"eager"} src={Java} alt="Java" />
-        <Image loading={"eager"} src={Cpp} alt="C++" />
-      </div>
-    </div>
-    <div class="flex flex-col">
-      <h2>Projects</h2>
-      <ProjectCardGrid />
-    </div>
-  </div>
+	<div class="flex flex-col">
+		<div class="flex flex-col">
+			<h1>Aman Varshney</h1>
+			<p>
+				Hello I'm <strong>Aman Varshney</strong>, a <strong>B.Tech CSE</strong> student with a passion
+				for web and app development. On the path to becoming a Software Engineer.
+			</p>
+			<div class="flex flex-row gap-4 prose-img:m-2">
+				<a href="mailto:av.amanvarshney11@gmail.com" target="_blank">
+					<Image
+						class={' dark:invert rounded-sm'}
+						src={email}
+						alt="email"
+						width={20}
+						height={20}
+						loading={'lazy'}
+						quality={'low'}
+					/>
+				</a>
+				<a href="https://github.com/AmanVarshney01" target="_blank">
+					<Image
+						class={'dark:invert rounded-sm'}
+						src={github}
+						alt="github"
+						width={20}
+						height={20}
+						loading={'lazy'}
+						quality={'low'}
+					/>
+				</a>
+				<a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank">
+					<Image
+						class={' rounded-sm dark:invert'}
+						src={linkedin}
+						alt="linkedin"
+						width={20}
+						height={20}
+						loading={'lazy'}
+						quality={'low'}
+					/>
+				</a>
+				<a href="https://twitter.com/amanvarshney01" target="_blank">
+					<Image
+						class={' dark:invert rounded-sm'}
+						src={x}
+						alt="x"
+						width={20}
+						height={20}
+						loading={'lazy'}
+						quality={'low'}
+					/>
+				</a>
+			</div>
+		</div>
+		<div>
+			<h2>Skills</h2>
+			<div class="flex flex-row gap-2 flex-wrap prose-img:m-0 prose-img:rounded-sm">
+				<Image loading={'eager'} src={TypeScript} alt="TypeScript" />
+				<Image loading={'eager'} src={Next} alt="Next.js" />
+				<Image loading={'eager'} src={React} alt="React" />
+				<Image loading={'eager'} src={Expo} alt="Expo" />
+				<Image loading={'eager'} src={ReactNative} alt="React Native" />
+				<Image loading={'eager'} src={AstroLogo} alt="Astro" />
+				<Image loading={'eager'} src={Tailwind} alt="Tailwind CSS" />
+				<Image loading={'eager'} src={Java} alt="Java" />
+				<Image loading={'eager'} src={Cpp} alt="C++" />
+			</div>
+		</div>
+		<div class="flex flex-col">
+			<h2>Projects</h2>
+			<ProjectCardGrid />
+		</div>
+	</div>
 </Layout>

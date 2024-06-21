@@ -1,29 +1,21 @@
 ---
-import NavButton from "./NavButton.astro";
-import ThemeToggle from "./themeToggle.tsx";
+import NavButton from './NavButton.astro'
+import ThemeToggle from './themeToggle.tsx'
 
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname
 ---
 
-<div class="pb-8 pt-20">
-  <div class="flex flex-row justify-between items-center">
-    <div class="flex flex-row gap-8">
-      <NavButton href="/" name="Home" isActive={currentPath == "/"} />
-      <NavButton
-        href="/blog"
-        name="Blog"
-        isActive={currentPath.startsWith("/blog")}
-      />
-      <NavButton
-        href="/guestbook"
-        name="Guestbook"
-        isActive={currentPath.startsWith("/guestbook")}
-      />
-    </div>
-    <ThemeToggle
-      lightImage="/sun.svg"
-      darkImage="/moon.svg"
-      client:only="solid-js"
-    />
-  </div>
+<div class="py-8">
+	<div class="flex flex-row justify-between items-center">
+		<div class="flex flex-row gap-8">
+			<NavButton href="/" name="Home" isActive={currentPath == '/'} />
+			<NavButton href="/blog" name="Blog" isActive={currentPath.startsWith('/blog')} />
+			<NavButton
+				href="/guestbook"
+				name="Guestbook"
+				isActive={currentPath.startsWith('/guestbook')}
+			/>
+		</div>
+		<ThemeToggle lightImage="/sun.svg" darkImage="/moon.svg" client:only="solid-js" />
+	</div>
 </div>
