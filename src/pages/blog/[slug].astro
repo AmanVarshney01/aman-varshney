@@ -36,4 +36,30 @@ const { Content } = await post.render()
 	<article class="w-full">
 		<Content />
 	</article>
+	<section class="">
+		<script
+			src="https://giscus.app/client.js"
+			data-repo="AmanVarshney01/aman-varshney"
+			data-repo-id="R_kgDOK2jPEQ"
+			data-category="General"
+			data-category-id="DIC_kwDOK2jPEc4CgTww"
+			data-mapping="pathname"
+			data-strict="0"
+			data-reactions-enabled="1"
+			data-emit-metadata="0"
+			data-input-position="top"
+			data-theme="preferred_color_scheme"
+			data-lang="en"
+			data-loading="lazy"
+			crossorigin="anonymous"
+			async></script>
+	</section>
 </Layout>
+
+<script is:inline>
+	var theme = localStorage.getItem('theme') == null ? 'dark' : 'light'
+
+	document
+		.querySelector('script[src="https://giscus.app/client.js"]')
+		.setAttribute('data-theme', theme)
+</script>

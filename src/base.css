@@ -61,9 +61,19 @@ code {
 }
 
 ::-webkit-scrollbar-thumb {
-	@apply bg-sky-500 rounded-md;
+	@apply rounded-md bg-sky-500;
 }
 
 ::-webkit-scrollbar-thumb:hover {
 	@apply bg-sky-600;
+}
+
+html.dark .astro-code,
+html.dark .astro-code span {
+	color: var(--shiki-dark) !important;
+	background-color: var(--shiki-dark-bg) !important;
+	/* Optional, if you also want font styles */
+	font-style: var(--shiki-dark-font-style) !important;
+	font-weight: var(--shiki-dark-font-weight) !important;
+	text-decoration: var(--shiki-dark-text-decoration) !important;
 }

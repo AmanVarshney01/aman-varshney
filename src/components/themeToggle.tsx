@@ -1,5 +1,15 @@
 import { createEffect, createSignal } from 'solid-js'
 
+function setGiscusTheme(theme: string) {
+	var iframe = document.querySelector('.giscus-frame') as HTMLIFrameElement;
+
+	if (iframe) {
+		var url = new URL(iframe.getAttribute('src')!);
+		url.searchParams.set('theme', theme);
+		iframe.setAttribute('src', url.toString());
+	}
+}
+
 const initializeTheme = () => {
 	let theme
 	if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
@@ -21,8 +31,10 @@ const ThemeToggle = (props: { lightImage: string; darkImage: string }) => {
 	createEffect(() => {
 		if (theme() === 'dark') {
 			document.documentElement.classList.add('dark')
+			setGiscusTheme('dark');
 		} else {
 			document.documentElement.classList.remove('dark')
+			setGiscusTheme('light');
 		}
 		localStorage.setItem('theme', theme())
 	}, [theme])
