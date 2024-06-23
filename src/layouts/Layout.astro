@@ -3,6 +3,7 @@ import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 import { SEO } from 'astro-seo'
 import { ViewTransitions } from 'astro:transitions'
+import '../styles/global.css'
 
 type Props = {
 	title: string
@@ -45,7 +46,6 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 		<meta name="author" content={author} />
 		<meta name="theme-color" content="#030303" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
-		<link rel="stylesheet" href="/src/base.css" />
 
 		<SEO
 			title={title}

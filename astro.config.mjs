@@ -9,7 +9,7 @@ import {
 	transformerNotationDiff,
 	transformerNotationHighlight,
 	transformerNotationFocus,
-  transformerNotationWordHighlight
+	transformerNotationWordHighlight
 } from '@shikijs/transformers'
 
 export default defineConfig({
@@ -24,16 +24,16 @@ export default defineConfig({
 	}),
 	markdown: {
 		shikiConfig: {
-			// theme: 'vitesse-dark',
-			themes: {
-				light: "vitesse-light",
-				dark: "vitesse-dark"
-			},
+			theme: 'vitesse-dark',
+			// themes: {
+			// 	light: 'vitesse-light',
+			// 	dark: 'vitesse-dark'
+			// },
 			transformers: [
 				transformerNotationDiff(),
 				transformerNotationHighlight(),
 				transformerNotationFocus(),
-        transformerNotationWordHighlight()
+				transformerNotationWordHighlight()
 			]
 		}
 	}
