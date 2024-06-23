@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	color-scheme: dark;
+}
+html {
+	font-family: 'sans-serif';
+}
+
+code {
+	display: grid;
+}
+.line {
+	counter-increment: count;
+}
+
+.line:not(:last-of-type)::before {
+	content: counter(count);
+	@apply pl-2 pr-4 opacity-40;
+}
+
+.diff.add {
+	/* background-color: #0505; */
+	@apply bg-green-900/40;
+}
+
+.diff.remove {
+	/* background-color: #8005; */
+	@apply bg-red-900/40;
+}
+
+.highlighted {
+	@apply bg-neutral-50/10;
+}
+
+.has-focused .line {
+	@apply blur-sm transition duration-200;
+}
+
+.has-focused:hover .line {
+	@apply blur-none;
+}
+
+.has-focused .focused {
+	@apply blur-none;
+}
+
+.highlighted-word {
+	@apply rounded-md border border-neutral-50/40 px-1;
+}

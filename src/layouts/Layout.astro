@@ -45,6 +45,7 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 		<meta name="author" content={author} />
 		<meta name="theme-color" content="#030303" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
+		<link rel="stylesheet" href="/src/base.css" />
 
 		<SEO
 			title={title}
@@ -72,20 +73,5 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 			<slot />
 			<Footer />
 		</main>
-		<style is:global>
-			@font-face {
-				font-family: 'Geist';
-				src: url('/fonts/Geist-Regular.woff2') format('woff2');
-				font-weight: normal;
-				font-style: normal;
-				font-display: swap;
-			}
-			:root {
-				color-scheme: dark;
-			}
-			html {
-				font-family: 'Geist', 'sans-serif';
-			}
-		</style>
 	</body>
 </html>
