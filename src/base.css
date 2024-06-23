@@ -5,6 +5,7 @@
 :root {
 	color-scheme: dark;
 }
+
 html {
 	font-family: 'sans-serif';
 }
@@ -49,4 +50,20 @@ code {
 
 .highlighted-word {
 	@apply rounded-md border border-neutral-50/40 px-1;
+}
+
+::-webkit-scrollbar {
+	@apply w-2;
+}
+
+::-webkit-scrollbar-track {
+	@apply bg-neutral-100 dark:bg-[#050505];
+}
+
+::-webkit-scrollbar-thumb {
+	@apply bg-sky-500 rounded-md;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	@apply bg-sky-600;
 }
