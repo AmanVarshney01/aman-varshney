@@ -48,7 +48,7 @@ const { Content } = await post.render()
 			data-reactions-enabled="1"
 			data-emit-metadata="0"
 			data-input-position="top"
-			data-theme="preferred_color_scheme"
+			data-theme="noborder_dark"
 			data-lang="en"
 			data-loading="lazy"
 			crossorigin="anonymous"
@@ -57,7 +57,7 @@ const { Content } = await post.render()
 </Layout>
 
 <script is:inline>
-	var theme = localStorage.getItem('theme') == null ? 'dark' : 'light'
+	var theme = localStorage.getItem('theme') == null ? 'noborder_dark' : 'noborder_light'
 
 	document
 		.querySelector('script[src="https://giscus.app/client.js"]')

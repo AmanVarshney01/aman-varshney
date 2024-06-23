@@ -31,10 +31,10 @@ const ThemeToggle = (props: { lightImage: string; darkImage: string }) => {
 	createEffect(() => {
 		if (theme() === 'dark') {
 			document.documentElement.classList.add('dark')
-			setGiscusTheme('dark');
+			setGiscusTheme('noborder_dark');
 		} else {
 			document.documentElement.classList.remove('dark')
-			setGiscusTheme('light');
+			setGiscusTheme('noborder_light');
 		}
 		localStorage.setItem('theme', theme())
 	}, [theme])
