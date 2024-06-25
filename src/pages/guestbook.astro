@@ -1,9 +1,8 @@
 ---
 export const prerender = false
-import { db, Guestbook as gb } from 'astro:db'
+import { db, Guestbook as gb, desc } from 'astro:db'
 
 import Layout from '../layouts/Layout.astro'
-import GuestbookData from '../components/GuestbookData.astro'
 
 if (Astro.request.method === 'POST') {
 	try {
@@ -17,6 +16,7 @@ if (Astro.request.method === 'POST') {
 		console.error('Error:', error)
 	}
 }
+const guestbookData = await db.select().from(gb).orderBy(desc(gb.published))
 ---
 
 <Layout title="Guestbook | Aman Varshney">
@@ -33,6 +33,17 @@ if (Astro.request.method === 'POST') {
 			/>
 			<button type="submit" class="rounded-lg px-2 py-1 ring ring-sky-500">Submit</button>
 		</form>
-		<GuestbookData />
+		<div class="flex flex-col gap-2">
+			{
+				guestbookData.map(({ name, message }: { name: string; message: string }) => {
+					return (
+						<div>
+							<strong>{name}:</strong>
+							{message}
+						</div>
+					)
+				})
+			}
+		</div>
 	</section>
 </Layout>
