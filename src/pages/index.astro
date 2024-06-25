@@ -1,20 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import ProjectCardGrid from '../components/ProjectCardGrid.astro'
-import Next from '../assets/skill-images/Next.svg'
-import React from '../assets/skill-images/React.svg'
-import TypeScript from '../assets/skill-images/typescript.svg'
-import Expo from '../assets/skill-images/expo.svg'
-import ReactNative from '../assets/skill-images/react_native.svg'
-import AstroLogo from '../assets/skill-images/Astro.svg'
-import Tailwind from '../assets/skill-images/tailwindcss.svg'
-import Java from '../assets/skill-images/java.svg'
-import Cpp from '../assets/skill-images/cpp.svg'
 import github from '../assets/icons/github.svg'
 import linkedin from '../assets/icons/linkedin.svg'
 import x from '../assets/icons/x.svg'
 import email from '../assets/icons/email.svg'
 import { Image } from 'astro:assets'
+import SkillBadge from '../components/SkillBadge.astro'
 ---
 
 <Layout title="Aman Varshney">
@@ -33,7 +25,7 @@ import { Image } from 'astro:assets'
 						alt="email"
 						width={20}
 						height={20}
-						loading={'lazy'}
+						loading={'eager'}
 						quality={'low'}
 					/>
 				</a>
@@ -44,7 +36,7 @@ import { Image } from 'astro:assets'
 						alt="github"
 						width={20}
 						height={20}
-						loading={'lazy'}
+						loading={'eager'}
 						quality={'low'}
 					/>
 				</a>
@@ -55,7 +47,7 @@ import { Image } from 'astro:assets'
 						alt="linkedin"
 						width={20}
 						height={20}
-						loading={'lazy'}
+						loading={'eager'}
 						quality={'low'}
 					/>
 				</a>
@@ -66,7 +58,7 @@ import { Image } from 'astro:assets'
 						alt="x"
 						width={20}
 						height={20}
-						loading={'lazy'}
+						loading={'eager'}
 						quality={'low'}
 					/>
 				</a>
@@ -74,16 +66,16 @@ import { Image } from 'astro:assets'
 		</div>
 		<div>
 			<h2>Skills</h2>
-			<div class="flex flex-row gap-2 flex-wrap prose-img:m-0 prose-img:rounded-sm">
-				<Image loading={'eager'} src={TypeScript} alt="TypeScript" />
-				<Image loading={'eager'} src={Next} alt="Next.js" />
-				<Image loading={'eager'} src={React} alt="React" />
-				<Image loading={'eager'} src={Expo} alt="Expo" />
-				<Image loading={'eager'} src={ReactNative} alt="React Native" />
-				<Image loading={'eager'} src={AstroLogo} alt="Astro" />
-				<Image loading={'eager'} src={Tailwind} alt="Tailwind CSS" />
-				<Image loading={'eager'} src={Java} alt="Java" />
-				<Image loading={'eager'} src={Cpp} alt="C++" />
+			<div class="flex flex-row flex-wrap gap-4 prose-img:m-0 prose-img:rounded-sm">
+				<SkillBadge skill="TypeScript" />
+				<SkillBadge skill="Next.js" />
+				<SkillBadge skill="React" />
+				<SkillBadge skill="Expo" />
+				<SkillBadge skill="React Native" />
+				<SkillBadge skill="Astro" />
+				<SkillBadge skill="Tailwind CSS" />
+				<SkillBadge skill="Java" />
+				<SkillBadge skill="C++" />
 			</div>
 		</div>
 		<div class="flex flex-col">
