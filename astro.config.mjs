@@ -11,6 +11,7 @@ import {
 	transformerNotationFocus,
 	transformerNotationWordHighlight
 } from '@shikijs/transformers'
+import { addCopyButton } from 'shiki-transformer-copy-button'
 
 export default defineConfig({
 	site: 'https://amanvarshney.tech/',
@@ -33,7 +34,10 @@ export default defineConfig({
 				transformerNotationDiff(),
 				transformerNotationHighlight(),
 				transformerNotationFocus(),
-				transformerNotationWordHighlight()
+				transformerNotationWordHighlight(),
+				addCopyButton({
+					toggle: 1000
+				})
 			]
 		}
 	}

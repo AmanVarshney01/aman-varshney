@@ -67,3 +67,45 @@ code {
 ::-webkit-scrollbar-thumb:hover {
 	@apply bg-sky-600;
 }
+
+pre:has(code) {
+	position: relative;
+}
+
+pre button.copy {
+	position: absolute;
+	right: 16px;
+	top: 16px;
+	height: 28px;
+	padding: 0;
+	display: flex;
+
+	& span {
+		width: 100%;
+		aspect-ratio: 1 / 1;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		opacity: 0.5;
+	}
+
+	& .ready {
+		background-image: url("../assets/icons/copy.svg");
+		@apply dark:invert size-2/3;
+	}
+	
+	& .success {
+		background-image: url("../assets/icons/copy-done.svg");
+		@apply hidden dark:invert size-2/3;
+	}
+
+	&.copied {
+		& .success {
+			display: block;
+		}
+
+		& .ready {
+			display: none;
+		}
+	}
+}
