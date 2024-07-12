@@ -6,17 +6,26 @@
 	color-scheme: dark;
 }
 
-/* .dark .astro-code,
-.dark .astro-code span {
-	color: var(--shiki-dark) !important;
-	background-color: var(--shiki-dark-bg) !important;
-} */
-
 code {
 	display: grid;
+	padding-top: 1.5rem !important;
+}
+pre {
+	background-color: #050505 !important;
+	@apply rounded-md border border-neutral-900;
 }
 .line {
 	counter-increment: count;
+}
+
+pre::before {
+	content: attr(data-language);
+	position: absolute;
+	/* font-size: 1rem; */
+	left: 1rem;
+	top: 5px;
+	padding-left: 0.5rem;
+	padding-right: 1rem;
 }
 
 .line:not(:last-of-type)::before {
@@ -90,13 +99,13 @@ pre button.copy {
 	}
 
 	& .ready {
-		background-image: url("../assets/icons/copy.svg");
-		@apply dark:invert size-2/3;
+		background-image: url('../assets/icons/copy.svg');
+		@apply size-2/3 dark:invert;
 	}
-	
+
 	& .success {
-		background-image: url("../assets/icons/copy-done.svg");
-		@apply hidden dark:invert size-2/3;
+		background-image: url('../assets/icons/copy-done.svg');
+		@apply hidden size-2/3 dark:invert;
 	}
 
 	&.copied {
