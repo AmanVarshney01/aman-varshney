@@ -1,0 +1,17 @@
+---
+import { db, desc, Guestbook as gb } from 'astro:db';
+const guestbookData = await db.select().from(gb).orderBy(desc(gb.published))
+---
+
+<div class="flex flex-col gap-2">
+  {
+    guestbookData.map(({ name, message }: { name: string; message: string }) => {
+      return (
+        <div>
+          <strong>{name}:</strong>
+          {message}
+        </div>
+      )
+    })
+  }
+</div>

@@ -1,16 +1,16 @@
-import { defineConfig } from 'astro/config'
-import tailwind from '@astrojs/tailwind'
-import solidJs from '@astrojs/solid-js'
-import vercel from '@astrojs/vercel/serverless'
+import db from '@astrojs/db'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
-import db from '@astrojs/db'
+import solidJs from '@astrojs/solid-js'
+import tailwind from '@astrojs/tailwind'
+import vercel from '@astrojs/vercel/serverless'
 import {
 	transformerNotationDiff,
-	transformerNotationHighlight,
 	transformerNotationFocus,
+	transformerNotationHighlight,
 	transformerNotationWordHighlight
 } from '@shikijs/transformers'
+import { defineConfig } from 'astro/config'
 import { addCopyButton } from 'shiki-transformer-copy-button'
 
 export default defineConfig({
@@ -36,5 +36,8 @@ export default defineConfig({
 				})
 			]
 		}
+	},
+	experimental: {
+		serverIslands: true
 	}
 })
