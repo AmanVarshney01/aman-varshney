@@ -25,7 +25,7 @@ export default defineConfig({
 	}),
 	markdown: {
 		shikiConfig: {
-			theme: 'vitesse-dark',
+			theme: 'material-theme-ocean',
 			transformers: [
 				transformerNotationDiff(),
 				transformerNotationHighlight(),
