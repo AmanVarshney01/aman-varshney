@@ -1,6 +1,6 @@
 ---
 export const prerender = false
-import { db, desc, Guestbook as gb } from 'astro:db'
+import { db, Guestbook as gb } from 'astro:db'
 
 import GuestbookEntries from '../components/GuestbookEntries.astro'
 import Layout from '../layouts/Layout.astro'
@@ -17,26 +17,34 @@ if (Astro.request.method === 'POST') {
 		console.error('Error:', error)
 	}
 }
-const guestbookData = await db.select().from(gb).orderBy(desc(gb.published))
 ---
 
 <Layout title="Guestbook | Aman Varshney">
 	<h1>Guestbook</h1>
 	<section class="flex min-h-[70svh] flex-col gap-6">
 		<form method="POST" class="flex flex-col gap-2 md:flex-row">
-			<input type="text" name="name" placeholder="Name" class="rounded-lg px-2 py-1" required />
+			<input
+				type="text"
+				name="name"
+				placeholder="Name"
+				class="rounded-lg border bg-white px-2 py-1 text-black dark:bg-[#050505] dark:text-white"
+				required
+			/>
 			<input
 				type="text"
 				name="message"
 				placeholder="Message"
-				class="w-full rounded-lg px-2 py-1"
+				class="w-full rounded-lg border bg-white px-2 py-1 text-black dark:bg-[#050505] dark:text-white"
 				required
 			/>
-			<button type="submit" class="rounded-lg px-2 py-1 ring ring-sky-500">Submit</button>
+			<button
+				type="submit"
+				class="rounded-lg border bg-white px-2 py-1 text-black dark:bg-[#050505] dark:text-white"
+				>Submit</button
+			>
 		</form>
 		<GuestbookEntries server:defer>
-			<div class="min-h-[70svh] w-full animate-pulse rounded-md bg-neutral-400/10" slot="fallback">
-			</div>
+			<span slot="fallback">Fetching...</span>
 		</GuestbookEntries>
 	</section>
 </Layout>

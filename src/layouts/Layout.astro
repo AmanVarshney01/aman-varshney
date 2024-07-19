@@ -66,16 +66,15 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 		/>
 	</head>
 	<body
-		class="prose prose-base prose-sky relative mx-auto min-h-dvh w-full max-w-4xl bg-neutral-100 text-gray-700 antialiased dark:prose-invert prose-code:text-base dark:bg-[#050505] dark:text-gray-200 max-lg:px-2"
+		class="prose prose-base prose-sky relative mx-auto min-h-dvh w-full max-w-4xl bg-white text-black antialiased dark:prose-invert prose-code:text-base dark:bg-[#050505] dark:text-white max-lg:px-2"
 	>
-		<main class="z-20">
+		<main>
 			<Header />
 			<slot />
 			<Footer />
 		</main>
-		<div
+		<!-- <div
 			class="fixed left-0 top-0 -z-20 h-dvh w-dvw bg-transparent bg-gradient-to-tr from-sky-500/10 from-0% to-50% blur-sm"
-		>
-		</div>
+		> -->
 	</body>
 </html>
