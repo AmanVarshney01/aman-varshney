@@ -1,21 +1,13 @@
 ---
 export const prerender = false
-import { db, Guestbook as gb } from 'astro:db'
 
+import { actions } from 'astro:actions'
 import GuestbookEntries from '../components/GuestbookEntries.astro'
 import Layout from '../layouts/Layout.astro'
 
 if (Astro.request.method === 'POST') {
-	try {
-		const formData = await Astro.request.formData()
-		const name = formData.get('name')
-		const message = formData.get('message')
-		if (typeof name === 'string' && typeof message === 'string') {
-			await db.insert(gb).values({ name, message })
-		}
-	} catch (error) {
-		console.error('Error:', error)
-	}
+	const formData = await Astro.request.formData()
+	await actions.guestbook(formData)
 }
 ---
 

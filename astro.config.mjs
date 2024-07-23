@@ -1,7 +1,6 @@
 import db from '@astrojs/db'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
-import solidJs from '@astrojs/solid-js'
 import tailwind from '@astrojs/tailwind'
 import vercel from '@astrojs/vercel/serverless'
 import {
@@ -15,7 +14,7 @@ import { addCopyButton } from 'shiki-transformer-copy-button'
 
 export default defineConfig({
 	site: 'https://amanvarshney.tech/',
-	integrations: [solidJs(), mdx(), tailwind(), sitemap(), db()],
+	integrations: [mdx(), tailwind(), sitemap(), db()],
 	output: 'hybrid',
 	adapter: vercel({
 		webAnalytics: {
@@ -25,7 +24,12 @@ export default defineConfig({
 	}),
 	markdown: {
 		shikiConfig: {
-			theme: 'material-theme-ocean',
+			// theme: 'material-theme-ocean',
+			themes: {
+				light: 'vitesse-light',
+				dark: 'vitesse-black'
+			},
+			defaultColor: false,
 			transformers: [
 				transformerNotationDiff(),
 				transformerNotationHighlight(),
@@ -38,6 +42,7 @@ export default defineConfig({
 		}
 	},
 	experimental: {
-		serverIslands: true
+		serverIslands: true,
+		actions: true
 	}
 })

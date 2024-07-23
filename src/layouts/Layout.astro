@@ -1,8 +1,7 @@
 ---
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
 import { SEO } from 'astro-seo'
-import { ViewTransitions } from 'astro:transitions'
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
 import '../styles/global.css'
 
 type Props = {
@@ -17,28 +16,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const socialImageURL = new URL('/og-image.webp', Astro.url)
 ---
 
-<script is:inline>
-	const theme = (() => {
-		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-			return localStorage.getItem('theme')
-		}
-		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-			return 'dark'
-		}
-		return 'light'
-	})()
-
-	if (theme === 'light') {
-		document.documentElement.classList.remove('dark')
-	} else {
-		document.documentElement.classList.add('dark')
-	}
-	window.localStorage.setItem('theme', theme)
-</script>
-
 <html lang="en">
 	<head>
-		<ViewTransitions fallback="none" />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" href="/favicon.ico" />
@@ -46,7 +25,6 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 		<meta name="author" content={author} />
 		<meta name="theme-color" content="#030303" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
-
 		<SEO
 			title={title}
 			description={description}
@@ -76,5 +54,15 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 		<!-- <div
 			class="fixed left-0 top-0 -z-20 h-dvh w-dvw bg-transparent bg-gradient-to-tr from-sky-500/10 from-0% to-50% blur-sm"
 		> -->
+		<script is:inline>
+			if (
+				localStorage.theme === 'dark' ||
+				(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+			) {
+				document.documentElement.classList.add('dark')
+			} else {
+				document.documentElement.classList.remove('dark')
+			}
+		</script>
 	</body>
 </html>

@@ -1,12 +1,11 @@
 ---
 import NavButton from './NavButton.astro'
-import ThemeToggle from './themeToggle.tsx'
 
 const currentPath = Astro.url.pathname
 ---
 
 <div class="py-8">
-	<div class="flex flex-row justify-between items-center">
+	<div class="flex flex-row items-center justify-between">
 		<div class="flex flex-row gap-8">
 			<NavButton href="/" name="Home" isActive={currentPath == '/'} />
 			<NavButton href="/blog" name="Blog" isActive={currentPath.startsWith('/blog')} />
@@ -16,6 +15,5 @@ const currentPath = Astro.url.pathname
 				isActive={currentPath.startsWith('/guestbook')}
 			/>
 		</div>
-		<ThemeToggle lightImage="/sun.svg" darkImage="/moon.svg" client:only="solid-js" />
 	</div>
 </div>
