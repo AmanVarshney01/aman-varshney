@@ -29,7 +29,6 @@ export default defineConfig({
 				light: 'vitesse-light',
 				dark: 'poimandres'
 			},
-			defaultColor: false,
 			transformers: [
 				transformerNotationDiff(),
 				transformerNotationHighlight(),
