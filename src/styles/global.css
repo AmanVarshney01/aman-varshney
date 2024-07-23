@@ -14,23 +14,32 @@ html.dark .astro-code span {
 
 code {
 	display: grid;
-	padding-top: 1.5rem !important;
+	padding-top: 2.5rem !important;
 }
 pre {
-	@apply rounded-md;
+	@apply rounded-md border dark:border-slate-800;
 }
+
 .line {
 	counter-increment: count;
 }
 
 pre::before {
+	position: absolute;
+	width: 100%;
+	top: 0;
+	left: 0;
+	border-bottom: 2px solid;
+	@apply border-slate-100 dark:border-slate-800;
+}
+
+pre::before {
 	content: attr(data-language);
 	position: absolute;
-	/* font-size: 1rem; */
-	left: 1rem;
-	top: 5px;
-	padding-left: 0.5rem;
+	top: 0.5rem;
+	padding-left: 1rem;
 	padding-right: 1rem;
+	padding-bottom: 0.5rem;
 }
 
 .line:not(:last-of-type)::before {
@@ -67,11 +76,11 @@ pre::before {
 }
 
 ::-webkit-scrollbar {
-	@apply w-2;
+	@apply w-1;
 }
 
 ::-webkit-scrollbar-track {
-	@apply bg-white dark:bg-[#050505];
+	@apply bg-white dark:bg-[#111318];
 }
 
 ::-webkit-scrollbar-thumb {
@@ -86,32 +95,10 @@ pre:has(code) {
 	position: relative;
 }
 
-html.dark pre button.copy {
-	& .ready {
-		background-image: url('../assets/icons/copy-dark.svg');
-		@apply size-5;
-	}
-
-	& .success {
-		background-image: url('../assets/icons/copy-done-dark.svg');
-		@apply hidden size-5;
-	}
-
-	&.copied {
-		& .success {
-			display: block;
-		}
-
-		& .ready {
-			display: none;
-		}
-	}
-}
-
 pre button.copy {
 	position: absolute;
-	right: 16px;
-	top: 16px;
+	right: 10px;
+	top: 12px;
 	height: 28px;
 	padding: 0;
 	display: flex;
@@ -126,12 +113,12 @@ pre button.copy {
 
 	& .ready {
 		background-image: url('../assets/icons/copy.svg');
-		@apply size-5;
+		@apply size-4;
 	}
 
 	& .success {
 		background-image: url('../assets/icons/copy-done.svg');
-		@apply hidden size-5;
+		@apply hidden size-4;
 	}
 
 	&.copied {

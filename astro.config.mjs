@@ -27,7 +27,7 @@ export default defineConfig({
 			// theme: 'material-theme-ocean',
 			themes: {
 				light: 'vitesse-light',
-				dark: 'vitesse-black'
+				dark: 'poimandres'
 			},
 			defaultColor: false,
 			transformers: [

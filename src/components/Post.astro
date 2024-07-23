@@ -8,8 +8,8 @@ type Props = {
 const { post } = Astro.props
 ---
 
-<div class="flex flex-col md:flex-row justify-between">
-	<a transition:name="post-name" class="not-prose" href=`blog/${post.slug}`>
+<div class="flex flex-col justify-between md:flex-row">
+	<a transition:name="post-name" href=`blog/${post.slug}`>
 		{post.data.title}
 	</a>
 	<span class="no-underline">{post.data.date.toString()}</span>
