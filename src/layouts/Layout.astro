@@ -3,6 +3,7 @@ import { SEO } from 'astro-seo'
 import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
 import '../styles/global.css'
+import { ViewTransitions } from 'astro:transitions'
 
 type Props = {
 	title: string
@@ -42,18 +43,6 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 				creator: '@amanvarshney01'
 			}}
 		/>
-	</head>
-	<body
-		class="prose prose-base prose-sky relative mx-auto min-h-dvh w-full max-w-4xl antialiased dark:prose-invert prose-code:text-base dark:bg-[#111318] max-lg:px-2"
-	>
-		<main>
-			<Header />
-			<slot />
-			<Footer />
-		</main>
-		<!-- <div
-			class="fixed left-0 top-0 -z-20 h-dvh w-dvw bg-transparent bg-gradient-to-tr from-sky-500/10 from-0% to-50% blur-sm"
-		> -->
 		<script is:inline>
 			if (
 				localStorage.theme === 'dark' ||
@@ -63,6 +52,26 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 			} else {
 				document.documentElement.classList.remove('dark')
 			}
+			document.addEventListener('astro:after-swap', () => {
+				if (
+					localStorage.theme === 'dark' ||
+					(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+				) {
+					document.documentElement.classList.add('dark')
+				} else {
+					document.documentElement.classList.remove('dark')
+				}
+			})
 		</script>
+		<ViewTransitions fallback={'none'} />
+	</head>
+	<body
+		class="prose prose-base prose-sky relative mx-auto min-h-dvh w-full max-w-4xl antialiased dark:prose-invert dark:bg-[#111318] max-lg:px-2"
+	>
+		<main>
+			<Header />
+			<slot />
+			<Footer />
+		</main>
 	</body>
 </html>

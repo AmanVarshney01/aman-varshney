@@ -3,18 +3,26 @@ import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import vercel from '@astrojs/vercel/serverless'
-import {
-	transformerNotationDiff,
-	transformerNotationFocus,
-	transformerNotationHighlight,
-	transformerNotationWordHighlight
-} from '@shikijs/transformers'
+import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
+import expressiveCode from 'astro-expressive-code'
 import { defineConfig } from 'astro/config'
-import { addCopyButton } from 'shiki-transformer-copy-button'
 
 export default defineConfig({
 	site: 'https://amanvarshney.tech/',
-	integrations: [mdx(), tailwind(), sitemap(), db()],
+	integrations: [
+		expressiveCode({
+			plugins: [pluginLineNumbers()],
+			themes: ['poimandres', 'github-light'],
+			useDarkModeMediaQuery: true,
+      styleOverrides: {
+        codeFontSize: "0.95rem"
+      }
+		}),
+		mdx(),
+		tailwind(),
+		sitemap(),
+		db()
+	],
 	output: 'hybrid',
 	adapter: vercel({
 		webAnalytics: {
@@ -22,24 +30,6 @@ export default defineConfig({
 		},
 		imageService: true
 	}),
-	markdown: {
-		shikiConfig: {
-			// theme: 'material-theme-ocean',
-			themes: {
-				light: 'vitesse-light',
-				dark: 'poimandres'
-			},
-			transformers: [
-				transformerNotationDiff(),
-				transformerNotationHighlight(),
-				transformerNotationFocus(),
-				transformerNotationWordHighlight(),
-				addCopyButton({
-					toggle: 1000
-				})
-			]
-		}
-	},
 	experimental: {
 		serverIslands: true,
 		actions: true
