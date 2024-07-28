@@ -3,33 +3,33 @@ import { getCollection, type CollectionEntry } from 'astro:content'
 import Layout from '../../layouts/Layout.astro'
 
 export const getStaticPaths = async () => {
-	const posts = await getCollection('posts')
-	const paths = posts.map((post) => {
+	const blogs = await getCollection('blogs')
+	const paths = blogs.map((blog) => {
 		return {
-			params: { slug: post.slug },
-			props: { post }
+			params: { slug: blog.slug },
+			props: { blog }
 		}
 	})
 	return paths
 }
 
 type Props = {
-	post: CollectionEntry<'posts'>
+	blog: CollectionEntry<'blogs'>
 }
 
-const { post } = Astro.props
-const { Content } = await post.render()
+const { blog } = Astro.props
+const { Content } = await blog.render()
 ---
 
-<Layout title={post.data.title}>
+<Layout title={blog.data.title}>
 	<div class="flex flex-col">
 		<h1 transition:name="post-name" class="mb-0 pb-2">
-			{post.data.title}
+			{blog.data.title}
 		</h1>
 		<span class="pb-4">
-			{post.data.date}
+			{blog.data.date}
 		</span>
-		<a class="underline" href=`https://amanvarshney.hashnode.dev/${post.slug}` target="_blank"
+		<a class="underline" href=`https://amanvarshney.hashnode.dev/${blog.slug}` target="_blank"
 			>Read on Hashnode</a
 		>
 	</div>

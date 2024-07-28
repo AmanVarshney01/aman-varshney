@@ -1,14 +1,14 @@
 ---
 import { getCollection } from 'astro:content'
-import Post from '../../components/Post.astro'
+import Blog from '../../components/Blog.astro'
 import Layout from '../../layouts/Layout.astro'
-const posts = await getCollection('posts')
-posts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+const blogs = await getCollection('blogs')
+blogs.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
 ---
 
 <Layout title="Blog | Aman Varshney">
 	<h1>Blog</h1>
 	<div class="flex min-h-[70svh] flex-col gap-6">
-		{posts.map((post) => <Post post={post} />)}
+		{blogs.map((blog) => <Blog blog={blog} />)}
 	</div>
 </Layout>
