@@ -1,18 +1,17 @@
 ---
 import { Image } from 'astro:assets'
-
+import email from '../assets/icons/email.svg'
 import github from '../assets/icons/github.svg'
 import linkedin from '../assets/icons/linkedin.svg'
 import x from '../assets/icons/x.svg'
-import email from '../assets/icons/email.svg'
 ---
 
-<footer class="w-full flex flex-row justify-between py-8">
-	<h4 class="m-0">Aman Varshney</h4>
-	<div class="flex flex-row gap-4 items-center prose-img:m-0">
+<footer class="flex w-full flex-row justify-between py-8">
+	<h4>Aman Varshney</h4>
+	<div class="flex flex-row items-center gap-4 prose-img:m-0">
 		<a href="mailto:av.amanvarshney11@gmail.com" target="_blank">
 			<Image
-				class={' dark:invert rounded-sm'}
+				class="rounded-sm dark:invert"
 				src={email}
 				alt="email"
 				width={20}
@@ -23,7 +22,7 @@ import email from '../assets/icons/email.svg'
 		</a>
 		<a href="https://github.com/AmanVarshney01" target="_blank">
 			<Image
-				class={'dark:invert rounded-sm'}
+				class="rounded-sm dark:invert"
 				src={github}
 				alt="github"
 				width={20}
@@ -34,7 +33,7 @@ import email from '../assets/icons/email.svg'
 		</a>
 		<a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank">
 			<Image
-				class={' rounded-sm dark:invert'}
+				class="rounded-sm dark:invert"
 				src={linkedin}
 				alt="linkedin"
 				width={20}
