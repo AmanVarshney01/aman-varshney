@@ -14,9 +14,9 @@ export default defineConfig({
 			plugins: [pluginLineNumbers()],
 			themes: ['poimandres', 'github-light'],
 			useDarkModeMediaQuery: true,
-      styleOverrides: {
-        codeFontSize: "0.95rem"
-      }
+			styleOverrides: {
+				codeFontSize: '0.95rem'
+			}
 		}),
 		mdx(),
 		tailwind(),
@@ -33,5 +33,6 @@ export default defineConfig({
 	experimental: {
 		serverIslands: true,
 		actions: true
-	}
+	},
+	prefetch: true
 })

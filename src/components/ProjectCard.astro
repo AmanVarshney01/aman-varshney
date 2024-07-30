@@ -13,9 +13,7 @@ type Props = {
 const { name, description, image, githubLink, liveLink, loading } = Astro.props
 ---
 
-<div
-	class="flex w-full flex-col justify-center rounded-md border border-[#6b83c1]/20 dark:border-[#4b65a2]/20"
->
+<div class="flex w-full flex-col justify-center rounded-md">
 	<Image
 		class="m-0 aspect-video w-full rounded-lg object-contain p-1"
 		src={image}
