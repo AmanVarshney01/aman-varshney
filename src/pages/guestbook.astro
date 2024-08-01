@@ -35,13 +35,12 @@ if (Astro.request.method === 'POST') {
 			>
 		</form>
 		<GuestbookEntries server:defer>
-			<!-- <span slot="fallback">Fetching...</span> -->
-			<div slot="fallback" class="flex w-full flex-col gap-4">
-				<div class="h-5 w-72 animate-pulse rounded-md bg-white/20"></div>
-				<div class="h-5 w-96 animate-pulse rounded-md bg-white/20"></div>
-				<div class="h-5 w-60 animate-pulse rounded-md bg-white/20"></div>
-				<div class="h-5 w-72 animate-pulse rounded-md bg-white/20"></div>
-				<div class="h-5 w-56 animate-pulse rounded-md bg-white/20"></div>
+			<div slot="fallback" class="flex w-full flex-col gap-3">
+				<div class="h-6 w-[70%] animate-pulse rounded-md bg-white/20"></div>
+				<div class="h-6 w-[60%] animate-pulse rounded-md bg-white/20"></div>
+				<div class="h-6 w-[80%] animate-pulse rounded-md bg-white/20"></div>
+				<div class="h-6 w-[75%] animate-pulse rounded-md bg-white/20"></div>
+				<div class="h-6 w-[65%] animate-pulse rounded-md bg-white/20"></div>
 			</div>
 		</GuestbookEntries>
 	</section>

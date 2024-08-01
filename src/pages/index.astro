@@ -1,67 +1,53 @@
 ---
 import { Image } from 'astro:assets'
-import email from '../assets/icons/email.svg'
-import github from '../assets/icons/github.svg'
-import linkedin from '../assets/icons/linkedin.svg'
-import x from '../assets/icons/x.svg'
 import ProjectCardGrid from '../components/ProjectCardGrid.astro'
 import SkillBadge from '../components/SkillBadge.astro'
 import Layout from '../layouts/Layout.astro'
+import location from '../assets/icons/location.svg'
+import work from '../assets/icons/work.svg'
 ---
 
 <Layout title="Aman Varshney">
 	<div class="flex flex-col">
 		<div class="flex flex-col">
+			<!-- TODO Add Photo -->
 			<h1>Aman Varshney</h1>
+			<div class="flex flex-row items-center gap-2 py-1">
+				<Image
+					class={'dark:invert rounded-sm m-0'}
+					src={location}
+					alt="github"
+					loading={'eager'}
+					quality={'low'}
+				/>
+				<span>Uttar Pradesh, India</span>
+			</div>
+			<div class="flex flex-row items-center gap-2 py-1">
+				<Image
+					class={'dark:invert rounded-sm m-0'}
+					src={work}
+					alt="github"
+					loading={'eager'}
+					quality={'low'}
+				/>
+				<span>Full-Stack Web Developer</span>
+			</div>
+
 			<p>
 				Hello I'm <strong>Aman Varshney</strong>, a <strong>B.Tech CSE</strong> student with a passion
-				for web and app development. On the path to becoming a Software Engineer.
+				for <strong>web and app development</strong>. I am passionate about creating <strong
+					>beautiful, feature-rich web applications</strong
+				>
+				using <strong>best code practices</strong>. I have been deeply interested in web development
+				for <strong>over 2 years</strong>.
 			</p>
 			<div class="flex flex-row gap-4 prose-img:m-2">
-				<a href="mailto:av.amanvarshney11@gmail.com" target="_blank">
-					<Image
-						class={' dark:invert rounded-sm'}
-						src={email}
-						alt="email"
-						width={20}
-						height={20}
-						loading={'eager'}
-						quality={'low'}
-					/>
+				<a href="mailto:amanvarshney.work@gmail.com" target="_blank">
+					amanvarshney.work@gmail.com
 				</a>
-				<a href="https://github.com/AmanVarshney01" target="_blank">
-					<Image
-						class={'dark:invert rounded-sm'}
-						src={github}
-						alt="github"
-						width={20}
-						height={20}
-						loading={'eager'}
-						quality={'low'}
-					/>
-				</a>
-				<a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank">
-					<Image
-						class={' rounded-sm dark:invert'}
-						src={linkedin}
-						alt="linkedin"
-						width={20}
-						height={20}
-						loading={'eager'}
-						quality={'low'}
-					/>
-				</a>
-				<a href="https://twitter.com/amanvarshney01" target="_blank">
-					<Image
-						class={' dark:invert rounded-sm'}
-						src={x}
-						alt="x"
-						width={20}
-						height={20}
-						loading={'eager'}
-						quality={'low'}
-					/>
-				</a>
+				<a href="https://x.com/amanvarshney01" target="_blank"> X.com </a>
+				<a href="https://github.com/AmanVarshney01" target="_blank"> Github </a>
+				<a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank"> LinkedIn </a>
 			</div>
 		</div>
 		<div>
