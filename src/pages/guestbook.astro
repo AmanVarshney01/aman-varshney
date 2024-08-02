@@ -19,20 +19,17 @@ if (Astro.request.method === 'POST') {
 				type="text"
 				name="name"
 				placeholder="Name"
-				class="form-input rounded-lg border px-2 py-1 dark:border-slate-800 dark:bg-[#111318]"
+				class="form-input rounded-lg border px-2 py-1 dark:border-white/30"
 				required
 			/>
 			<input
 				type="text"
 				name="message"
 				placeholder="Message"
-				class="form-input w-full rounded-lg border px-2 py-1 dark:border-slate-800 dark:bg-[#111318]"
+				class="form-input w-full rounded-lg border px-2 py-1 dark:border-white/30"
 				required
 			/>
-			<button
-				type="submit"
-				class="rounded-lg border px-2 py-1 dark:border-slate-800 dark:bg-[#111318]">Submit</button
-			>
+			<button type="submit" class="rounded-lg border px-2 py-1 dark:border-white/30">Submit</button>
 		</form>
 		<GuestbookEntries server:defer>
 			<div slot="fallback" class="flex w-full flex-col gap-3">
