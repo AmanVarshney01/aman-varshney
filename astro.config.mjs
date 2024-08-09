@@ -12,11 +12,8 @@ export default defineConfig({
 	integrations: [
 		expressiveCode({
 			plugins: [pluginLineNumbers()],
-			themes: ['poimandres', 'github-light'],
+			themes: ['vitesse-dark', 'vitesse-light'],
 			useDarkModeMediaQuery: true,
-			styleOverrides: {
-				codeFontSize: '0.95rem'
-			}
 		}),
 		mdx(),
 		tailwind(),
