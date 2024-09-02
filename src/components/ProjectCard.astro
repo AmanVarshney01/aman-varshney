@@ -7,34 +7,40 @@ type Props = {
 	image: any
 	githubLink: string
 	liveLink?: string
+	isNew?: boolean
 	loading?: 'lazy' | 'eager' | null | undefined
 }
 
-const { name, description, image, githubLink, liveLink, loading } = Astro.props
+const { name, description, image, githubLink, liveLink, isNew, loading } = Astro.props
 ---
 
-<div class="flex w-full flex-col justify-center rounded-md">
-	<Image
-		class="m-0 aspect-video w-full rounded-lg object-contain p-1"
-		src={image}
-		alt={description}
-		width={1920}
-		height={1080}
-		quality={'low'}
-		loading={loading || 'lazy'}
-	/>
-	<div class="flex h-full flex-col p-2">
-		<h3 class="m-0 text-base">{name}</h3>
-		<p class="m-0 text-sm">{description}</p>
-	</div>
-	<div class="flex flex-row gap-2 p-2">
-		<a href={githubLink} target="_blank" rel="noopener noreferrer">Github</a>
-		{
-			liveLink && (
-				<a href={liveLink} target="_blank" rel="noopener noreferrer">
-					Live
-				</a>
-			)
-		}
+<div class="not-prose card card-compact">
+	<figure class="m-0 aspect-video object-contain">
+		<Image
+			class=""
+			src={image}
+			alt={description}
+			width={1920}
+			height={1080}
+			quality={'low'}
+			loading={loading || 'lazy'}
+		/>
+	</figure>
+	<div class="card-body">
+		<h3 class="card-title">{name}</h3>
+		<p>{description}</p>
+		<div class="card-actions items-center justify-between">
+			<div>
+				<a class="link" href={githubLink} target="_blank" rel="noopener noreferrer">Github</a>
+				{
+					liveLink && (
+						<a class="link" href={liveLink} target="_blank" rel="noopener noreferrer">
+							Live
+						</a>
+					)
+				}
+			</div>
+			{isNew && <div class="badge badge-secondary badge-sm">NEW</div>}
+		</div>
 	</div>
 </div>

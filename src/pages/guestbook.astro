@@ -15,29 +15,23 @@ if (Astro.request.method === 'POST') {
 	<h1>Guestbook</h1>
 	<section class="flex min-h-[70svh] flex-col gap-6">
 		<form method="POST" class="flex flex-col gap-2 md:flex-row">
-			<input
-				type="text"
-				name="name"
-				placeholder="Name"
-				class="form-input rounded-lg border px-2 py-1 dark:border-white/30"
-				required
-			/>
+			<input type="text" name="name" placeholder="Name" class="input input-bordered" required />
 			<input
 				type="text"
 				name="message"
 				placeholder="Message"
-				class="form-input w-full rounded-lg border px-2 py-1 dark:border-white/30"
+				class="input input-bordered w-full"
 				required
 			/>
-			<button type="submit" class="rounded-lg border px-2 py-1 dark:border-white/30">Submit</button>
+			<button type="submit" class="btn">Submit</button>
 		</form>
 		<GuestbookEntries server:defer>
 			<div slot="fallback" class="flex w-full flex-col gap-3">
-				<div class="h-6 w-[70%] animate-pulse rounded-md bg-white/20"></div>
-				<div class="h-6 w-[60%] animate-pulse rounded-md bg-white/20"></div>
-				<div class="h-6 w-[80%] animate-pulse rounded-md bg-white/20"></div>
-				<div class="h-6 w-[75%] animate-pulse rounded-md bg-white/20"></div>
-				<div class="h-6 w-[65%] animate-pulse rounded-md bg-white/20"></div>
+				<div class="skeleton h-6 w-[70%]"></div>
+				<div class="skeleton h-6 w-[60%]"></div>
+				<div class="skeleton h-6 w-[80%]"></div>
+				<div class="skeleton h-6 w-[75%]"></div>
+				<div class="skeleton h-6 w-[65%]"></div>
 			</div>
 		</GuestbookEntries>
 	</section>

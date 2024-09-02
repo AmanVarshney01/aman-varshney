@@ -8,6 +8,6 @@ type Props = {
 const { name, href, isActive } = Astro.props
 ---
 
-<a href={href} rel="noopener noreferrer" class={isActive ? '' : 'no-underline'} data-astro-prefetch>
+<a href={href} rel="noopener noreferrer" class={isActive ? 'link' : 'link no-underline'}>
 	{name}
 </a>

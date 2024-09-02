@@ -71,9 +71,7 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 		<ViewTransitions fallback={'none'} />
 	</head>
 	<body class="min-h-dvh antialiased">
-		<main
-			class="prose prose-base mx-auto w-full max-w-3xl py-5 underline-offset-4 dark:prose-invert prose-h1:text-3xl prose-a:decoration-[#6b83c1] prose-a:dark:decoration-[#4b65a2] max-lg:px-4"
-		>
+		<main class="prose mx-auto w-full max-w-3xl py-5 underline-offset-4 max-lg:px-4">
 			<Header />
 			<slot />
 			<Footer />
