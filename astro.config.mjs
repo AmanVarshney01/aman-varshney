@@ -12,8 +12,9 @@ export default defineConfig({
 	integrations: [
 		expressiveCode({
 			plugins: [pluginLineNumbers()],
-			themes: ['vitesse-dark', 'vitesse-light'],
+			themes: ['vitesse-black', 'vitesse-light'],
 			useDarkModeMediaQuery: true,
+			themeCssSelector: () => "[data-theme='lofi']"
 		}),
 		mdx(),
 		tailwind(),
@@ -28,7 +29,7 @@ export default defineConfig({
 		imageService: true
 	}),
 	experimental: {
-		serverIslands: true,
+		serverIslands: true
 	},
 	prefetch: true
 })

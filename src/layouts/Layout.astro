@@ -1,9 +1,9 @@
 ---
 import { SEO } from 'astro-seo'
+import { ViewTransitions } from 'astro:transitions'
 import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
 import '../styles/global.css'
-import { ViewTransitions } from 'astro:transitions'
 
 type Props = {
 	title: string
@@ -48,26 +48,6 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 				creator: '@amanvarshney01'
 			}}
 		/>
-		<script is:inline>
-			if (
-				localStorage.theme === 'dark' ||
-				(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-			) {
-				document.documentElement.classList.add('dark')
-			} else {
-				document.documentElement.classList.remove('dark')
-			}
-			document.addEventListener('astro:after-swap', () => {
-				if (
-					localStorage.theme === 'dark' ||
-					(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
-				) {
-					document.documentElement.classList.add('dark')
-				} else {
-					document.documentElement.classList.remove('dark')
-				}
-			})
-		</script>
 		<ViewTransitions fallback={'none'} />
 	</head>
 	<body class="min-h-dvh antialiased">
@@ -76,5 +56,20 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 			<slot />
 			<Footer />
 		</main>
+		<script is:inline>
+			const themeToggleButton = document.getElementById('theme-toggle')
+			const savedTheme = localStorage.getItem('theme')
+
+			if (savedTheme) {
+				document.documentElement.setAttribute('data-theme', savedTheme)
+				themeToggleButton.checked = savedTheme === 'black'
+			}
+
+			themeToggleButton?.addEventListener('change', () => {
+				const newTheme = themeToggleButton.checked ? 'black' : 'lofi'
+				document.documentElement.setAttribute('data-theme', newTheme)
+				localStorage.setItem('theme', newTheme)
+			})
+		</script>
 	</body>
 </html>
