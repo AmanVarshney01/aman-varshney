@@ -57,6 +57,21 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 			<Footer />
 		</main>
 		<script is:inline>
+			document.addEventListener('astro:after-swap', () => {
+				const themeToggleButton = document.getElementById('theme-toggle')
+				const savedTheme = localStorage.getItem('theme')
+
+				if (savedTheme) {
+					document.documentElement.setAttribute('data-theme', savedTheme)
+					themeToggleButton.checked = savedTheme === 'black'
+				}
+
+				themeToggleButton?.addEventListener('change', () => {
+					const newTheme = themeToggleButton.checked ? 'black' : 'lofi'
+					document.documentElement.setAttribute('data-theme', newTheme)
+					localStorage.setItem('theme', newTheme)
+				})
+			})
 			const themeToggleButton = document.getElementById('theme-toggle')
 			const savedTheme = localStorage.getItem('theme')
 
