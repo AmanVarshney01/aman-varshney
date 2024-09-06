@@ -16,9 +16,8 @@ const { name, description, image, githubLink, liveLink, isNew, loading, alias } 
 ---
 
 <div class="not-prose card card-compact">
-	<figure onclick=`${alias}.showModal()` class="aspect-video cursor-pointer">
+	<figure onclick=`${alias}.showModal()` class="aspect-video cursor-pointer object-contain">
 		<Image
-			class="object-cover"
 			src={image}
 			alt={name}
 			width={1920}
@@ -48,17 +47,11 @@ const { name, description, image, githubLink, liveLink, isNew, loading, alias } 
 </div>
 
 <dialog id={alias} class="modal modal-bottom sm:modal-middle">
-	<div class="modal-box max-w-5xl">
+	<div class="not-prose modal-box max-w-5xl">
 		<h3 class="mb-4 text-lg font-bold">{name}</h3>
-		<Image
-			class="w-full object-cover"
-			src={image}
-			alt={name}
-			width={1920}
-			height={1080}
-			quality={'high'}
-			loading={'lazy'}
-		/>
+		<figure class="aspect-video object-contain">
+			<Image src={image} alt={name} width={1920} height={1080} quality={'high'} loading={'lazy'} />
+		</figure>
 		<p class="py-4">{description}</p>
 		<div class="modal-action">
 			<a href={githubLink} class="btn btn-primary" target="_blank" rel="noopener noreferrer">
