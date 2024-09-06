@@ -40,8 +40,8 @@ const { name, description, image, githubLink, liveLink, isNew, loading, alias, s
 </div>
 
 <dialog id={alias} class="modal modal-bottom sm:modal-middle">
-	<div class="not-prose card modal-box !max-w-6xl">
-		<figure class="relative aspect-video w-full">
+	<div class="not-prose card modal-box !max-w-4xl">
+		<figure class="relative w-full">
 			<Image
 				class="h-full w-full object-cover"
 				src={image}
@@ -53,8 +53,8 @@ const { name, description, image, githubLink, liveLink, isNew, loading, alias, s
 			/>
 		</figure>
 		<div class="card-body">
-			<div class="mb-4 flex flex-row items-center justify-between">
-				<h3 class="card-title text-lg font-bold">{name}</h3>
+			<div class="card-title flex flex-row items-center justify-between">
+				<h3>{name}</h3>
 				{isNew && <div class="badge badge-primary badge-sm">NEW</div>}
 			</div>
 			<p class="py-4">{description}</p>
