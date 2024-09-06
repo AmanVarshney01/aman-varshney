@@ -3,6 +3,7 @@ import { Image } from 'astro:assets'
 
 type Props = {
 	name: string
+	subDescription: string
 	description: string
 	image: any
 	githubLink: string
@@ -12,11 +13,12 @@ type Props = {
 	loading?: 'lazy' | 'eager' | null | undefined
 }
 
-const { name, description, image, githubLink, liveLink, isNew, loading, alias } = Astro.props
+const { name, description, image, githubLink, liveLink, isNew, loading, alias, subDescription } =
+	Astro.props
 ---
 
-<div class="not-prose card card-compact">
-	<figure onclick=`${alias}.showModal()` class="aspect-video cursor-pointer object-contain">
+<div onclick=`${alias}.showModal()` class="not-prose card card-compact">
+	<figure class="aspect-video cursor-pointer object-contain">
 		<Image
 			src={image}
 			alt={name}
@@ -27,46 +29,48 @@ const { name, description, image, githubLink, liveLink, isNew, loading, alias } 
 		/>
 	</figure>
 	<div class="card-body">
-		<h3 class="card-title">{name}</h3>
-		<p>{description}</p>
-		<div class="card-actions items-center justify-between">
-			<!-- <div>
-				<a class="link" href={githubLink} target="_blank" rel="noopener noreferrer">Github</a>
-				{
-					liveLink && (
-						<a class="link" href={liveLink} target="_blank" rel="noopener noreferrer">
-							Live
-						</a>
-					)
-				}
-			</div> -->
-			<button onclick=`${alias}.showModal()` class="btn btn-ghost btn-xs">Learn More</button>
-			{isNew && <div class="badge badge-secondary badge-sm">NEW</div>}
+		<h3 class="card-title">
+			{name}
+		</h3>
+		<p>{subDescription}</p>
+		<div class="card-actions mt-2 items-center justify-between">
+			<button onclick=`${alias}.showModal()` class="btn btn-xs border-primary">Learn More</button>
 		</div>
 	</div>
 </div>
 
 <dialog id={alias} class="modal modal-bottom sm:modal-middle">
-	<div class="not-prose modal-box max-w-5xl">
-		<h3 class="mb-4 text-lg font-bold">{name}</h3>
-		<figure class="aspect-video object-contain">
-			<Image src={image} alt={name} width={1920} height={1080} quality={'high'} loading={'lazy'} />
+	<div class="not-prose card modal-box !max-w-6xl">
+		<figure class="relative aspect-video w-full">
+			<Image
+				class="h-full w-full object-cover"
+				src={image}
+				alt={name}
+				width={1920}
+				height={1080}
+				quality={'high'}
+				loading={'lazy'}
+			/>
 		</figure>
-		<p class="py-4">{description}</p>
-		<div class="modal-action">
-			<a href={githubLink} class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-				View on GitHub
-			</a>
-			{
-				liveLink && (
-					<a href={liveLink} class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
-						Open Live Demo
-					</a>
-				)
-			}
-			<form method="dialog">
-				<button class="btn">Close</button>
-			</form>
+		<div class="card-body">
+			<div class="mb-4 flex flex-row items-center justify-between">
+				<h3 class="card-title text-lg font-bold">{name}</h3>
+				{isNew && <div class="badge badge-primary badge-sm">NEW</div>}
+			</div>
+			<p class="py-4">{description}</p>
+			<div class="card-actions modal-action">
+				<a href={githubLink} class="btn btn-sm" target="_blank">View on GitHub</a>
+				{
+					liveLink && (
+						<a href={liveLink} class="btn btn-sm" target="_blank">
+							Open Live Demo
+						</a>
+					)
+				}
+				<form method="dialog">
+					<button class="btn btn-sm">Close</button>
+				</form>
+			</div>
 		</div>
 	</div>
 	<form method="dialog" class="modal-backdrop">
