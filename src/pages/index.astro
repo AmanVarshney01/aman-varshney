@@ -1,7 +1,4 @@
 ---
-import { Image } from 'astro:assets'
-import location from '../assets/icons/location.svg'
-import work from '../assets/icons/work.svg'
 import ProjectCardGrid from '../components/ProjectCardGrid.astro'
 import SkillBadge from '../components/SkillBadge.astro'
 import Layout from '../layouts/Layout.astro'
@@ -12,7 +9,7 @@ import Layout from '../layouts/Layout.astro'
 		<div class="flex flex-col">
 			<!-- TODO Add Photo -->
 			<h1>Aman Varshney</h1>
-			<div class="flex flex-row items-center gap-2 py-1">
+			<!-- <div class="flex flex-row items-center gap-2 py-1">
 				<Image
 					class={'dark:invert rounded-sm m-0'}
 					src={location}
@@ -31,7 +28,7 @@ import Layout from '../layouts/Layout.astro'
 					quality={'low'}
 				/>
 				<span>Full-Stack Web Developer</span>
-			</div>
+			</div> -->
 
 			<p>
 				Hello I'm <strong>Aman Varshney</strong>, a <strong>B.Tech CSE</strong> student with a passion
@@ -42,12 +39,14 @@ import Layout from '../layouts/Layout.astro'
 				for <strong>over 2 years</strong>.
 			</p>
 			<div class="flex flex-col gap-2 md:flex-row md:gap-4">
-				<a href="mailto:amanvarshney.work@gmail.com" target="_blank">
+				<a href="mailto:amanvarshney.work@gmail.com" target="_blank" class="link">
 					amanvarshney.work@gmail.com
 				</a>
-				<a href="https://x.com/amanvarshney01" target="_blank"> X.com </a>
-				<a href="https://github.com/AmanVarshney01" target="_blank"> Github </a>
-				<a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank"> LinkedIn </a>
+				<a href="https://x.com/amanvarshney01" target="_blank" class="link"> X.com </a>
+				<a href="https://github.com/AmanVarshney01" target="_blank" class="link"> Github </a>
+				<a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank" class="link">
+					LinkedIn
+				</a>
 			</div>
 		</div>
 		<div>
@@ -60,8 +59,6 @@ import Layout from '../layouts/Layout.astro'
 				<SkillBadge skill="React Native" />
 				<SkillBadge skill="Astro" />
 				<SkillBadge skill="Tailwind CSS" />
-				<SkillBadge skill="Java" />
-				<SkillBadge skill="C++" />
 			</div>
 		</div>
 		<div class="flex flex-col">

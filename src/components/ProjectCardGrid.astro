@@ -17,6 +17,7 @@ import ProjectCard from './ProjectCard.astro'
 		liveLink="https://hack-track.vercel.app/"
 		isNew
 		loading={'eager'}
+		alias="hackTrack"
 	/>
 	<ProjectCard
 		image={oxabags}
@@ -26,6 +27,7 @@ import ProjectCard from './ProjectCard.astro'
 		liveLink="https://www.oxabags.com/"
 		isNew
 		loading={'eager'}
+		alias="oxabags"
 	/>
 	<ProjectCard
 		image={amanvarshney}
@@ -33,7 +35,9 @@ import ProjectCard from './ProjectCard.astro'
 		description="My Portfolio using Astro and Tailwind CSS"
 		githubLink="https://github.com/AmanVarshney01/aman-varshney"
 		liveLink="https://www.amanvarshney.tech/"
+		isNew
 		loading={'eager'}
+		alias="amanVarshney"
 	/>
 	<ProjectCard
 		image={glaappreimagined}
@@ -41,6 +45,7 @@ import ProjectCard from './ProjectCard.astro'
 		description="A Gla app prototype using React Native"
 		githubLink="https://github.com/AmanVarshney01/gla-app-reimagined"
 		loading={'lazy'}
+		alias="glaAppReimagined"
 	/>
 	<ProjectCard
 		name="3D Portfolio"
@@ -49,6 +54,7 @@ import ProjectCard from './ProjectCard.astro'
 		githubLink="https://github.com/AmanVarshney01/amanvarshney"
 		liveLink="https://aman-varshney.vercel.app/"
 		loading={'lazy'}
+		alias="amanVarshney3D"
 	/>
 	<ProjectCard
 		name="Suggest Me Aman"
@@ -57,5 +63,6 @@ import ProjectCard from './ProjectCard.astro'
 		githubLink="https://github.com/AmanVarshney01/SuggestMeAman"
 		liveLink="https://suggestmeaman.vercel.app/"
 		loading={'lazy'}
+		alias="suggestMeAman"
 	/>
 </div>
