@@ -19,6 +19,13 @@ import ProjectCard from './ProjectCard.astro'
 		isNew
 		loading={'eager'}
 		alias="hackTrack"
+		techUsed={[
+			{ name: 'Next.js', icon: 'next' },
+			{ name: 'Supabase', icon: 'supabase' },
+			{ name: 'Tailwind', icon: 'tailwind' },
+			{ name: 'Shadcn/UI', icon: 'shadcn' },
+			{ name: 'Vercel', icon: 'vercel' }
+		]}
 	/>
 	<ProjectCard
 		image={oxabags}
@@ -30,6 +37,14 @@ import ProjectCard from './ProjectCard.astro'
 		isNew
 		loading={'eager'}
 		alias="oxabags"
+		techUsed={[
+			{ name: 'Next.js', icon: 'next' },
+			{ name: 'Razorpay', icon: 'razorpay' },
+			{ name: 'Sanity.io', icon: 'sanity' },
+			{ name: 'Tailwind', icon: 'tailwind' },
+			{ name: 'Shadcn/UI', icon: 'shadcn' },
+			{ name: 'Cloudflare', icon: 'cloudflare' }
+		]}
 	/>
 	<ProjectCard
 		image={amanvarshney}
@@ -41,6 +56,11 @@ import ProjectCard from './ProjectCard.astro'
 		isNew
 		loading={'eager'}
 		alias="portfolio"
+		techUsed={[
+			{ name: 'Astro', icon: 'astro' },
+			{ name: 'Tailwind', icon: 'tailwind' },
+			{ name: 'Vercel', icon: 'vercel' }
+		]}
 	/>
 	<ProjectCard
 		image={glaappreimagined}
@@ -50,6 +70,11 @@ import ProjectCard from './ProjectCard.astro'
 		githubLink="https://github.com/AmanVarshney01/gla-app-reimagined"
 		loading={'lazy'}
 		alias="glaAppReimagined"
+		techUsed={[
+			{ name: 'React Native', icon: 'react' },
+			{ name: 'Expo', icon: 'expo' },
+			{ name: 'Nativewind', icon: 'tailwind' }
+		]}
 	/>
 	<ProjectCard
 		name="3D Portfolio"
@@ -60,6 +85,12 @@ import ProjectCard from './ProjectCard.astro'
 		liveLink="https://aman-varshney.vercel.app/"
 		loading={'lazy'}
 		alias="portfolio3D"
+		techUsed={[
+			{ name: 'Next.js', icon: 'next' },
+			{ name: 'Three.js', icon: 'three' },
+			{ name: 'Tailwind', icon: 'tailwind' },
+			{ name: 'Vercel', icon: 'vercel' }
+		]}
 	/>
 	<ProjectCard
 		name="Suggest Me Aman"
@@ -70,5 +101,10 @@ import ProjectCard from './ProjectCard.astro'
 		liveLink="https://suggestmeaman.vercel.app/"
 		loading={'lazy'}
 		alias="suggestMeAman"
+		techUsed={[
+			{ name: 'Svelte', icon: 'svelte' },
+			{ name: 'Tailwind', icon: 'tailwind' },
+			{ name: 'Vercel', icon: 'vercel' }
+		]}
 	/>
 </div>

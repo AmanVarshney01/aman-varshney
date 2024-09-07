@@ -11,7 +11,7 @@ type Props = {
 	liveLink?: string
 	isNew?: boolean
 	alias?: string
-	skills?: { name: string; icon: string }[]
+	techUsed?: { name: string; icon: string }[]
 	loading?: 'lazy' | 'eager' | null | undefined
 }
 
@@ -25,7 +25,7 @@ const {
 	loading,
 	alias,
 	subDescription,
-	skills
+	techUsed
 } = Astro.props
 ---
 
@@ -71,6 +71,17 @@ const {
 				{isNew && <div class="badge badge-primary badge-sm">NEW</div>}
 			</div>
 			<p class="py-4">{description}</p>
+			{techUsed && techUsed.length > 0 && (
+				<h4 class="text-sm font-semibold">Technologies Used</h4>
+				<div class="flex flex-wrap gap-2 my-4">
+        {techUsed.map((tech) => (
+					<div class="badge badge-outline gap-2">
+            <Icon name={tech.icon} class="w-4 h-4" />
+            {tech.name}
+          </div>
+        ))}
+      </div>
+			)}
 			<div class="card-actions modal-action">
 				<a href={githubLink} class="btn btn-sm" target="_blank">
 					<Icon name="github" title="github" />
