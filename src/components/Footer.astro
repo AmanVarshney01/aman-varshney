@@ -1,57 +1,21 @@
 ---
-import { Image } from 'astro:assets'
-import email from '../assets/icons/email.svg'
-import github from '../assets/icons/github.svg'
-import linkedin from '../assets/icons/linkedin.svg'
-import x from '../assets/icons/x.svg'
+import { Icon } from 'astro-icon/components'
 ---
 
 <footer class="flex w-full flex-row justify-between py-8">
 	<h4>Aman Varshney</h4>
-	<div class="flex flex-row items-center gap-4 prose-img:m-0">
+	<div class="flex flex-row items-center gap-4">
 		<a href="mailto:amanvarshney.work@gmail.com" target="_blank">
-			<Image
-				class="rounded-sm dark:invert"
-				src={email}
-				alt="email"
-				width={20}
-				height={20}
-				loading={'lazy'}
-				quality={'low'}
-			/>
+			<Icon name="mail" class="h-5 w-5" />
 		</a>
 		<a href="https://github.com/AmanVarshney01" target="_blank">
-			<Image
-				class="rounded-sm dark:invert"
-				src={github}
-				alt="github"
-				width={20}
-				height={20}
-				loading={'lazy'}
-				quality={'low'}
-			/>
+			<Icon name="github" class="h-4 w-4" />
 		</a>
 		<a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank">
-			<Image
-				class="rounded-sm dark:invert"
-				src={linkedin}
-				alt="linkedin"
-				width={20}
-				height={20}
-				loading={'lazy'}
-				quality={'low'}
-			/>
+			<Icon name="linkedin" class="h-4 w-4" />
 		</a>
-		<a href="https://twitter.com/amanvarshney01" target="_blank">
-			<Image
-				class={' dark:invert rounded-sm'}
-				src={x}
-				alt="x"
-				width={20}
-				height={20}
-				loading={'lazy'}
-				quality={'low'}
-			/>
+		<a href="https://x.com/amanvarshney01" target="_blank">
+			<Icon name="x" class="h-4 w-4" />
 		</a>
 	</div>
 </footer>

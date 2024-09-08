@@ -1,6 +1,6 @@
 ---
-import { db, desc, Guestbook as gb } from 'astro:db'
-const guestbookData = await db.select().from(gb).orderBy(desc(gb.published))
+import { db, desc, Guestbook } from 'astro:db'
+const guestbookData = await db.select().from(Guestbook).orderBy(desc(Guestbook.published))
 ---
 
 <div class="flex flex-col gap-2">

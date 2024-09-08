@@ -16,7 +16,9 @@ export default defineConfig({
         themes: ['vitesse-black', 'vitesse-light'],
         useDarkModeMediaQuery: true,
         themeCssSelector: () => "[data-theme='lofi']"
-		}), mdx(), tailwind(), sitemap(), db(), icon()],
+		}), mdx(), tailwind(), sitemap(), db(), icon({
+            iconDir: "src/assets/icons",
+        })],
     output: 'hybrid',
     adapter: vercel({
         webAnalytics: {

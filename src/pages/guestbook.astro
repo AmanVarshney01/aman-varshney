@@ -2,19 +2,20 @@
 export const prerender = false
 
 import { actions } from 'astro:actions'
-import GuestbookEntries from '../components/GuestbookEntries.astro'
-import Layout from '../layouts/Layout.astro'
+import GuestbookEntries from '@/components/GuestbookEntries.astro'
+import Layout from '@/layouts/Layout.astro'
 
-if (Astro.request.method === 'POST') {
-	const formData = await Astro.request.formData()
-	await actions.guestbook(formData)
+const result = Astro.getActionResult(actions.guestbook)
+
+if (result?.error) {
+	console.error(result.error)
 }
 ---
 
 <Layout title="Guestbook | Aman Varshney">
 	<h1>Guestbook</h1>
 	<section class="flex flex-col gap-6">
-		<form method="POST" class="flex flex-col gap-2 md:flex-row">
+		<form method="POST" action={actions.guestbook} class="flex flex-col gap-2 md:flex-row">
 			<input type="text" name="name" placeholder="Name" class="input input-bordered" required />
 			<input
 				type="text"
