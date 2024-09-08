@@ -1,6 +1,6 @@
 ---
 import ProjectCardGrid from '../components/ProjectCardGrid.astro'
-import SkillBadge from '../components/SkillBadge.astro'
+import TechBadge from '../components/TechBadge.astro'
 import Layout from '../layouts/Layout.astro'
 ---
 
@@ -52,13 +52,12 @@ import Layout from '../layouts/Layout.astro'
 		<div>
 			<h2>Tech I know</h2>
 			<div class="flex flex-row flex-wrap gap-4 prose-img:m-0 prose-img:rounded-sm">
-				<SkillBadge skill="TypeScript" />
-				<SkillBadge skill="Next.js" />
-				<SkillBadge skill="React" />
-				<SkillBadge skill="Expo" />
-				<SkillBadge skill="React Native" />
-				<SkillBadge skill="Astro" />
-				<SkillBadge skill="Tailwind CSS" />
+				<TechBadge name="Typescript" icon="typescript" />
+				<TechBadge name="Next.js" icon="next" />
+				<TechBadge name="Expo" icon="expo" />
+				<TechBadge name="React Native" icon="react" />
+				<TechBadge name="Astro" icon="astro" />
+				<TechBadge name="Tailwind" icon="tailwind" />
 			</div>
 		</div>
 		<div class="flex flex-col">

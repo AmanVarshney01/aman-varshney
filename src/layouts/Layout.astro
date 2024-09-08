@@ -50,12 +50,14 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 		/>
 		<ViewTransitions fallback={'none'} />
 	</head>
-	<body class="min-h-dvh antialiased">
-		<main class="prose mx-auto w-full max-w-3xl py-5 underline-offset-4 max-lg:px-4">
-			<Header />
+	<body
+		class="prose mx-auto grid min-h-svh w-full max-w-3xl grid-rows-[auto_1fr_auto] py-5 underline-offset-4 antialiased max-lg:px-4"
+	>
+		<Header />
+		<main>
 			<slot />
-			<Footer />
 		</main>
+		<Footer />
 		<script is:inline>
 			document.addEventListener('astro:after-swap', () => {
 				const themeToggleButton = document.getElementById('theme-toggle')

@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
+import TechBadge from './TechBadge.astro'
 
 type Props = {
 	name: string
@@ -75,10 +76,7 @@ const {
 				<h4 class="text-sm font-semibold">Technologies Used</h4>
 				<div class="flex flex-wrap gap-2 my-4">
         {techUsed.map((tech) => (
-					<div class="badge badge-outline gap-2">
-            <Icon name={tech.icon} class="w-4 h-4" />
-            {tech.name}
-          </div>
+					<TechBadge name={tech.name} icon={tech.icon} />
         ))}
       </div>
 			)}
