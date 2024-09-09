@@ -1,6 +1,6 @@
 ---
-import { getCollection, type CollectionEntry } from 'astro:content'
 import Layout from '@/layouts/Layout.astro'
+import { getCollection, type CollectionEntry } from 'astro:content'
 
 export const getStaticPaths = async () => {
 	const blogs = await getCollection('blogs')
@@ -33,10 +33,10 @@ const { Content } = await blog.render()
 			>Read on Hashnode</a
 		>
 	</div>
-	<article class="w-full">
+	<article class="">
 		<Content />
 	</article>
-	<section class="pt-8">
+	<div class="pt-8">
 		<script
 			is:inline
 			src="https://giscus.app/client.js"
@@ -54,5 +54,5 @@ const { Content } = await blog.render()
 			data-loading="lazy"
 			crossorigin="anonymous"
 			async></script>
-	</section>
+	</div>
 </Layout>
