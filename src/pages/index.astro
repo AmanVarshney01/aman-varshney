@@ -1,12 +1,13 @@
 ---
+import Badge from '@/components/Badge.astro'
 import ProjectCardGrid from '@/components/ProjectCardGrid.astro'
-import TechBadge from '@/components/TechBadge.astro'
 import Layout from '@/layouts/Layout.astro'
+import { Icon } from 'astro-icon/components'
 ---
 
 <Layout title="Aman Varshney">
 	<div class="flex flex-col">
-		<div class="flex flex-col">
+		<section class="flex flex-col">
 			<!-- TODO Add Photo -->
 			<h1>Aman Varshney</h1>
 			<!-- <div class="flex flex-row items-center gap-2 py-1">
@@ -29,7 +30,6 @@ import Layout from '@/layouts/Layout.astro'
 				/>
 				<span>Full-Stack Web Developer</span>
 			</div> -->
-
 			<p>
 				Hello I'm <strong>Aman Varshney</strong>, a <strong>B.Tech CSE</strong> student with a passion
 				for <strong>web and app development</strong>. I am passionate about creating <strong
@@ -39,33 +39,41 @@ import Layout from '@/layouts/Layout.astro'
 				for <strong>over 2 years</strong>.
 			</p>
 			<div class="flex flex-col gap-2 md:flex-row md:gap-4">
-				<a href="mailto:amanvarshney.work@gmail.com" target="_blank" class="link">
+				<a href="mailto:amanvarshney.work@gmail.com" target="_blank" class="btn btn-sm">
+					<Icon name="mail" class="h-4 w-4" />
 					amanvarshney.work@gmail.com
 				</a>
-				<a href="https://x.com/amanvarshney01" target="_blank" class="link"> X.com </a>
-				<a href="https://github.com/AmanVarshney01" target="_blank" class="link"> Github </a>
-				<a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank" class="link">
+				<a href="https://x.com/amanvarshney01" target="_blank" class="btn btn-sm">
+					<Icon name="x" class="h-4 w-4" />
+					X.com
+				</a>
+				<a href="https://github.com/AmanVarshney01" target="_blank" class="btn btn-sm">
+					<Icon name="github" class="h-4 w-4" />
+					Github
+				</a>
+				<a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank" class="btn btn-sm">
+					<Icon name="linkedin" class="h-4 w-4" />
 					LinkedIn
 				</a>
 			</div>
-		</div>
-		<div>
-			<h2>Tech I know</h2>
+		</section>
+		<section>
+			<h2>Tech Stack</h2>
 			<div class="flex flex-row flex-wrap gap-4 prose-img:m-0 prose-img:rounded-sm">
-				<TechBadge name="Typescript" icon="typescript" />
-				<TechBadge name="Next.js" icon="next" />
-				<TechBadge name="Expo" icon="expo" />
-				<TechBadge name="React Native" icon="react" />
-				<TechBadge name="Astro" icon="astro" />
-				<TechBadge name="Tailwind" icon="tailwind" />
+				<Badge name="Typescript" icon="typescript" />
+				<Badge name="Next.js" icon="next" />
+				<Badge name="Expo" icon="expo" />
+				<Badge name="React Native" icon="react" />
+				<Badge name="Astro" icon="astro" />
+				<Badge name="Tailwind" icon="tailwind" />
 			</div>
-		</div>
-		<div class="flex flex-col">
-			<div class="flex w-full flex-row  items-center justify-between">
-				<h2>Projects</h2>
-				<a href="/projects" class="btn btn-ghost mt-12 mb-6 btn-xs">see more</a>
+		</section>
+		<section class="flex flex-col">
+			<div class="flex w-full flex-row items-center justify-between">
+				<h2>Featured Projects</h2>
+				<a href="/projects" class="btn btn-ghost btn-xs mb-6 mt-12">See all projects</a>
 			</div>
 			<ProjectCardGrid />
-		</div>
+		</section>
 	</div>
 </Layout>

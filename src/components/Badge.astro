@@ -1,0 +1,25 @@
+---
+import { Icon } from 'astro-icon/components'
+
+type Props = {
+	name: string
+	icon?: string
+	link?: string
+}
+
+const { name, icon, link } = Astro.props
+---
+
+{
+	link ? (
+		<a href={link} target="_blank" class="badge gap-2">
+			{icon && <Icon name={icon} class="h-4 w-4" />}
+			{name}
+		</a>
+	) : (
+		<div class="badge gap-2">
+			{icon && <Icon name={icon} class="h-4 w-4" />}
+			{name}
+		</div>
+	)
+}
