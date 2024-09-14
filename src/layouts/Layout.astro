@@ -58,82 +58,69 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 			<slot />
 		</main>
 		<Footer />
-		<!-- Cal floating-popup embed code begins -->
-		<script type="text/javascript">
-			;(function (C, A, L) {
-				let p = function (a, ar) {
-					a.q.push(ar)
-				}
-				let d = C.document
-				C.Cal =
-					C.Cal ||
-					function () {
-						let cal = C.Cal
-						let ar = arguments
-						if (!cal.loaded) {
-							cal.ns = {}
-							cal.q = cal.q || []
-							d.head.appendChild(d.createElement('script')).src = A
-							cal.loaded = true
-						}
-						if (ar[0] === L) {
-							const api = function () {
-								p(api, arguments)
-							}
-							const namespace = ar[1]
-							api.q = api.q || []
-							if (typeof namespace === 'string') {
-								cal.ns[namespace] = cal.ns[namespace] || api
-								p(cal.ns[namespace], ar)
-								p(cal, ['initNamespace', namespace])
-							} else p(cal, ar)
-							return
-						}
-						p(cal, ar)
+		<script lang="text/javascript">
+			function initializeCalEmbed(theme) {
+				;(function (C, A, L) {
+					let p = function (a, ar) {
+						a.q.push(ar)
 					}
-			})(window, 'https://app.cal.com/embed/embed.js', 'init')
-			Cal('init', '15min', { origin: 'https://cal.com' })
+					let d = C.document
+					C.Cal =
+						C.Cal ||
+						function () {
+							let cal = C.Cal
+							let ar = arguments
+							if (!cal.loaded) {
+								cal.ns = {}
+								cal.q = cal.q || []
+								d.head.appendChild(d.createElement('script')).src = A
+								cal.loaded = true
+							}
+							if (ar[0] === L) {
+								const api = function () {
+									p(api, arguments)
+								}
+								const namespace = ar[1]
+								api.q = api.q || []
+								if (typeof namespace === 'string') {
+									cal.ns[namespace] = cal.ns[namespace] || api
+									p(cal.ns[namespace], ar)
+									p(cal, ['initNamespace', namespace])
+								} else p(cal, ar)
+								return
+							}
+							p(cal, ar)
+						}
+				})(window, 'https://app.cal.com/embed/embed.js', 'init')
+				Cal('init', '15min', { origin: 'https://cal.com' })
 
-			Cal.ns['15min']('floatingButton', {
-				calLink: 'amanvarshney01/15min',
-				config: { layout: 'month_view' }
-			})
-			Cal.ns['15min']('ui', {
-				styles: { branding: { brandColor: '#000000' } },
-				hideEventTypeDetails: false,
-				layout: 'month_view'
-			})
-		</script>
-		<!-- Cal floating-popup embed code ends -->
-		<script is:inline>
-			document.addEventListener('astro:after-swap', () => {
-				const themeToggleButton = document.getElementById('theme-toggle')
-				const savedTheme = localStorage.getItem('theme')
+				Cal.ns['15min']('ui', {
+					theme: theme,
+					styles: { branding: { brandColor: '#000000' } },
+					hideEventTypeDetails: false,
+					layout: 'month_view'
+				})
+			}
 
-				if (savedTheme) {
-					document.documentElement.setAttribute('data-theme', savedTheme)
-					themeToggleButton.checked = savedTheme === 'black'
-				}
+			function initializeTheme() {
+				let theme = localStorage.getItem('theme')
+				let themeToggleButton = document.getElementById('theme-toggle')
 
-				themeToggleButton?.addEventListener('change', () => {
-					const newTheme = themeToggleButton.checked ? 'black' : 'lofi'
+				document.documentElement.setAttribute('data-theme', theme)
+				themeToggleButton.checked = theme === 'black'
+
+				initializeCalEmbed(theme === 'black' ? 'dark' : 'light')
+
+				themeToggleButton.addEventListener('change', () => {
+					let newTheme = themeToggleButton.checked ? 'black' : 'lofi'
 					document.documentElement.setAttribute('data-theme', newTheme)
 					localStorage.setItem('theme', newTheme)
 				})
-			})
-			const themeToggleButton = document.getElementById('theme-toggle')
-			const savedTheme = localStorage.getItem('theme')
-
-			if (savedTheme) {
-				document.documentElement.setAttribute('data-theme', savedTheme)
-				themeToggleButton.checked = savedTheme === 'black'
 			}
 
-			themeToggleButton?.addEventListener('change', () => {
-				const newTheme = themeToggleButton.checked ? 'black' : 'lofi'
-				document.documentElement.setAttribute('data-theme', newTheme)
-				localStorage.setItem('theme', newTheme)
-			})
+			initializeTheme()
+
+			document.addEventListener('astro:after-swap', initializeTheme)
 		</script>
 	</body>
 </html>
