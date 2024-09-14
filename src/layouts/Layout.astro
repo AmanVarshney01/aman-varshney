@@ -59,82 +59,63 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 		</main>
 		<Footer />
 		<script is:inline>
-			function initializeCalEmbed(theme) {
-				if (window.Cal) {
-					// If Cal is already initialized, just update the theme
-					Cal.ns['15min']('ui', {
-						theme: theme,
-						styles: { branding: { brandColor: '#000000' } },
-						hideEventTypeDetails: false,
-						layout: 'month_view'
-					})
-				} else {
-					// Initialize Cal only if it hasn't been initialized before
-					;(function (C, A, L) {
-						let p = function (a, ar) {
-							a.q.push(ar)
-						}
-						let d = C.document
-						C.Cal =
-							C.Cal ||
-							function () {
-								let cal = C.Cal
-								let ar = arguments
-								if (!cal.loaded) {
-									cal.ns = {}
-									cal.q = cal.q || []
-									d.head.appendChild(d.createElement('script')).src = A
-									cal.loaded = true
-								}
-								if (ar[0] === L) {
-									const api = function () {
-										p(api, arguments)
-									}
-									const namespace = ar[1]
-									api.q = api.q || []
-									if (typeof namespace === 'string') {
-										cal.ns[namespace] = cal.ns[namespace] || api
-										p(cal.ns[namespace], ar)
-										p(cal, ['initNamespace', namespace])
-									} else p(cal, ar)
-									return
-								}
-								p(cal, ar)
-							}
-					})(window, 'https://app.cal.com/embed/embed.js', 'init')
-
-					Cal('init', '15min', { origin: 'https://cal.com' })
-
-					Cal.ns['15min']('ui', {
-						theme: theme,
-						styles: { branding: { brandColor: '#000000' } },
-						hideEventTypeDetails: false,
-						layout: 'month_view'
-					})
+			;(function (C, A, L) {
+				let p = function (a, ar) {
+					a.q.push(ar)
 				}
-			}
+				let d = C.document
+				C.Cal =
+					C.Cal ||
+					function () {
+						let cal = C.Cal
+						let ar = arguments
+						if (!cal.loaded) {
+							cal.ns = {}
+							cal.q = cal.q || []
+							d.head.appendChild(d.createElement('script')).src = A
+							cal.loaded = true
+						}
+						if (ar[0] === L) {
+							const api = function () {
+								p(api, arguments)
+							}
+							const namespace = ar[1]
+							api.q = api.q || []
+							if (typeof namespace === 'string') {
+								cal.ns[namespace] = cal.ns[namespace] || api
+								p(cal.ns[namespace], ar)
+								p(cal, ['initNamespace', namespace])
+							} else p(cal, ar)
+							return
+						}
+						p(cal, ar)
+					}
+			})(window, 'https://app.cal.com/embed/embed.js', 'init')
+			Cal('init', '15min', { origin: 'https://cal.com' })
+
+			Cal.ns['15min']('ui', {
+				theme: 'auto',
+				styles: { branding: { brandColor: '#000000' } },
+				hideEventTypeDetails: false,
+				layout: 'month_view'
+			})
 
 			function initializeTheme() {
-				let theme = localStorage.getItem('theme') || 'lofi'
+				let theme = localStorage.getItem('theme')
 				let themeToggleButton = document.getElementById('theme-toggle')
 
 				document.documentElement.setAttribute('data-theme', theme)
 				themeToggleButton.checked = theme === 'black'
 
-				initializeCalEmbed(theme === 'black' ? 'dark' : 'light')
-
 				themeToggleButton.addEventListener('change', () => {
 					let newTheme = themeToggleButton.checked ? 'black' : 'lofi'
 					document.documentElement.setAttribute('data-theme', newTheme)
 					localStorage.setItem('theme', newTheme)
-					initializeCalEmbed(newTheme === 'black' ? 'dark' : 'light')
 				})
 			}
 
-			// Initialize theme on page load
 			initializeTheme()
 
-			// Re-initialize theme after Astro page transitions
 			document.addEventListener('astro:after-swap', initializeTheme)
 		</script>
 	</body>
