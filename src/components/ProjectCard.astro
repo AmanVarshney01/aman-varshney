@@ -31,7 +31,7 @@ const {
 ---
 
 <div class="not-prose card card-compact">
-	<figure onclick=`${alias}.showModal()` class="aspect-video cursor-pointer object-contain">
+	<figure onclick=`${alias}.showModal()` class="aspect-video bg-base-100 cursor-pointer object-contain">
 		<Image
 			src={image}
 			alt={name}
@@ -54,7 +54,7 @@ const {
 </div>
 
 <dialog id={alias} class="modal modal-bottom sm:modal-middle">
-	<div class="not-prose card modal-box card-compact !max-w-4xl">
+	<div class="not-prose p-2 card modal-box card-compact !max-w-4xl">
 		<figure class="relative w-full border dark:border-base-200">
 			<Image
 				class="h-full w-full object-cover"
@@ -80,7 +80,7 @@ const {
         ))}
       </div>
 			)}
-			<div class="card-actions modal-action">
+			<div class="card-actions modal-action gap-1 md:gap-2 md:justify-end justify-center">
 				<a href={githubLink} class="btn btn-sm" target="_blank">
 					<Icon name="github" title="github" />
 					View on GitHub</a
@@ -94,7 +94,7 @@ const {
 					)
 				}
 				<form method="dialog">
-					<button class="btn btn-sm">Close</button>
+					<button class="btn btn-sm">X</button>
 				</form>
 			</div>
 		</div>

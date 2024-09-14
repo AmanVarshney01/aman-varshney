@@ -5,7 +5,7 @@ const currentPath = Astro.url.pathname
 ---
 
 <div class="flex flex-row items-center justify-between bg-base-100 py-8">
-	<div class="flex flex-row gap-8">
+	<div class="flex flex-row gap-4 md:gap-8">
 		<NavButton href="/" name="Home" isActive={currentPath == '/'} />
 		<NavButton href="/projects" name="Projects" isActive={currentPath.startsWith('/projects')} />
 		<NavButton href="/blog" name="Blog" isActive={currentPath.startsWith('/blog')} />
