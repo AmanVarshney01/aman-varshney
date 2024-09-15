@@ -2,11 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .step:after {
-  width: 2.2rem !important;
-  height: 2.2rem !important;
+.step:after {
+	@apply !h-10 !w-10 !bg-primary;
 }
 
 .steps-vertical .step:before {
-  width: 1px !important;
-} */
+	@apply !w-[1px];
+}
+
+.pagefind-ui {
+	--pagefind-ui-text: @apply text-base-content;
+	--pagefind-ui-background: @apply bg-base-100;
+}
+
+.pagefind-ui__search-input {
+	@apply !input !input-bordered;
+}
+
+.pagefind-ui__result {
+	@apply !border-0;
+}
+
+mark {
+	@apply !bg-base-content !text-base-100 !p-1 !rounded-sm;
+}

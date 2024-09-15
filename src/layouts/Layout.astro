@@ -4,6 +4,7 @@ import { ViewTransitions } from 'astro:transitions'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import '@/styles/global.css'
+import SearchDialog from '@/components/SearchDialog.astro'
 
 type Props = {
 	title: string
@@ -56,6 +57,7 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 		<Header />
 		<main class="min-w-0">
 			<slot />
+			<SearchDialog />
 		</main>
 		<Footer />
 		<script is:inline>
@@ -100,23 +102,69 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 				layout: 'month_view'
 			})
 
-			function initializeTheme() {
-				let theme = localStorage.getItem('theme')
-				let themeToggleButton = document.getElementById('theme-toggle')
+			document.addEventListener('astro:after-swap', initSearchModal)
+
+			function initSearchModal() {
+				const modal = document.getElementById('search-modal')
+				const searchInput = document.querySelector('#search input')
+
+				document.addEventListener('keydown', (event) => {
+					if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
+						event.preventDefault()
+						if (modal.open) {
+							modal.close()
+						} else {
+							modal.showModal()
+							searchInput?.focus()
+						}
+					}
+				})
+
+				modal.addEventListener('keydown', (event) => {
+					if (event.key === 'Escape') {
+						modal.close()
+					}
+				})
+
+				modal.addEventListener('click', (event) => {
+					if (event.target === modal) {
+						modal.close()
+					}
+				})
+
+				modal.addEventListener('click', (event) => {
+					if (event.target.tagName === 'A') {
+						modal.close()
+					}
+				})
+
+				const modalContent = modal.querySelector('.modal-box')
+				modalContent.addEventListener('click', (event) => {
+					event.stopPropagation()
+				})
+			}
+
+			function initThemeToggle() {
+				const themeToggleButton = document.getElementById('theme-toggle')
+				const theme = localStorage.getItem('theme') || 'lofi'
 
 				document.documentElement.setAttribute('data-theme', theme)
 				themeToggleButton.checked = theme === 'black'
 
 				themeToggleButton.addEventListener('change', () => {
-					let newTheme = themeToggleButton.checked ? 'black' : 'lofi'
+					const newTheme = themeToggleButton.checked ? 'black' : 'lofi'
 					document.documentElement.setAttribute('data-theme', newTheme)
 					localStorage.setItem('theme', newTheme)
 				})
 			}
 
-			initializeTheme()
+			function init() {
+				initSearchModal()
+				initThemeToggle()
+			}
 
-			document.addEventListener('astro:after-swap', initializeTheme)
+			document.addEventListener('astro:after-swap', init)
+			init()
 		</script>
 	</body>
 </html>
