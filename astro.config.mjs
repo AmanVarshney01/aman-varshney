@@ -6,9 +6,8 @@ import vercel from '@astrojs/vercel/serverless'
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
 import expressiveCode from 'astro-expressive-code'
 import icon from 'astro-icon'
+import pagefind from 'astro-pagefind'
 import { defineConfig } from 'astro/config'
-import pagefind from "astro-pagefind";
-
 
 export default defineConfig({
 	site: 'https://amanvarshney.tech/',
@@ -35,9 +34,6 @@ export default defineConfig({
 		},
 		imageService: true
 	}),
-	build: {
-    format: "file",
-  },
 	experimental: {
 		serverIslands: true
 	},
