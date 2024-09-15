@@ -57,7 +57,7 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 		<Header />
 		<main class="min-w-0">
 			<slot />
-			<SearchDialog />
+			<SearchDialog transition:persist />
 		</main>
 		<Footer />
 		<script is:inline>
