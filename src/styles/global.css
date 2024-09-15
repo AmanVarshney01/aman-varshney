@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* .step:after {
+  width: 2.2rem !important;
+  height: 2.2rem !important;
+}
+
+.steps-vertical .step:before {
+  width: 1px !important;
+} */
