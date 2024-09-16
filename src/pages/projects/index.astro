@@ -1,0 +1,27 @@
+---
+import ProjectCard from '@/components/ProjectCard.astro'
+import Layout from '@/layouts/Layout.astro'
+import { projects } from 'src/lib/projects'
+---
+
+<Layout title="Projects | Aman Varshney">
+	<h1>Projects</h1>
+	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+		{
+			projects.map((project) => (
+				<ProjectCard
+					image={project.image}
+					name={project.name}
+					subDescription={project.subDescription}
+					description={project.description}
+					githubLink={project.githubLink}
+					liveLink={project.liveLink}
+					isFeatured={project.isFeatured}
+					loading={project.loading}
+					alias={project.alias}
+					techUsed={project.techUsed}
+				/>
+			))
+		}
+	</div>
+</Layout>

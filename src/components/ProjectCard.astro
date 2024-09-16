@@ -1,6 +1,4 @@
 ---
-import TechBadge from '@/components/Badge.astro'
-import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 
 type Props = {
@@ -10,7 +8,7 @@ type Props = {
 	image: any
 	githubLink: string
 	liveLink?: string
-	isNew?: boolean
+	isFeatured?: boolean
 	alias?: string
 	techUsed?: { name: string; icon: string }[]
 	loading?: 'lazy' | 'eager' | null | undefined
@@ -22,7 +20,7 @@ const {
 	image,
 	githubLink,
 	liveLink,
-	isNew,
+	isFeatured,
 	loading,
 	alias,
 	subDescription,
@@ -30,76 +28,27 @@ const {
 } = Astro.props
 ---
 
-<div class="not-prose card card-compact card-bordered">
-	<figure onclick=`${alias}.showModal()` class="aspect-video bg-base-100 cursor-pointer object-contain">
-		<Image
-			src={image}
-			alt={name}
-			width={1920}
-			height={1080}
-			quality={'low'}
-			loading={loading || 'lazy'}
-			class="transition-transform duration-300 hover:scale-105 aspect-video object-scale-down"
-		/>
-	</figure>
-	<div class="card-body">
-		<h3 class="card-title">
-			{name}
-		</h3>
-		<p>{subDescription}</p>
-		<div class="card-actions mt-2 items-center justify-between">
-			<button onclick=`${alias}.showModal()` class="btn btn-xs">Learn More</button>
-		</div>
-	</div>
-</div>
-
-<dialog id={alias} class="modal modal-bottom sm:modal-middle">
-	<div class="not-prose p-2 card modal-box card-compact !max-w-4xl">
-		<figure class="relative w-full border dark:border-base-200">
+<a transition:name={`${alias}`} href={`/projects/${alias}`} class="not-prose">
+	<div class="card card-bordered card-compact">
+		<figure class="aspect-video cursor-pointer bg-base-100 object-contain">
 			<Image
-				class="h-full w-full object-cover"
 				src={image}
 				alt={name}
 				width={1920}
 				height={1080}
-				quality={'high'}
-				loading={'lazy'}
+				quality={'low'}
+				loading={loading || 'lazy'}
+				class="aspect-video object-scale-down transition-transform duration-300 hover:scale-105"
 			/>
 		</figure>
 		<div class="card-body">
-			<div class="card-title flex flex-row items-center justify-between">
-				<h3>{name}</h3>
-				{isNew && <div class="badge badge-primary badge-sm">NEW</div>}
-			</div>
-			<p class="py-4">{description}</p>
-			{techUsed && techUsed.length > 0 && (
-				<h4 class="text-sm font-semibold">Technologies Used</h4>
-				<div class="flex flex-wrap gap-2 my-4">
-        {techUsed.map((tech) => (
-					<TechBadge name={tech.name} icon={tech.icon} />
-        ))}
-      </div>
-			)}
-			<div class="card-actions modal-action gap-1 md:gap-2 md:justify-end justify-center">
-				<a href={githubLink} class="btn btn-sm" target="_blank">
-					<Icon name="github" title="github" />
-					View on GitHub</a
-				>
-				{
-					liveLink && (
-						<a href={liveLink} class="btn btn-sm" target="_blank">
-							<Icon name="external" title="external link" />
-							Open Live Demo
-						</a>
-					)
-				}
-				<form method="dialog">
-					<button class="btn btn-sm">X</button>
-				</form>
+			<h3 class="card-title">
+				{name}
+			</h3>
+			<p>{subDescription}</p>
+			<div class="card-actions mt-2 items-center justify-between">
+				<button class="btn btn-xs">Learn More</button>
 			</div>
 		</div>
 	</div>
-	<form method="dialog" class="modal-backdrop">
-		<button>Close</button>
-	</form>
-</dialog>
+</a>

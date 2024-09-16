@@ -1,0 +1,77 @@
+---
+import Badge from '@/components/Badge.astro'
+import Layout from '@/layouts/Layout.astro'
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+import { projects } from 'src/lib/projects'
+import type { Project } from 'src/lib/types'
+
+export function getStaticPaths() {
+	return projects.flatMap((project) => ({
+		params: {
+			project: project.alias
+		}
+	}))
+}
+
+const { project } = Astro.params
+
+const {
+  name,
+  description,
+  image,
+  githubLink,
+  liveLink,
+  isFeatured,
+  loading,
+  alias,
+  subDescription,
+  techUsed
+}: Project = projects.find((p) => p.alias === project)!
+---
+
+<Layout title={`${name} | Aman Varshney`}>
+  <div transition:name={`${alias}`} class="not-prose p-2 card modal-box card-compact !max-w-4xl">
+    <figure class="relative w-full border dark:border-base-200">
+      <Image
+        class="h-full w-full object-cover"
+        src={image as ImageMetadata}
+        alt={name as string}
+        width={1920}
+        height={1080}
+        quality={'high'}
+        loading={'lazy'}
+      />
+    </figure>
+    <div class="card-body">
+      <div class="card-title flex flex-row items-center justify-between">
+        <h3>{name}</h3>
+        {isFeatured && <div class="badge badge-primary badge-sm">NEW</div>}
+      </div>
+      <p class="py-4">{description}</p>
+      {techUsed && techUsed.length > 0 && (
+        <h4 class="text-sm font-semibold">Technologies Used</h4>
+        <div class="flex flex-wrap gap-2 my-4">
+        {techUsed.map((tech) => (
+          <Badge name={tech.name} icon={tech.icon} />
+        ))}
+      </div>
+      )}
+      <div class="card-actions modal-action gap-1 md:gap-2 md:justify-end justify-center">
+        <a href={githubLink} class="btn btn-sm" target="_blank">
+          <Icon name="github" title="github" />
+          View on GitHub</a
+        >
+        {
+          liveLink && (
+            <a href={liveLink} class="btn btn-sm" target="_blank">
+              <Icon name="external" title="external link" />
+              Open Live Demo
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</Layout>
+

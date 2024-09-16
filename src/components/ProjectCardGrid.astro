@@ -1,63 +1,25 @@
 ---
-import glaappreimagined from '@/assets/project-images/gla-app-reimagined.webp'
-import hackTrack from '@/assets/project-images/hack-track.webp'
-import oxabags from '@/assets/project-images/oxabags-ecommerce.webp'
 import ProjectCard from '@/components/ProjectCard.astro'
+import { projects } from 'src/lib/projects'
+
+const newProjects = projects.filter((project) => project.isFeatured)
 ---
 
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-	<ProjectCard
-		image={hackTrack}
-		name="Hack Track"
-		subDescription="Project Tracker with team collaboration"
-		description="Project Tracker with team collaboration using Next.js, Shadcn/UI, and Supabase."
-		githubLink="https://github.com/AmanVarshney01/Hack-Track"
-		liveLink="https://hack-track.vercel.app/"
-		isNew
-		loading={'eager'}
-		alias="hackTrack"
-		techUsed={[
-			{ name: 'Typescript', icon: 'typescript' },
-			{ name: 'Next.js', icon: 'next' },
-			{ name: 'Supabase', icon: 'supabase' },
-			{ name: 'Tailwind', icon: 'tailwind' },
-			{ name: 'Shadcn/UI', icon: 'shadcn' },
-			{ name: 'Vercel', icon: 'vercel' }
-		]}
-	/>
-	<ProjectCard
-		image={oxabags}
-		name="Oxabags Ecommerce"
-		subDescription="A Zero Cost Ecommerce Site"
-		description="An ecommerce site using Next.js, Shadcn/UI, Razorpay, and Sanity.io"
-		githubLink="https://github.com/AmanVarshney01/oxabags"
-		liveLink="https://www.oxabags.com/"
-		isNew
-		loading={'eager'}
-		alias="oxabags"
-		techUsed={[
-			{ name: 'Typescript', icon: 'typescript' },
-			{ name: 'Next.js', icon: 'next' },
-			{ name: 'Razorpay', icon: 'razorpay' },
-			{ name: 'Sanity.io', icon: 'sanity' },
-			{ name: 'Tailwind', icon: 'tailwind' },
-			{ name: 'Shadcn/UI', icon: 'shadcn' },
-			{ name: 'Cloudflare', icon: 'cloudflare' }
-		]}
-	/>
-	<ProjectCard
-		image={glaappreimagined}
-		name="Gla App Reimagined"
-		subDescription="A GLA University app Prototype"
-		description="A Gla app prototype using React Native"
-		githubLink="https://github.com/AmanVarshney01/gla-app-reimagined"
-		loading={'lazy'}
-		alias="glaAppReimagined"
-		techUsed={[
-			{ name: 'Typescript', icon: 'typescript' },
-			{ name: 'React Native', icon: 'react' },
-			{ name: 'Expo', icon: 'expo' },
-			{ name: 'Nativewind', icon: 'tailwind' }
-		]}
-	/>
+	{
+		newProjects.map((project) => (
+			<ProjectCard
+				image={project.image}
+				name={project.name}
+				subDescription={project.subDescription}
+				description={project.description}
+				githubLink={project.githubLink}
+				liveLink={project.liveLink}
+				isFeatured={project.isFeatured}
+				loading={project.loading}
+				alias={project.alias}
+				techUsed={project.techUsed}
+			/>
+		))
+	}
 </div>
