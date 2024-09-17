@@ -70,10 +70,12 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 			<div class="modal-box !max-w-4xl rounded-lg border border-base-300">
 				<Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
 			</div>
-			<div class="modal-backdrop"></div>
+			<form id="search-modal" method="dialog" class="modal-backdrop">
+				<button>Close</button>
+			</form>
 		</dialog>
 
-		<script lang="javascript">
+		<script lang="text/javascript">
 			function initSearchModal() {
 				const modal = document.getElementById('search-modal')
 				const searchInput = document.querySelector('#search input')
