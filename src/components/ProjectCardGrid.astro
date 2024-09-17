@@ -2,12 +2,12 @@
 import ProjectCard from '@/components/ProjectCard.astro'
 import { projects } from 'src/lib/projects'
 
-const newProjects = projects.filter((project) => project.isFeatured)
+const featuredProjects = projects.filter((project) => project.isFeatured)
 ---
 
 <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
 	{
-		newProjects.map((project) => (
+		featuredProjects.map((project) => (
 			<ProjectCard
 				image={project.image}
 				name={project.name}
