@@ -4,7 +4,6 @@ import { ViewTransitions } from 'astro:transitions'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import '@/styles/global.css'
-import SearchDialog from '@/components/SearchDialog.astro'
 import Search from 'astro-pagefind/components/Search'
 
 type Props = {
@@ -71,12 +70,10 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 			<div class="modal-box !max-w-4xl rounded-lg border border-base-300">
 				<Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
 			</div>
-			<form method="dialog" class="modal-backdrop">
-				<button>Close</button>
-			</form>
+			<div class="modal-backdrop"></div>
 		</dialog>
 
-		<script lang="text/javascript">
+		<script lang="javascript">
 			function initSearchModal() {
 				const modal = document.getElementById('search-modal')
 				const searchInput = document.querySelector('#search input')
