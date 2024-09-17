@@ -5,6 +5,7 @@ import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import '@/styles/global.css'
 import SearchDialog from '@/components/SearchDialog.astro'
+import Search from 'astro-pagefind/components/Search'
 
 type Props = {
 	title: string
@@ -49,6 +50,12 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 				creator: '@amanvarshney01'
 			}}
 		/>
+		<script is:inline>
+			;(function () {
+				const theme = localStorage.getItem('theme') || 'lofi'
+				document.documentElement.setAttribute('data-theme', theme)
+			})()
+		</script>
 		<ViewTransitions fallback={'none'} />
 	</head>
 	<body
@@ -57,53 +64,19 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 		<Header />
 		<main class="min-w-0">
 			<slot />
-			<SearchDialog transition:persist />
 		</main>
 		<Footer />
-		<script is:inline>
-			;(function (C, A, L) {
-				let p = function (a, ar) {
-					a.q.push(ar)
-				}
-				let d = C.document
-				C.Cal =
-					C.Cal ||
-					function () {
-						let cal = C.Cal
-						let ar = arguments
-						if (!cal.loaded) {
-							cal.ns = {}
-							cal.q = cal.q || []
-							d.head.appendChild(d.createElement('script')).src = A
-							cal.loaded = true
-						}
-						if (ar[0] === L) {
-							const api = function () {
-								p(api, arguments)
-							}
-							const namespace = ar[1]
-							api.q = api.q || []
-							if (typeof namespace === 'string') {
-								cal.ns[namespace] = cal.ns[namespace] || api
-								p(cal.ns[namespace], ar)
-								p(cal, ['initNamespace', namespace])
-							} else p(cal, ar)
-							return
-						}
-						p(cal, ar)
-					}
-			})(window, 'https://app.cal.com/embed/embed.js', 'init')
-			Cal('init', '15min', { origin: 'https://cal.com' })
 
-			Cal.ns['15min']('ui', {
-				theme: 'auto',
-				styles: { branding: { brandColor: '#000000' } },
-				hideEventTypeDetails: false,
-				layout: 'month_view'
-			})
+		<dialog id="search-modal" class="modal">
+			<div class="modal-box !max-w-4xl rounded-lg border border-base-300">
+				<Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
+			</div>
+		</dialog>
+		<form method="dialog" class="modal-backdrop">
+			<button>Close</button>
+		</form>
 
-			document.addEventListener('astro:after-swap', initSearchModal)
-
+		<script lang="text/javascript">
 			function initSearchModal() {
 				const modal = document.getElementById('search-modal')
 				const searchInput = document.querySelector('#search input')
@@ -159,12 +132,10 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 			}
 
 			function init() {
-				initSearchModal()
 				initThemeToggle()
+				initSearchModal()
 			}
-
-			document.addEventListener('astro:after-swap', init)
-			init()
+			document.addEventListener('astro:page-load', init)
 		</script>
 	</body>
 </html>

@@ -52,7 +52,7 @@ export const projects: Project[] = [
 		subDescription: 'A GLA University app Prototype',
 		description: 'A Gla app prototype using React Native',
 		githubLink: 'https://github.com/AmanVarshney01/gla-app-reimagined',
-		loading: 'lazy',
+		loading: 'eager',
 		isFeatured: true,
 		alias: 'gla-app-reimagined',
 		techUsed: [
@@ -69,7 +69,7 @@ export const projects: Project[] = [
 		description: 'My Portfolio using Astro and Tailwind CSS',
 		githubLink: 'https://github.com/AmanVarshney01/aman-varshney',
 		liveLink: 'https://www.amanvarshney.tech/',
-		loading: 'eager',
+		loading: 'lazy',
 		alias: 'portfolio',
 		techUsed: [
 			{ name: 'Astro', icon: 'astro' },
