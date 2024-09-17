@@ -1,31 +1,10 @@
 ---
 import { Image } from 'astro:assets'
+import type { Project } from 'src/lib/types'
 
-type Props = {
-	name: string
-	subDescription: string
-	description: string
-	image: any
-	githubLink: string
-	liveLink?: string
-	isFeatured?: boolean
-	alias?: string
-	techUsed?: { name: string; icon: string }[]
-	loading?: 'lazy' | 'eager' | null | undefined
-}
+type Props = Project
 
-const {
-	name,
-	description,
-	image,
-	githubLink,
-	liveLink,
-	isFeatured,
-	loading,
-	alias,
-	subDescription,
-	techUsed
-} = Astro.props
+const { name, image, loading, alias, subDescription } = Astro.props
 ---
 
 <a transition:name={`${alias}`} href={`/projects/${alias}`} class="not-prose">
