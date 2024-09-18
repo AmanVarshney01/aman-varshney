@@ -1,35 +1,28 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import { getCollection, type CollectionEntry } from 'astro:content'
+import { getCollection, render } from 'astro:content'
 
 export const getStaticPaths = async () => {
-	const blogs = await getCollection('blogs')
-	const paths = blogs.map((blog) => {
-		return {
-			params: { slug: blog.slug },
-			props: { blog }
-		}
-	})
-	return paths
-}
-
-type Props = {
-	blog: CollectionEntry<'blogs'>
+	const allBlogs = await getCollection('blog')
+	return allBlogs.map((blog) => ({
+		params: { slug: blog.id },
+		props: { blog }
+	}))
 }
 
 const { blog } = Astro.props
-const { Content } = await blog.render()
+const { Content } = await render(blog)
 ---
 
 <Layout title={blog.data.title}>
 	<div class="flex flex-col">
-		<h1 transition:name="post-name" class="mb-0 pb-2">
+		<h1 transition:name="blog-heading" class="mb-0 pb-2">
 			{blog.data.title}
 		</h1>
 		<span class="pb-4">
 			{blog.data.date}
 		</span>
-		<a class="link" href=`https://amanvarshney.hashnode.dev/${blog.slug}` target="_blank"
+		<a class="link" href=`https://amanvarshney.hashnode.dev/${blog.id}` target="_blank"
 			>Read on Hashnode</a
 		>
 	</div>

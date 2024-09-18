@@ -2,14 +2,14 @@
 import { type CollectionEntry } from 'astro:content'
 
 type Props = {
-	blog: CollectionEntry<'blogs'>
+	blog: CollectionEntry<'blog'>
 }
 
 const { blog } = Astro.props
 ---
 
 <div class="flex flex-col justify-between md:flex-row">
-	<a class="link" transition:name="post-name" href=`blog/${blog.slug}`>
+	<a class="link" transition:name="blog-heading" href=`blog/${blog.id}`>
 		{blog.data.title}
 	</a>
 	<span>{blog.data.date.toString()}</span>

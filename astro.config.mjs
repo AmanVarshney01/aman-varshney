@@ -27,18 +27,14 @@ export default defineConfig({
 		}),
 		pagefind()
 	],
-	output: 'hybrid',
 	adapter: vercel({
 		webAnalytics: {
 			enabled: true
 		},
 		imagesConfig: {
-			formats: ['image/webp']
+			formats: ['image/webp'],
+			sizes: [1024, 640]
 		},
 		imageService: true
-	}),
-	experimental: {
-		serverIslands: true
-	},
-	prefetch: true
+	})
 })

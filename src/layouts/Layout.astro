@@ -1,6 +1,6 @@
 ---
 import { SEO } from 'astro-seo'
-import { ViewTransitions } from 'astro:transitions'
+import { ClientRouter } from 'astro:transitions'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import '@/styles/global.css'
@@ -55,7 +55,7 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 				document.documentElement.setAttribute('data-theme', theme)
 			})()
 		</script>
-		<ViewTransitions fallback={'none'} />
+		<ClientRouter fallback={'none'} />
 	</head>
 	<body
 		class="prose mx-auto grid min-h-svh w-full max-w-3xl grid-rows-[auto_1fr_auto] py-5 underline-offset-4 antialiased max-lg:px-4"
