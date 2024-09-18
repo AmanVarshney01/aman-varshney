@@ -5,7 +5,7 @@ import sanitizeHtml from 'sanitize-html'
 const parser = new MarkdownIt()
 
 export async function GET(context) {
-	const blogs = await getCollection('blogs')
+	const blogs = await getCollection('blog')
 	return rss({
 		title: 'Aman Varshney',
 		description: 'Portfolio of Aman Varshney',
@@ -16,7 +16,7 @@ export async function GET(context) {
 			content: sanitizeHtml(parser.render(blog.body), {
 				allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img'])
 			}),
-			link: `/blog/${blog.slug}/`
+			link: `/blog/${blog.id}/`
 		})),
 		customData: `<language>en-us</language>`
 	})

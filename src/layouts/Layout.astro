@@ -75,7 +75,7 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 			</form>
 		</dialog>
 
-		<script lang="javascript">
+		<script is:inline>
 			function initSearchModal() {
 				const modal = document.getElementById('search-modal')
 				const searchInput = document.querySelector('#search input')

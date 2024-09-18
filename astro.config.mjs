@@ -31,10 +31,6 @@ export default defineConfig({
 		webAnalytics: {
 			enabled: true
 		},
-		imagesConfig: {
-			formats: ['image/webp'],
-			sizes: [1024, 640]
-		},
 		imageService: true
 	})
 })
