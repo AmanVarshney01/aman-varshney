@@ -24,7 +24,8 @@ export const projects: Project[] = [
 			{ name: 'Tailwind', icon: 'tailwind' },
 			{ name: 'Shadcn/UI', icon: 'shadcn' },
 			{ name: 'Vercel', icon: 'vercel' }
-		]
+		],
+		note: "If the app doesn't load, it's because supabase paused the database due to inactivity."
 	},
 	{
 		image: oxabags,

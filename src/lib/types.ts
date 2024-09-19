@@ -9,4 +9,5 @@ export type Project = {
 	loading: 'eager' | 'lazy'
 	alias: string
 	techUsed: { name: string; icon: string }[]
+	note?: string
 }
