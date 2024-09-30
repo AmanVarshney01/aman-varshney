@@ -1,0 +1,20 @@
+---
+import KofferX from '@/assets/company/kofferX.svg'
+import { Image } from 'astro:assets'
+---
+
+<div class="flex flex-row items-start gap-4">
+	<Image src={KofferX} alt="kofferX" class="m-0 h-14 w-14" loading={'eager'} />
+	<div class="flex w-full flex-row items-start justify-between">
+		<div class="flex flex-col items-start p-0">
+			<a href="https://kofferx.com/" target="_blank" rel="noopener">
+				<h3 class="card-title m-0">KofferX</h3>
+			</a>
+			<p class="m-0">Frontend Intern</p>
+		</div>
+		<div class="flex flex-col items-end">
+			<span>August 2024 - Present</span>
+			<span>Remote</span>
+		</div>
+	</div>
+</div>

@@ -25,7 +25,9 @@ export default defineConfig({
 		icon({
 			iconDir: 'src/assets/icons'
 		}),
-		pagefind()
+		pagefind({
+			highlightParam: 'highlight'
+		})
 	],
 	adapter: vercel({
 		webAnalytics: {

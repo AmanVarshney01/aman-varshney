@@ -1,6 +1,7 @@
 ---
 import Badge from '@/components/Badge.astro'
 import ProjectCardGrid from '@/components/ProjectCardGrid.astro'
+import ExperienceGrid from '@/components/ExperienceGrid.astro'
 import Layout from '@/layouts/Layout.astro'
 import { Icon } from 'astro-icon/components'
 ---
@@ -11,34 +12,21 @@ import { Icon } from 'astro-icon/components'
 			<!-- TODO Add Photo -->
 			<h1>Aman Varshney</h1>
 			<!-- <div class="flex flex-row items-center gap-2 py-1">
-				<Image
-					class={'dark:invert rounded-sm m-0'}
-					src={location}
-					alt="github"
-					loading={'eager'}
-					quality={'low'}
-				/>
+				<Icon name="map-pin" class="inline-block h-5 w-5" />
 				<span>Uttar Pradesh, India</span>
 			</div>
 			<div class="flex flex-row items-center gap-2 py-1">
-				<Image
-					class={'dark:invert rounded-sm m-0'}
-					src={work}
-					alt="github"
-					loading={'eager'}
-					quality={'low'}
-				/>
-				<span>Full-Stack Web Developer</span>
+				<Icon name="briefcase" class="inline-block h-5 w-5" />
+				<span>Full Stack Developer</span>
 			</div> -->
 			<p>
-				Hello I'm <strong>Aman Varshney</strong>, a <strong>B.Tech CSE</strong> student with a passion
-				for <strong>web and app development</strong>. I am passionate about creating <strong
-					>beautiful, feature-rich web applications</strong
-				>
-				using <strong>best code practices</strong>. I have been deeply interested in web development
-				for <strong>over 2 years</strong>.
+				I'm <strong>Aman Varshney</strong>, a <strong>B.Tech CSE</strong> student with <strong
+					>2+ years</strong
+				> of learning in <strong>web and app development</strong>, focused on <strong
+					>clean, efficient solutions</strong
+				>.
 			</p>
-			<div class="flex flex-row flex-wrap gap-2 md:gap-4">
+			<div data-pagefind-ignore class="flex flex-row flex-wrap gap-2 md:gap-4">
 				<button
 					data-cal-link="amanvarshney01/15min"
 					data-cal-namespace="15min"
@@ -48,6 +36,10 @@ import { Icon } from 'astro-icon/components'
 					<Icon name="calendar" class="h-4 w-4" />
 					Schedule a meeting
 				</button>
+				<a href="https://github.com/AmanVarshney01" target="_blank" class="btn btn-sm">
+					<Icon name="github" class="h-4 w-4" />
+					Github
+				</a>
 				<a href="mailto:amanvarshney.work@gmail.com" target="_blank" class="btn btn-sm">
 					<Icon name="mail" class="h-4 w-4" />
 					Mail
@@ -56,17 +48,13 @@ import { Icon } from 'astro-icon/components'
 					<Icon name="x" class="h-4 w-4" />
 					X.com
 				</a>
-				<a href="https://github.com/AmanVarshney01" target="_blank" class="btn btn-sm">
-					<Icon name="github" class="h-4 w-4" />
-					Github
-				</a>
 				<a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank" class="btn btn-sm">
 					<Icon name="linkedin" class="h-4 w-4" />
 					LinkedIn
 				</a>
 			</div>
 		</section>
-		<section id="tech-stack">
+		<!-- <section id="tech-stack">
 			<h2>Tech Stack</h2>
 			<div class="flex flex-row flex-wrap gap-4 prose-img:m-0 prose-img:rounded-sm">
 				<Badge name="Typescript" icon="typescript" />
@@ -76,35 +64,24 @@ import { Icon } from 'astro-icon/components'
 				<Badge name="Astro" icon="astro" />
 				<Badge name="Tailwind" icon="tailwind" />
 			</div>
-		</section>
-		<section id="featured-projects" class="flex flex-col">
+		</section> -->
+		<section id="experience" class="flex flex-col">
 			<div class="flex w-full flex-row items-center justify-between">
-				<h2>Featured Projects</h2>
+				<h2>Experience</h2>
+			</div>
+			<ExperienceGrid />
+		</section>
+		<section id="projects" class="flex flex-col">
+			<div class="flex w-full flex-row items-center justify-between">
+				<h2>Projects</h2>
 				<a href="/projects" class="btn btn-ghost btn-xs mb-6 mt-12">See all projects</a>
 			</div>
 			<ProjectCardGrid />
 		</section>
-		<!-- <section>
-			<h2>Experience</h2>
-			<ul class="steps steps-vertical p-0">
-				<li data-content="" class="step  m-0">
-					<div
-						class="not-prose card flex flex-col border-b border-dotted border-base-300 text-left"
-					>
-						<div class="card-body">
-							<h3 class="card-title">KofferX</h3>
-							<p>
-								Developed a web application for a startup that helps users to rent luggage from
-								other users. The application is built using Next.js, Tailwind CSS, and Firebase.
-							</p>
-						</div>
-					</div>
-				</li>
-			</ul>
-		</section> -->
 	</div>
 </Layout>
 
+<!-- Cal.com Embed -->
 <script is:inline>
 	;(function (C, A, L) {
 		let p = function (a, ar) {

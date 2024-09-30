@@ -1,9 +1,9 @@
-import amanvarshney from '@/assets/project-images/aman-varshney.webp'
-import aman_varshney from '@/assets/project-images/amanvarshney.webp'
-import glaappreimagined from '@/assets/project-images/gla-app-reimagined.webp'
-import hackTrack from '@/assets/project-images/hack-track.webp'
-import oxabags from '@/assets/project-images/oxabags-ecommerce.webp'
-import suggestmeaman from '@/assets/project-images/suggestmeaman.webp'
+import amanvarshney from '@/assets/project/aman-varshney.webp'
+import aman_varshney from '@/assets/project/amanvarshney.webp'
+import glaappreimagined from '@/assets/project/gla-app-reimagined.webp'
+import hackTrack from '@/assets/project/hack-track.webp'
+import oxabags from '@/assets/project/oxabags-ecommerce.webp'
+import suggestmeaman from '@/assets/project/suggestmeaman.webp'
 import type { Project } from './types'
 
 export const projects: Project[] = [
@@ -24,8 +24,8 @@ export const projects: Project[] = [
 			{ name: 'Tailwind', icon: 'tailwind' },
 			{ name: 'Shadcn/UI', icon: 'shadcn' },
 			{ name: 'Vercel', icon: 'vercel' }
-		],
-		note: "If the app doesn't load, it's because supabase paused the database due to inactivity."
+		]
+		// note: "If the app doesn't load, it's because supabase paused the database due to inactivity."
 	},
 	{
 		image: oxabags,
@@ -49,7 +49,7 @@ export const projects: Project[] = [
 	},
 	{
 		image: glaappreimagined,
-		name: 'Gla App Reimagined',
+		name: 'GLAU App',
 		subDescription: 'A GLA University app Prototype',
 		description: 'A Gla app prototype using React Native',
 		githubLink: 'https://github.com/AmanVarshney01/gla-app-reimagined',

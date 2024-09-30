@@ -1,5 +1,4 @@
 ---
-import { SEO } from 'astro-seo'
 import { ClientRouter } from 'astro:transitions'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
@@ -13,7 +12,6 @@ type Props = {
 }
 
 const { title, description = 'Portfolio of Aman Varshney', author = 'Aman Varshney' } = Astro.props
-
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const socialImageURL = new URL('/og-image.webp', Astro.url)
 ---
@@ -32,23 +30,15 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 			title="Aman Varshney"
 			href={new URL('rss.xml', Astro.site)}
 		/>
-		<SEO
-			title={title}
-			description={description}
-			canonical={canonicalURL.href}
-			openGraph={{
-				basic: {
-					type: 'website',
-					title: title,
-					image: socialImageURL.href
-				}
-			}}
-			twitter={{
-				card: 'summary_large_image',
-				image: socialImageURL.href,
-				creator: '@amanvarshney01'
-			}}
-		/>
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalURL.href} />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:image" content={socialImageURL.href} />
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:image" content={socialImageURL.href} />
+		<meta property="twitter:creator" content="@amanvarshney01" />
 		<script is:inline>
 			;(function () {
 				const theme = localStorage.getItem('theme') || 'lofi'
@@ -58,10 +48,10 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 		<ClientRouter fallback={'none'} />
 	</head>
 	<body
-		class="prose mx-auto grid min-h-svh w-full max-w-3xl grid-rows-[auto_1fr_auto] py-5 underline-offset-4 antialiased max-lg:px-4"
+		class="prose mx-auto grid min-h-svh w-full max-w-2xl grid-rows-[auto_1fr_auto] py-5 underline-offset-4 antialiased max-lg:px-4"
 	>
 		<Header />
-		<main class="min-w-0">
+		<main data-pagefind-body class="min-w-0">
 			<slot />
 		</main>
 		<Footer />
@@ -81,7 +71,7 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 				const searchInput = document.querySelector('#search input')
 
 				document.addEventListener('keydown', (event) => {
-					if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
+					if (event.ctrlKey && event.key === 'k') {
 						event.preventDefault()
 						if (modal.open) {
 							modal.close()
