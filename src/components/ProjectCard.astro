@@ -7,9 +7,9 @@ type Props = Project
 const { name, image, loading, alias, subDescription } = Astro.props
 ---
 
-<a transition:name={`${alias}`} href={`/projects/${alias}`} class="not-prose">
-	<div class="card card-bordered card-compact">
-		<figure class="aspect-video cursor-pointer bg-base-100 object-contain">
+<div transition:name={`${alias}`} class="card card-bordered card-compact">
+	<a href={`/projects/${alias}`}>
+		<figure class="m-0 aspect-video cursor-pointer bg-base-100 object-contain">
 			<Image
 				src={image}
 				alt={name}
@@ -17,17 +17,19 @@ const { name, image, loading, alias, subDescription } = Astro.props
 				height={1080}
 				quality={'low'}
 				loading={loading || 'lazy'}
-				class="aspect-video object-scale-down transition-transform duration-300 hover:scale-105"
+				class="m-0 aspect-video object-scale-down transition-transform duration-300 hover:scale-105"
 			/>
 		</figure>
-		<div class="card-body">
-			<h3 class="card-title">
-				{name}
-			</h3>
-			<p>{subDescription}</p>
+	</a>
+	<div class="card-body">
+		<span class="card-title m-0">
+			{name}
+		</span>
+		<p class="m-0">{subDescription}</p>
+		<a href={`/projects/${alias}`}>
 			<div data-pagefind-ignore class="card-actions mt-2 items-center justify-between">
 				<button class="btn btn-xs">Learn More</button>
 			</div>
-		</div>
+		</a>
 	</div>
-</a>
+</div>

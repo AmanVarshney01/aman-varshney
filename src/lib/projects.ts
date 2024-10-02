@@ -29,7 +29,7 @@ export const projects: Project[] = [
 	},
 	{
 		image: oxabags,
-		name: 'Oxabags Ecommerce',
+		name: 'Oxabags',
 		subDescription: 'A Zero Cost Ecommerce Site',
 		description: 'An ecommerce site using Next.js, Shadcn/UI, Razorpay, and Sanity.io',
 		githubLink: 'https://github.com/AmanVarshney01/oxabags',
