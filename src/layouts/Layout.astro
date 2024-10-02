@@ -1,4 +1,5 @@
 ---
+import '@fontsource/geist-sans'
 import { ClientRouter } from 'astro:transitions'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
@@ -48,7 +49,7 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 		<ClientRouter fallback={'none'} />
 	</head>
 	<body
-		class="prose prose-base mx-auto grid min-h-svh w-full max-w-2xl grid-rows-[auto_1fr_auto] py-2 underline-offset-4 antialiased prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg max-lg:px-4 md:py-5"
+		class="prose prose-base mx-auto grid min-h-svh w-full max-w-2xl grid-rows-[auto_1fr_auto] underline-offset-4 antialiased prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg prose-h4:text-base max-lg:px-4"
 	>
 		<Header />
 		<main data-pagefind-body class="min-w-0">

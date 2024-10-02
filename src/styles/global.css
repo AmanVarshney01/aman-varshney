@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+	font-family: 'Geist Sans', sans-serif;
+}
+
 .step:after {
 	@apply !h-10 !w-10 !bg-primary;
 }

@@ -5,7 +5,7 @@ import { Icon } from 'astro-icon/components'
 const currentPath = Astro.url.pathname
 ---
 
-<div class="flex flex-row items-center gap-2 justify-between bg-base-100 py-8">
+<div class="flex flex-row items-center justify-between gap-2 bg-base-100 py-8">
 	<div class="flex flex-row gap-4 md:gap-8">
 		<NavButton href="/" name="Home" isActive={currentPath == '/'} />
 		<NavButton href="/projects" name="Projects" isActive={currentPath.startsWith('/projects')} />
