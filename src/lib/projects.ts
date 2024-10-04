@@ -10,8 +10,10 @@ export const projects: Project[] = [
 	{
 		image: hackTrack,
 		name: 'Hack Track',
-		subDescription: 'Project Tracker with team collaboration',
-		description: 'Project Tracker with team collaboration using Next.js, Shadcn/UI, and Supabase.',
+		subDescription:
+			'Team collaboration project tracker built with Next.js, Shadcn/UI, and Supabase.',
+		description:
+			'A project tracker for team collaboration utilizing Next.js, Shadcn/UI, and Supabase.',
 		githubLink: 'https://github.com/AmanVarshney01/Hack-Track',
 		liveLink: 'https://hack-track.vercel.app/',
 		isFeatured: true,
@@ -25,13 +27,12 @@ export const projects: Project[] = [
 			{ name: 'Shadcn/UI', icon: 'shadcn' },
 			{ name: 'Vercel', icon: 'vercel' }
 		]
-		// note: "If the app doesn't load, it's because supabase paused the database due to inactivity."
 	},
 	{
 		image: oxabags,
 		name: 'Oxabags',
-		subDescription: 'A Zero Cost Ecommerce Site',
-		description: 'An ecommerce site using Next.js, Shadcn/UI, Razorpay, and Sanity.io',
+		subDescription: 'Ecommerce site developed with Next.js, Sanity.io, and Razorpay.',
+		description: 'An ecommerce platform using Next.js, Shadcn/UI, Razorpay, and Sanity.io.',
 		githubLink: 'https://github.com/AmanVarshney01/oxabags',
 		liveLink: 'https://www.oxabags.com/',
 		isFeatured: true,
@@ -50,11 +51,11 @@ export const projects: Project[] = [
 	{
 		image: glaappreimagined,
 		name: 'GLAU App',
-		subDescription: 'A GLA University app Prototype',
-		description: 'A Gla app prototype using React Native',
+		subDescription: 'Prototype app for GLA University.',
+		description: 'A prototype app for GLA University built with React Native.',
 		githubLink: 'https://github.com/AmanVarshney01/gla-app-reimagined',
 		loading: 'eager',
-		isFeatured: true,
+		isFeatured: false,
 		alias: 'gla-app-reimagined',
 		techUsed: [
 			{ name: 'Typescript', icon: 'typescript' },
@@ -66,8 +67,9 @@ export const projects: Project[] = [
 	{
 		image: amanvarshney,
 		name: 'Portfolio',
-		subDescription: 'minimal portfolio with blog and guestbook',
-		description: 'My Portfolio using Astro and Tailwind CSS',
+		subDescription: 'Minimal portfolio with blog and guestbook.',
+		description:
+			'A minimal portfolio featuring a blog and guestbook, built with Astro and Tailwind CSS.',
 		githubLink: 'https://github.com/AmanVarshney01/aman-varshney',
 		liveLink: 'https://www.amanvarshney.tech/',
 		loading: 'lazy',
@@ -81,8 +83,8 @@ export const projects: Project[] = [
 	{
 		image: aman_varshney,
 		name: '3D Portfolio',
-		subDescription: 'My 3D Portfolio',
-		description: 'A 3D portfolio using Next.js and Three.js',
+		subDescription: '3D portfolio website.',
+		description: 'A 3D portfolio website built with Next.js and Three.js.',
 		githubLink: 'https://github.com/AmanVarshney01/amanvarshney',
 		liveLink: 'https://aman-varshney.vercel.app/',
 		loading: 'lazy',
@@ -98,8 +100,8 @@ export const projects: Project[] = [
 	{
 		image: suggestmeaman,
 		name: 'Suggest Me Aman',
-		subDescription: 'Movie recommendations',
-		description: 'Movie recommendations using Svelte',
+		subDescription: 'Movie recommendation app.',
+		description: 'A movie recommendation app built with Svelte.',
 		githubLink: 'https://github.com/AmanVarshney01/SuggestMeAman',
 		liveLink: 'https://suggestmeaman.vercel.app/',
 		loading: 'lazy',
