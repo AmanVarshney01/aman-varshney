@@ -11,7 +11,7 @@ export const getStaticPaths = async () => {
 }
 
 const { blog } = Astro.props
-const { Content } = await render(blog)
+const { Content, headings } = await render(blog)
 ---
 
 <Layout title={blog.data.title}>
@@ -48,4 +48,61 @@ const { Content } = await render(blog)
 			crossorigin="anonymous"
 			async></script>
 	</div>
+	<div class="not-prose fixed left-4 top-40 hidden p-4 lg:block">
+		<ul class="space-y-1 text-base-content/60" id="table-of-contents">
+			{
+				headings.map((heading) => (
+					<li style={`margin-left: ${(heading.depth - 2) * 20}px;`}>
+						<a href={`#${heading.slug}`} class="text-sm hover:underline">
+							{heading.text}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+	<!-- <progress
+		id="scroll-progress"
+		class="progress progress-primary fixed right-0 top-0 h-1"
+		value="0"
+		max="100"></progress> -->
 </Layout>
+
+<script is:inline>
+	// function updateProgress() {
+	// 	const winScroll = document.body.scrollTop || document.documentElement.scrollTop
+	// 	const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+	// 	const scrolled = (winScroll / height) * 100
+	// 	document.getElementById('scroll-progress').value = scrolled
+	// }
+
+	function highlightCurrentHeading() {
+		const headings = document.querySelectorAll('h2, h3, h4, h5, h6')
+		const tocLinks = document.querySelectorAll('#table-of-contents a')
+
+		let currentHeadingIndex = 0
+
+		headings.forEach((heading, index) => {
+			const rect = heading.getBoundingClientRect()
+			if (rect.top <= 100) {
+				currentHeadingIndex = index
+			}
+		})
+
+		tocLinks.forEach((link, index) => {
+			if (index === currentHeadingIndex) {
+				link.classList.add('text-base-content', 'font-bold')
+			} else {
+				link.classList.remove('text-base-content', 'font-bold')
+			}
+		})
+	}
+
+	window.addEventListener('scroll', () => {
+		// updateProgress()
+		highlightCurrentHeading()
+	})
+
+	// updateProgress()
+	highlightCurrentHeading()
+</script>
