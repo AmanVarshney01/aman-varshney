@@ -4,8 +4,6 @@
 
 This is my personal website featuring my projects, blog, and a guestbook.
 
-
-
 ## Tech Stack
 
 - Astro: Static site generator
@@ -14,6 +12,5 @@ This is my personal website featuring my projects, blog, and a guestbook.
 - Astro DB: Used for the guestbook functionality
 - Pagefind: Search Functionality
 - Vercel: Hosting and deployment
-
 
 Enjoyed the site? Drop a comment in the guestbook!
