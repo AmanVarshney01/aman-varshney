@@ -37,9 +37,17 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
 		<meta property="og:image" content={socialImageURL.href} />
+		<meta property="twitter:title" content="Aman Varshney" />
+		<meta
+			property="twitter:description"
+			content="Portfolio showing my projects, blogs and guestbook"
+		/>
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:image" content={socialImageURL.href} />
 		<meta property="twitter:creator" content="@amanvarshney01" />
+		<meta property="og:site_name" content="Aman Varshney" />
+		<meta property="og:description" content="Portfolio showing my projects, blogs and guestbook" />
+		<meta property="og:url" content="https://www.amanvarshney.tech/" />
 		<script is:inline>
 			;(function () {
 				const theme = localStorage.getItem('theme') || 'lofi'
