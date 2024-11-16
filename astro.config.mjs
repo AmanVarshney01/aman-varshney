@@ -10,13 +10,14 @@ import pagefind from 'astro-pagefind'
 import { defineConfig } from 'astro/config'
 
 export default defineConfig({
-	site: 'https://amanvarshney.tech/',
+	site: 'https://www.amanvarshney.tech/',
 	integrations: [
 		expressiveCode({
 			plugins: [pluginLineNumbers()],
-			themes: ['vitesse-black', 'vitesse-light'],
-			useDarkModeMediaQuery: true,
-			themeCssSelector: () => "[data-theme='lofi']"
+			themes: ['vitesse-dark', 'vitesse-light'],
+			useDarkModeMediaQuery: false,
+			themeCssSelector: (themeName) =>
+				themeName === 'vitesse-black' ? '[data-theme="black"]' : '[data-theme="lofi"]'
 		}),
 		mdx(),
 		tailwind(),

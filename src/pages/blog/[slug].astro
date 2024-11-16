@@ -65,7 +65,7 @@ const { Content, headings } = await render(blog)
 			data-reactions-enabled="1"
 			data-emit-metadata="0"
 			data-input-position="top"
-			data-theme="preferred_color_scheme"
+			data-theme="light"
 			data-lang="en"
 			data-loading="lazy"
 			crossorigin="anonymous"
@@ -74,6 +74,51 @@ const { Content, headings } = await render(blog)
 </Layout>
 
 <script is:inline>
+	document.addEventListener('astro:page-load', () => {
+		const theme = document.documentElement.getAttribute('data-theme')
+		document.documentElement.setAttribute('data-theme', theme)
+	})
+
+	function updateGiscusTheme() {
+		const iframe = document.querySelector('iframe.giscus-frame')
+		if (!iframe) return
+
+		const theme = document.documentElement.getAttribute('data-theme')
+		const giscusTheme = theme === 'black' ? 'dark' : 'light'
+
+		iframe.contentWindow.postMessage(
+			{
+				giscus: {
+					setConfig: {
+						theme: giscusTheme
+					}
+				}
+			},
+			'https://giscus.app'
+		)
+	}
+
+	const observer = new MutationObserver((mutations) => {
+		mutations.forEach((mutation) => {
+			if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+				updateGiscusTheme()
+			}
+		})
+	})
+
+	observer.observe(document.documentElement, {
+		attributes: true,
+		attributeFilter: ['data-theme']
+	})
+
+	document.addEventListener('DOMContentLoaded', () => {
+		updateGiscusTheme()
+	})
+
+	document.addEventListener('astro:page-load', () => {
+		updateGiscusTheme()
+	})
+
 	function updateProgress() {
 		const content = document.getElementById('blog-content')
 		const contentRect = content.getBoundingClientRect()

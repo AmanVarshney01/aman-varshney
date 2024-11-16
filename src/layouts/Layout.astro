@@ -19,6 +19,21 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 
 <html lang="en">
 	<head>
+		<script is:inline>
+			;(function () {
+				function getInitialTheme() {
+					const savedTheme = localStorage.getItem('theme')
+					if (savedTheme) return savedTheme
+
+					if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+						return 'black'
+					}
+					return 'lofi'
+				}
+
+				document.documentElement.setAttribute('data-theme', getInitialTheme())
+			})()
+		</script>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" href="/favicon.ico" />
@@ -48,12 +63,6 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 		<meta property="og:site_name" content="Aman Varshney" />
 		<meta property="og:description" content="Portfolio showing my projects, blogs and guestbook" />
 		<meta property="og:url" content="https://www.amanvarshney.tech/" />
-		<script is:inline>
-			;(function () {
-				const theme = localStorage.getItem('theme') || 'lofi'
-				document.documentElement.setAttribute('data-theme', theme)
-			})()
-		</script>
 		<ClientRouter fallback={'none'} />
 	</head>
 	<body
@@ -117,10 +126,20 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 
 			function initThemeToggle() {
 				const themeToggleButton = document.getElementById('theme-toggle')
-				const theme = localStorage.getItem('theme') || 'lofi'
+				const theme =
+					localStorage.getItem('theme') ||
+					(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'black' : 'lofi')
 
 				document.documentElement.setAttribute('data-theme', theme)
 				themeToggleButton.checked = theme === 'black'
+
+				window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+					if (!localStorage.getItem('theme')) {
+						const newTheme = e.matches ? 'black' : 'lofi'
+						document.documentElement.setAttribute('data-theme', newTheme)
+						themeToggleButton.checked = e.matches
+					}
+				})
 
 				themeToggleButton.addEventListener('change', () => {
 					const newTheme = themeToggleButton.checked ? 'black' : 'lofi'
