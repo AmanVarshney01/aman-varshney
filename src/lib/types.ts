@@ -8,6 +8,6 @@ export type Project = {
 	isFeatured?: boolean
 	loading: 'eager' | 'lazy'
 	alias: string
-	techUsed: { name: string; icon: string }[]
+	techUsed: { name: string; icon?: string }[]
 	note?: string
 }

@@ -4,28 +4,27 @@ import glaappreimagined from '@/assets/project/gla-app-reimagined.webp'
 import hackTrack from '@/assets/project/hack-track.webp'
 import oxabags from '@/assets/project/oxabags-ecommerce.webp'
 import suggestmeaman from '@/assets/project/suggestmeaman.webp'
+import topstudz from '@/assets/project/topstudz.webp'
 import type { Project } from './types'
 
 export const projects: Project[] = [
 	{
-		image: hackTrack,
-		name: 'Hack Track',
-		subDescription:
-			'Team collaboration project tracker built with Next.js, Shadcn/UI, and Supabase.',
+		image: topstudz,
+		name: 'TopStudz',
+		subDescription: 'Modern student study management platform',
 		description:
-			'A project tracker for team collaboration utilizing Next.js, Shadcn/UI, and Supabase.',
-		githubLink: 'https://github.com/AmanVarshney01/Hack-Track',
-		liveLink: 'https://hack-track.vercel.app/',
-		isFeatured: true,
+			'TopStudz is a modern student study management platform designed to help students track, optimize, and improve their study habits with features like study session tracking, group collaboration, and AI-powered performance analytics.',
+		githubLink: 'https://github.com/amanvarshney01/topstudz',
 		loading: 'eager',
-		alias: 'hack-track',
+		isFeatured: true,
+		alias: 'topstudz',
 		techUsed: [
-			{ name: 'Typescript', icon: 'typescript' },
+			{ name: 'TypeScript', icon: 'typescript' },
 			{ name: 'Next.js', icon: 'next' },
-			{ name: 'Supabase', icon: 'supabase' },
-			{ name: 'Tailwind', icon: 'tailwind' },
-			{ name: 'Shadcn/UI', icon: 'shadcn' },
-			{ name: 'Vercel', icon: 'vercel' }
+			{ name: 'TailwindCSS', icon: 'tailwind' },
+			{ name: 'Convex' },
+			{ name: 'Shadcn/ui', icon: 'shadcn' },
+			{ name: 'Google Gemini' }
 		]
 	},
 	{
@@ -46,6 +45,27 @@ export const projects: Project[] = [
 			{ name: 'Tailwind', icon: 'tailwind' },
 			{ name: 'Shadcn/UI', icon: 'shadcn' },
 			{ name: 'Cloudflare', icon: 'cloudflare' }
+		]
+	},
+	{
+		image: hackTrack,
+		name: 'Hack Track',
+		subDescription:
+			'Team collaboration project tracker built with Next.js, Shadcn/UI, and Supabase.',
+		description:
+			'A project tracker for team collaboration utilizing Next.js, Shadcn/UI, and Supabase.',
+		githubLink: 'https://github.com/AmanVarshney01/Hack-Track',
+		liveLink: 'https://hack-track.vercel.app/',
+		isFeatured: false,
+		loading: 'lazy',
+		alias: 'hack-track',
+		techUsed: [
+			{ name: 'Typescript', icon: 'typescript' },
+			{ name: 'Next.js', icon: 'next' },
+			{ name: 'Supabase', icon: 'supabase' },
+			{ name: 'Tailwind', icon: 'tailwind' },
+			{ name: 'Shadcn/UI', icon: 'shadcn' },
+			{ name: 'Vercel', icon: 'vercel' }
 		]
 	},
 	{
