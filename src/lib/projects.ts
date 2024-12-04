@@ -91,7 +91,7 @@ export const projects: Project[] = [
 		description:
 			'A minimal portfolio featuring a blog and guestbook, built with Astro and Tailwind CSS.',
 		githubLink: 'https://github.com/AmanVarshney01/aman-varshney',
-		liveLink: 'https://www.amanvarshney.tech/',
+		liveLink: 'https://www.amanvarshney.work/',
 		loading: 'lazy',
 		alias: 'portfolio',
 		techUsed: [
