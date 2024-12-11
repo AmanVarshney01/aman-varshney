@@ -21,17 +21,8 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 	<head>
 		<script is:inline>
 			;(function () {
-				function getInitialTheme() {
-					const savedTheme = localStorage.getItem('theme')
-					if (savedTheme) return savedTheme
-
-					if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-						return 'black'
-					}
-					return 'lofi'
-				}
-
-				document.documentElement.setAttribute('data-theme', getInitialTheme())
+				const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'black' : 'lofi'
+				document.documentElement.setAttribute('data-theme', theme)
 			})()
 		</script>
 		<meta charset="UTF-8" />
@@ -66,93 +57,23 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 		<ClientRouter fallback={'none'} />
 	</head>
 	<body
-		class="prose prose-base mx-auto grid min-h-svh w-full grid-rows-[auto_1fr_auto] px-2 underline-offset-4 antialiased prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg prose-h4:text-base md:max-w-2xl lg:max-w-3xl"
+		class="prose prose-base mx-auto grid min-h-svh w-full grid-rows-[auto_1fr_auto] px-2 underline-offset-4 antialiased prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg prose-h4:text-base md:max-w-2xl"
 	>
 		<Header />
 		<main data-pagefind-body class="relative h-full min-w-0">
 			<slot />
 		</main>
 		<Footer />
-
-		<!-- <dialog id="search-modal" class="modal">
-			<div class="modal-box !max-w-4xl rounded-lg border border-base-300">
-				<Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
-			</div>
-			<form id="search-modal" method="dialog" class="modal-backdrop">
-				<button>Close</button>
-			</form>
-		</dialog> -->
-
-		<script is:inline>
-			// function initSearchModal() {
-			// 	const modal = document.getElementById('search-modal')
-			// 	const searchInput = document.querySelector('#search input')
-
-			// 	document.addEventListener('keydown', (event) => {
-			// 		if (event.ctrlKey && event.key === 'k') {
-			// 			event.preventDefault()
-			// 			if (modal.open) {
-			// 				modal.close()
-			// 			} else {
-			// 				modal.showModal()
-			// 				searchInput?.focus()
-			// 			}
-			// 		}
-			// 	})
-
-			// 	modal.addEventListener('keydown', (event) => {
-			// 		if (event.key === 'Escape') {
-			// 			modal.close()
-			// 		}
-			// 	})
-
-			// 	modal.addEventListener('click', (event) => {
-			// 		if (event.target === modal) {
-			// 			modal.close()
-			// 		}
-			// 	})
-
-			// 	modal.addEventListener('click', (event) => {
-			// 		if (event.target.tagName === 'A') {
-			// 			modal.close()
-			// 		}
-			// 	})
-
-			// 	const modalContent = modal.querySelector('.modal-box')
-			// 	modalContent.addEventListener('click', (event) => {
-			// 		event.stopPropagation()
-			// 	})
-			// }
-
-			function initThemeToggle() {
-				const themeToggleButton = document.getElementById('theme-toggle')
-				const theme =
-					localStorage.getItem('theme') ||
-					(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'black' : 'lofi')
-
-				document.documentElement.setAttribute('data-theme', theme)
-				themeToggleButton.checked = theme === 'black'
-
-				window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-					if (!localStorage.getItem('theme')) {
-						const newTheme = e.matches ? 'black' : 'lofi'
-						document.documentElement.setAttribute('data-theme', newTheme)
-						themeToggleButton.checked = e.matches
-					}
-				})
-
-				themeToggleButton.addEventListener('change', () => {
-					const newTheme = themeToggleButton.checked ? 'black' : 'lofi'
-					document.documentElement.setAttribute('data-theme', newTheme)
-					localStorage.setItem('theme', newTheme)
-				})
-			}
-
-			function init() {
-				initThemeToggle()
-				// initSearchModal()
-			}
-			document.addEventListener('astro:page-load', init)
-		</script>
 	</body>
 </html>
+
+<script is:inline>
+	function updateTheme() {
+		const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'black' : 'lofi'
+		document.documentElement.setAttribute('data-theme', theme)
+	}
+
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateTheme)
+
+	document.addEventListener('astro:after-swap', updateTheme)
+</script>

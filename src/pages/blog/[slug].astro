@@ -74,17 +74,12 @@ const { Content, headings } = await render(blog)
 </Layout>
 
 <script is:inline>
-	document.addEventListener('astro:page-load', () => {
-		const theme = document.documentElement.getAttribute('data-theme')
-		document.documentElement.setAttribute('data-theme', theme)
-	})
-
 	function updateGiscusTheme() {
 		const iframe = document.querySelector('iframe.giscus-frame')
 		if (!iframe) return
 
-		const theme = document.documentElement.getAttribute('data-theme')
-		const giscusTheme = theme === 'black' ? 'dark' : 'light'
+		const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+		const giscusTheme = isDark ? 'dark' : 'light'
 
 		iframe.contentWindow.postMessage(
 			{
@@ -98,29 +93,13 @@ const { Content, headings } = await render(blog)
 		)
 	}
 
-	const observer = new MutationObserver((mutations) => {
-		mutations.forEach((mutation) => {
-			if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
-				updateGiscusTheme()
-			}
-		})
-	})
-
-	observer.observe(document.documentElement, {
-		attributes: true,
-		attributeFilter: ['data-theme']
-	})
-
-	document.addEventListener('DOMContentLoaded', () => {
-		updateGiscusTheme()
-	})
-
-	document.addEventListener('astro:page-load', () => {
+	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
 		updateGiscusTheme()
 	})
 
 	function updateProgress() {
 		const content = document.getElementById('blog-content')
+		if (!content) return
 		const contentRect = content.getBoundingClientRect()
 		const contentTop = contentRect.top + window.scrollY
 		const contentBottom = contentRect.bottom + window.scrollY
@@ -129,7 +108,10 @@ const { Content, headings } = await render(blog)
 		const scrollPosition = window.scrollY - contentTop
 		const scrollPercentage = Math.min(Math.max((scrollPosition / contentHeight) * 100, 0), 100)
 
-		document.getElementById('scroll-progress').style.height = `${scrollPercentage}%`
+		const progressBar = document.getElementById('scroll-progress')
+		if (progressBar) {
+			progressBar.style.height = `${scrollPercentage}%`
+		}
 	}
 
 	function highlightCurrentHeading() {
@@ -160,6 +142,7 @@ const { Content, headings } = await render(blog)
 
 		const rect = firstHeading.getBoundingClientRect()
 		const toc = document.getElementById('table-of-contents')
+		if (!toc) return
 
 		if (rect.top <= 0) {
 			toc.classList.remove('hidden')
@@ -174,7 +157,15 @@ const { Content, headings } = await render(blog)
 		showTableOfContents()
 	}
 
-	window.addEventListener('scroll', updateAll)
-	window.addEventListener('resize', updateAll)
-	updateAll()
+	document.addEventListener('astro:page-load', () => {
+		updateGiscusTheme()
+		updateAll()
+		window.addEventListener('scroll', updateAll)
+		window.addEventListener('resize', updateAll)
+	})
+
+	document.addEventListener('astro:before-swap', () => {
+		window.removeEventListener('scroll', updateAll)
+		window.removeEventListener('resize', updateAll)
+	})
 </script>
