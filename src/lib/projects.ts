@@ -71,7 +71,7 @@ export const projects: Project[] = [
 	{
 		image: glaappreimagined,
 		name: 'GLA App Reimagined',
-		subDescription: 'Prototype app for GLA University.',
+		subDescription: 'Prototype app for GLA University built with React Native.',
 		description: 'A prototype app for GLA University built with React Native.',
 		githubLink: 'https://github.com/AmanVarshney01/gla-app-reimagined',
 		loading: 'eager',
