@@ -35,5 +35,6 @@ export default defineConfig({
 			enabled: true
 		},
 		imageService: true
-	})
+	}),
+	experimental: { responsiveImages: true }
 })

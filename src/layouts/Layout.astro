@@ -4,7 +4,7 @@ import { ClientRouter } from 'astro:transitions'
 import Footer from '@/components/Footer.astro'
 import Header from '@/components/Header.astro'
 import '@/styles/global.css'
-import Search from 'astro-pagefind/components/Search'
+// import Search from 'astro-pagefind/components/Search'
 
 type Props = {
 	title: string
@@ -74,55 +74,55 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 		</main>
 		<Footer />
 
-		<dialog id="search-modal" class="modal">
+		<!-- <dialog id="search-modal" class="modal">
 			<div class="modal-box !max-w-4xl rounded-lg border border-base-300">
 				<Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
 			</div>
 			<form id="search-modal" method="dialog" class="modal-backdrop">
 				<button>Close</button>
 			</form>
-		</dialog>
+		</dialog> -->
 
 		<script is:inline>
-			function initSearchModal() {
-				const modal = document.getElementById('search-modal')
-				const searchInput = document.querySelector('#search input')
+			// function initSearchModal() {
+			// 	const modal = document.getElementById('search-modal')
+			// 	const searchInput = document.querySelector('#search input')
 
-				document.addEventListener('keydown', (event) => {
-					if (event.ctrlKey && event.key === 'k') {
-						event.preventDefault()
-						if (modal.open) {
-							modal.close()
-						} else {
-							modal.showModal()
-							searchInput?.focus()
-						}
-					}
-				})
+			// 	document.addEventListener('keydown', (event) => {
+			// 		if (event.ctrlKey && event.key === 'k') {
+			// 			event.preventDefault()
+			// 			if (modal.open) {
+			// 				modal.close()
+			// 			} else {
+			// 				modal.showModal()
+			// 				searchInput?.focus()
+			// 			}
+			// 		}
+			// 	})
 
-				modal.addEventListener('keydown', (event) => {
-					if (event.key === 'Escape') {
-						modal.close()
-					}
-				})
+			// 	modal.addEventListener('keydown', (event) => {
+			// 		if (event.key === 'Escape') {
+			// 			modal.close()
+			// 		}
+			// 	})
 
-				modal.addEventListener('click', (event) => {
-					if (event.target === modal) {
-						modal.close()
-					}
-				})
+			// 	modal.addEventListener('click', (event) => {
+			// 		if (event.target === modal) {
+			// 			modal.close()
+			// 		}
+			// 	})
 
-				modal.addEventListener('click', (event) => {
-					if (event.target.tagName === 'A') {
-						modal.close()
-					}
-				})
+			// 	modal.addEventListener('click', (event) => {
+			// 		if (event.target.tagName === 'A') {
+			// 			modal.close()
+			// 		}
+			// 	})
 
-				const modalContent = modal.querySelector('.modal-box')
-				modalContent.addEventListener('click', (event) => {
-					event.stopPropagation()
-				})
-			}
+			// 	const modalContent = modal.querySelector('.modal-box')
+			// 	modalContent.addEventListener('click', (event) => {
+			// 		event.stopPropagation()
+			// 	})
+			// }
 
 			function initThemeToggle() {
 				const themeToggleButton = document.getElementById('theme-toggle')
@@ -150,7 +150,7 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 
 			function init() {
 				initThemeToggle()
-				initSearchModal()
+				// initSearchModal()
 			}
 			document.addEventListener('astro:page-load', init)
 		</script>

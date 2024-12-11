@@ -56,7 +56,7 @@ export const projects: Project[] = [
 			'A project tracker for team collaboration utilizing Next.js, Shadcn/UI, and Supabase.',
 		githubLink: 'https://github.com/AmanVarshney01/Hack-Track',
 		liveLink: 'https://hack-track.vercel.app/',
-		isFeatured: false,
+		isFeatured: true,
 		loading: 'lazy',
 		alias: 'hack-track',
 		techUsed: [
@@ -70,12 +70,12 @@ export const projects: Project[] = [
 	},
 	{
 		image: glaappreimagined,
-		name: 'GLAU App',
+		name: 'GLA App Reimagined',
 		subDescription: 'Prototype app for GLA University.',
 		description: 'A prototype app for GLA University built with React Native.',
 		githubLink: 'https://github.com/AmanVarshney01/gla-app-reimagined',
 		loading: 'eager',
-		isFeatured: false,
+		isFeatured: true,
 		alias: 'gla-app-reimagined',
 		techUsed: [
 			{ name: 'Typescript', icon: 'typescript' },

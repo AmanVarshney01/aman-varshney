@@ -4,23 +4,27 @@ import type { Project } from 'src/lib/types'
 
 type Props = Project
 
-const { name, image, loading, alias, subDescription } = Astro.props
+const { name, image, loading, alias, subDescription, showImage = true } = Astro.props
 ---
 
 <div transition:name={`${alias}`} class="card card-bordered card-compact">
-	<a href={`/projects/${alias}`}>
-		<figure class="m-0 aspect-video cursor-pointer bg-base-100 object-contain">
-			<Image
-				src={image}
-				alt={name}
-				width={1920}
-				height={1080}
-				quality={'low'}
-				loading={loading || 'lazy'}
-				class="m-0 aspect-video object-scale-down transition-transform duration-300 hover:scale-105"
-			/>
-		</figure>
-	</a>
+	{
+		showImage && (
+			<a href={`/projects/${alias}`}>
+				<figure class="m-0 aspect-video cursor-pointer bg-base-100 object-contain">
+					<Image
+						src={image}
+						alt={name}
+						width={1920}
+						height={1080}
+						quality={'low'}
+						loading={loading || 'lazy'}
+						class="m-0 aspect-video object-scale-down transition-transform duration-300 hover:scale-105"
+					/>
+				</figure>
+			</a>
+		)
+	}
 	<div class="card-body">
 		<span class="card-title m-0">
 			{name}

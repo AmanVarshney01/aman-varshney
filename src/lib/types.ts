@@ -10,4 +10,5 @@ export type Project = {
 	alias: string
 	techUsed: { name: string; icon?: string }[]
 	note?: string
+	showImage?: boolean
 }
