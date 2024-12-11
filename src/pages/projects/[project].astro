@@ -32,12 +32,7 @@ const {
 <Layout title={`${name} | Aman Varshney`}>
 	<div transition:name={`${alias}`} class="not-prose card card-compact">
 		<figure class="relative aspect-video border dark:border-base-200">
-			<Image
-				class="object-cover"
-				src={image as ImageMetadata}
-				alt={name as string}
-				layout="responsive"
-			/>
+			<Image class="object-cover" src={image as ImageMetadata} alt={name as string} />
 		</figure>
 		<div class="card-body">
 			<div class="card-title flex flex-row items-center justify-between">
