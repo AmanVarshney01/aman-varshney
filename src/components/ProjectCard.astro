@@ -32,7 +32,9 @@ const { name, image, loading, alias, subDescription, showImage = true } = Astro.
 			</span>
 			<p class="m-0">{subDescription}</p>
 			<div data-pagefind-ignore class="card-actions mt-2 items-center justify-between">
-				<button class="btn btn-xs">Learn More</button>
+				<a href={`/projects/${alias}`} class="not-prose">
+					<button class="btn btn-xs">Learn More</button>
+				</a>
 			</div>
 		</div>
 	</a>
