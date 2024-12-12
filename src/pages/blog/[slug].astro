@@ -29,17 +29,7 @@ const { Content, headings } = await render(blog)
 	<article id="blog-content">
 		<Content />
 	</article>
-	<div class="not-prose fixed left-0 top-40 hidden flex-row gap-4 lg:flex">
-		<div class="ml-2 flex items-stretch">
-			<div class="w-1 overflow-hidden rounded-full bg-base-300">
-				<div
-					id="scroll-progress"
-					class="w-full bg-base-content transition-all duration-300 ease-out"
-					style="height: 0%;"
-				>
-				</div>
-			</div>
-		</div>
+	<div class="not-prose fixed left-5 top-40 hidden flex-row gap-4 lg:flex">
 		<ul class="hidden space-y-1 text-base-content/60" id="table-of-contents">
 			{
 				headings.map((heading) => (
@@ -65,7 +55,7 @@ const { Content, headings } = await render(blog)
 			data-reactions-enabled="1"
 			data-emit-metadata="0"
 			data-input-position="top"
-			data-theme="light"
+			data-theme="preferred_color_scheme"
 			data-lang="en"
 			data-loading="lazy"
 			crossorigin="anonymous"
@@ -74,46 +64,6 @@ const { Content, headings } = await render(blog)
 </Layout>
 
 <script is:inline>
-	function updateGiscusTheme() {
-		const iframe = document.querySelector('iframe.giscus-frame')
-		if (!iframe) return
-
-		const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-		const giscusTheme = isDark ? 'dark' : 'light'
-
-		iframe.contentWindow.postMessage(
-			{
-				giscus: {
-					setConfig: {
-						theme: giscusTheme
-					}
-				}
-			},
-			'https://giscus.app'
-		)
-	}
-
-	window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-		updateGiscusTheme()
-	})
-
-	function updateProgress() {
-		const content = document.getElementById('blog-content')
-		if (!content) return
-		const contentRect = content.getBoundingClientRect()
-		const contentTop = contentRect.top + window.scrollY
-		const contentBottom = contentRect.bottom + window.scrollY
-		const contentHeight = contentBottom - contentTop
-
-		const scrollPosition = window.scrollY - contentTop
-		const scrollPercentage = Math.min(Math.max((scrollPosition / contentHeight) * 100, 0), 100)
-
-		const progressBar = document.getElementById('scroll-progress')
-		if (progressBar) {
-			progressBar.style.height = `${scrollPercentage}%`
-		}
-	}
-
 	function highlightCurrentHeading() {
 		const headings = document.querySelectorAll('h2, h3, h4, h5, h6')
 		const tocLinks = document.querySelectorAll('#table-of-contents a')
@@ -152,13 +102,11 @@ const { Content, headings } = await render(blog)
 	}
 
 	function updateAll() {
-		updateProgress()
 		highlightCurrentHeading()
 		showTableOfContents()
 	}
 
 	document.addEventListener('astro:page-load', () => {
-		updateGiscusTheme()
 		updateAll()
 		window.addEventListener('scroll', updateAll)
 		window.addEventListener('resize', updateAll)
