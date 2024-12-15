@@ -6,7 +6,6 @@ import vercel from '@astrojs/vercel'
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
 import expressiveCode from 'astro-expressive-code'
 import icon from 'astro-icon'
-import pagefind from 'astro-pagefind'
 import { defineConfig } from 'astro/config'
 
 export default defineConfig({
@@ -25,9 +24,6 @@ export default defineConfig({
 		db(),
 		icon({
 			iconDir: 'src/assets/icons'
-		}),
-		pagefind({
-			highlightParam: 'highlight'
 		})
 	],
 	adapter: vercel({
