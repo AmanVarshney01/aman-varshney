@@ -9,7 +9,7 @@ const currentPath = Astro.url.pathname
 	<div class="flex flex-row gap-2 md:gap-4">
 		<NavButton href="/" name="Home" isActive={currentPath == '/'} />
 		<NavButton href="/projects" name="Projects" isActive={currentPath.startsWith('/projects')} />
-		<NavButton href="/blog" name="Blog" isActive={currentPath.startsWith('/blog')} />
+		<!-- <NavButton href="/blog" name="Blog" isActive={currentPath.startsWith('/blog')} /> -->
 		<NavButton href="/guestbook" name="Guestbook" isActive={currentPath.startsWith('/guestbook')} />
 	</div>
 	<!-- <div class="flex flex-row items-center gap-1">

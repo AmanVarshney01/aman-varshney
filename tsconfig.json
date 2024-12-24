@@ -12,7 +12,6 @@
 			"@/assets/*": ["src/assets/*"],
 			"@/actions/*": ["src/actions/*"],
 			"@/public/*": ["public/*"]
-		},
-		"allowJs": true
+		}
 	}
 }

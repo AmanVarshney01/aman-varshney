@@ -17,16 +17,16 @@
 		"@astrojs/rss": "4.0.10",
 		"@astrojs/sitemap": "^3.2.1",
 		"@astrojs/tailwind": "5.1.4",
-		"@expressive-code/plugin-line-numbers": "^0.35.6",
+		"@expressive-code/plugin-line-numbers": "^0.38.3",
 		"@fontsource/geist-sans": "^5.1.0",
-		"@shikijs/transformers": "^1.24.2",
+		"@shikijs/transformers": "^1.24.4",
 		"@vercel/analytics": "^1.4.1",
 		"astro": "5.1.1",
-		"astro-expressive-code": "^0.35.6",
+		"astro-expressive-code": "^0.38.3",
 		"astro-icon": "^1.1.4",
 		"markdown-it": "^14.1.0",
-		"sanitize-html": "^2.13.1",
-		"tailwindcss": "^3.4.16"
+		"sanitize-html": "^2.14.0",
+		"tailwindcss": "^3.4.17"
 	},
 	"devDependencies": {
 		"@tailwindcss/typography": "^0.5.15",
