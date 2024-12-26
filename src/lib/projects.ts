@@ -15,6 +15,7 @@ export const projects: Project[] = [
 		description:
 			'TopStudz is a modern student study management platform designed to help students track, optimize, and improve their study habits with features like study session tracking, group collaboration, and AI-powered performance analytics.',
 		githubLink: 'https://github.com/amanvarshney01/topstudz',
+		liveLink: 'https://topstudz.vercel.app/',
 		loading: 'eager',
 		isFeatured: true,
 		alias: 'topstudz',
