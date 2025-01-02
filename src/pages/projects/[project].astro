@@ -1,10 +1,10 @@
 ---
-import Badge from '@/components/Badge.astro'
-import Layout from '@/layouts/Layout.astro'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
-import { projects } from 'src/lib/projects'
-import type { Project } from 'src/lib/types'
+import Badge from '../../components/Badge.astro'
+import Layout from '../../layouts/Layout.astro'
+import { projects } from '../../lib/projects'
+import type { Project } from '../../lib/types'
 
 export function getStaticPaths() {
 	return projects.flatMap((project) => ({

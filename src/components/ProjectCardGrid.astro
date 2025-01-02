@@ -1,6 +1,6 @@
 ---
-import ProjectCard from '@/components/ProjectCard.astro'
-import { projects } from 'src/lib/projects'
+import ProjectCard from './ProjectCard.astro'
+import { projects } from '../lib/projects'
 
 const featuredProjects = projects.filter((project) => project.isFeatured)
 ---

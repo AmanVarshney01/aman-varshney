@@ -1,9 +1,9 @@
 ---
 export const prerender = false
 
-import GuestbookEntries from '@/components/GuestbookEntries.astro'
-import Layout from '@/layouts/Layout.astro'
 import { actions } from 'astro:actions'
+import GuestbookEntries from '../components/GuestbookEntries.astro'
+import Layout from '../layouts/Layout.astro'
 
 const result = Astro.getActionResult(actions.guestbook)
 

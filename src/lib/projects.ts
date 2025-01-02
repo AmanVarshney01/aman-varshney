@@ -1,10 +1,10 @@
-import amanvarshney from '@/assets/project/aman-varshney.webp'
-import aman_varshney from '@/assets/project/amanvarshney.webp'
-import glaappreimagined from '@/assets/project/gla-app-reimagined.webp'
-import hackTrack from '@/assets/project/hack-track.webp'
-import oxabags from '@/assets/project/oxabags-ecommerce.webp'
-import suggestmeaman from '@/assets/project/suggestmeaman.webp'
-import topstudz from '@/assets/project/topstudz.webp'
+import amanvarshney from '../assets/project/aman-varshney.webp'
+import aman_varshney from '../assets/project/amanvarshney.webp'
+import glaappreimagined from '../assets/project/gla-app-reimagined.webp'
+import hackTrack from '../assets/project/hack-track.webp'
+import oxabags from '../assets/project/oxabags-ecommerce.webp'
+import suggestmeaman from '../assets/project/suggestmeaman.webp'
+import topstudz from '../assets/project/topstudz.webp'
 import type { Project } from './types'
 
 export const projects: Project[] = [

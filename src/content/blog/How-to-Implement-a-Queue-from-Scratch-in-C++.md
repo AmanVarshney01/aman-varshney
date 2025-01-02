@@ -1,6 +1,6 @@
 ---
 title: 'How to Implement a Queue from Scratch in C++'
-date: 2023-12-16
+pubDate: "Dec 16 2023"
 ---
 
 ## Introduction

@@ -1,32 +1,42 @@
 ---
-import Layout from '@/layouts/Layout.astro'
-import { getCollection, render } from 'astro:content'
+import FormattedDate from '../../components/FormattedDate.astro'
+import Layout from '../../layouts/Layout.astro'
+import { type CollectionEntry, getCollection, render } from 'astro:content'
 
 export const getStaticPaths = async () => {
 	const allBlogs = await getCollection('blog')
-	return allBlogs.map((blog) => ({
-		params: { slug: blog.id },
-		props: { blog }
+	return allBlogs.map((post) => ({
+		params: { slug: post.id },
+		props: post
 	}))
 }
 
-const { blog } = Astro.props
-const { Content, headings } = await render(blog)
+type Props = CollectionEntry<'blog'>
+
+const post = Astro.props
+const { Content, headings } = await render(post)
 ---
 
-<Layout title={blog.data.title}>
+<Layout title={post.data.title}>
 	<div class="flex flex-col">
-		<h1 transition:name="blog-heading" class="mb-0 pb-2">
-			{blog.data.title}
+		<h1 transition:name="post-heading" class="mb-0 pb-2">
+			{post.data.title}
 		</h1>
-		<span class="pb-4">
-			{blog.data.date}
-		</span>
-		<a class="link" href=`https://amanvarshney.hashnode.dev/${blog.id}` target="_blank"
+		<div class="flex flex-row items-center gap-2 pb-4">
+			<FormattedDate date={post.data.pubDate} />
+			{
+				post.data.updatedDate && (
+					<div class="last-updated-on">
+						Last updated on <FormattedDate date={post.data.updatedDate} />
+					</div>
+				)
+			}
+		</div>
+		<a class="link" href=`https://amanvarshney.hashnode.dev/${post.id}` target="_blank"
 			>Read on Hashnode</a
 		>
 	</div>
-	<article id="blog-content">
+	<article id="post-content">
 		<Content />
 	</article>
 	<div class="not-prose fixed left-5 top-40 hidden flex-row gap-4 lg:flex">
