@@ -3,6 +3,8 @@ title: 'How to Implement a Queue from Scratch in C++'
 pubDate: "Dec 16 2023"
 ---
 
+> **Note:** This is an AI-generated sample post used to test the blog functionality in Astro. Real, original content will be added later.
+
 ## Introduction
 
 A queue is a data structure that stores items in a First In First Out (FIFO) manner. This means that the first item to be inserted into the queue is the first one to be removed.
