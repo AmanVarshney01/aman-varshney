@@ -58,7 +58,7 @@ export const projects: Project[] = [
 		githubLink: 'https://github.com/AmanVarshney01/Hack-Track',
 		liveLink: 'https://hack-track.vercel.app/',
 		isFeatured: true,
-		loading: 'lazy',
+		loading: 'eager',
 		alias: 'hack-track',
 		techUsed: [
 			{ name: 'Typescript', icon: 'typescript' },
@@ -93,7 +93,7 @@ export const projects: Project[] = [
 			'A minimal portfolio featuring a blog and guestbook, built with Astro and Tailwind CSS.',
 		githubLink: 'https://github.com/AmanVarshney01/aman-varshney',
 		liveLink: 'https://www.amanvarshney.work/',
-		loading: 'lazy',
+		loading: 'eager',
 		alias: 'portfolio',
 		techUsed: [
 			{ name: 'Astro', icon: 'astro' },
@@ -108,7 +108,7 @@ export const projects: Project[] = [
 		description: 'A 3D portfolio website built with Next.js and Three.js.',
 		githubLink: 'https://github.com/AmanVarshney01/amanvarshney',
 		liveLink: 'https://aman-varshney.vercel.app/',
-		loading: 'lazy',
+		loading: 'eager',
 		alias: 'portfolio-3d',
 		techUsed: [
 			{ name: 'Typescript', icon: 'typescript' },
@@ -125,7 +125,7 @@ export const projects: Project[] = [
 		description: 'A movie recommendation app built with Svelte.',
 		githubLink: 'https://github.com/AmanVarshney01/SuggestMeAman',
 		liveLink: 'https://suggestmeaman.vercel.app/',
-		loading: 'lazy',
+		loading: 'eager',
 		alias: 'suggest-me-aman',
 		techUsed: [
 			{ name: 'Svelte', icon: 'svelte' },
