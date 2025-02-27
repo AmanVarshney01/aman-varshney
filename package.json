@@ -11,17 +11,16 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "0.9.4",
-		"@astrojs/cloudflare": "^12.2.0",
-		"@astrojs/db": "0.14.6",
-		"@astrojs/mdx": "4.0.7",
+		"@astrojs/cloudflare": "^12.2.3",
+		"@astrojs/db": "0.14.7",
+		"@astrojs/mdx": "4.1.0",
 		"@astrojs/rss": "4.0.11",
 		"@astrojs/sitemap": "^3.2.1",
-		"@astrojs/tailwind": "5.1.5",
+		"@astrojs/tailwind": "6.0.0",
 		"@expressive-code/plugin-line-numbers": "^0.38.3",
 		"@fontsource/geist-sans": "^5.1.0",
-		"@shikijs/transformers": "^1.25.1",
-		"@vercel/analytics": "^1.4.1",
-		"astro": "5.1.8",
+		"@shikijs/transformers": "^1.29.2",
+		"astro": "5.4.0",
 		"astro-expressive-code": "^0.38.3",
 		"astro-icon": "^1.1.5",
 		"markdown-it": "^14.1.0",
@@ -30,12 +29,12 @@
 		"tailwindcss": "^3.4.17"
 	},
 	"devDependencies": {
-		"@tailwindcss/typography": "^0.5.15",
-		"daisyui": "^4.12.23",
-		"prettier": "^3.4.2",
+		"@tailwindcss/typography": "^0.5.16",
+		"daisyui": "^4.12.24",
+		"prettier": "^3.5.2",
 		"prettier-plugin-astro": "^0.14.1",
-		"prettier-plugin-tailwindcss": "^0.6.9",
+		"prettier-plugin-tailwindcss": "^0.6.11",
 		"shiki-transformer-copy-button": "^0.0.3",
-		"typescript": "^5.7.2"
+		"typescript": "^5.7.3"
 	}
 }

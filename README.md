@@ -10,7 +10,6 @@ This is my personal website featuring my projects, blog, and a guestbook.
 - Tailwind CSS: Utility-first CSS framework
 - DaisyUI: Tailwind CSS component library
 - Astro DB: Used for the guestbook functionality
-- Pagefind: Search Functionality
 - Vercel: Hosting and deployment
 
 Enjoyed the site? Drop a comment in the guestbook!

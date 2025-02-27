@@ -4,7 +4,6 @@ import { ClientRouter } from 'astro:transitions'
 import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
 import '../styles/global.css'
-// import Search from 'astro-pagefind/components/Search'
 
 type Props = {
 	title: string
@@ -60,7 +59,7 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 		class="prose prose-base mx-auto grid min-h-svh w-full grid-rows-[auto_1fr_auto] px-2 underline-offset-4 antialiased prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg prose-h4:text-base md:max-w-3xl"
 	>
 		<Header />
-		<main data-pagefind-body class="relative h-full min-w-0">
+		<main class="relative h-full min-w-0">
 			<slot />
 		</main>
 		<Footer />

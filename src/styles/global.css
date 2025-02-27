@@ -14,19 +14,6 @@ body {
 	@apply !w-[1px];
 }
 
-/* .pagefind-ui {
-	--pagefind-ui-text: @apply text-base-content;
-	--pagefind-ui-background: @apply bg-base-100;
-}
-
-.pagefind-ui__search-input {
-	@apply !input !input-bordered;
-}
-
-.pagefind-ui__result {
-	@apply !border-0;
-} */
-
 mark {
 	@apply !rounded-sm !bg-base-content !p-1 !text-base-100;
 }

@@ -26,5 +26,7 @@ export default defineConfig({
 			iconDir: 'src/assets/icons'
 		})
 	],
-	adapter: cloudflare()
+	adapter: cloudflare({
+		imageService: 'compile'
+	})
 })
