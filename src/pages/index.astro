@@ -7,48 +7,52 @@ import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout title="Aman Varshney">
-	<div class="flex flex-col">
-		<section id="main" class="flex flex-col">
-			<!-- TODO Add Photo -->
-			<h1>Aman Varshney</h1>
-			<!-- <div class="flex flex-row items-center gap-2 py-1">
-				<Icon name="map-pin" class="inline-block h-5 w-5" />
-				<span>Uttar Pradesh, India</span>
-			</div> -->
-			<!-- <div class="flex flex-row items-center gap-2 py-1">
-				<Icon name="briefcase" class="inline-block h-5 w-5" />
-				<span>Full Stack Developer</span>
-				</div> -->
-			<p>
-				B.Tech CSE student | Web & app developer | Ex-intern @ <a
-					href="https://kofferx.com/"
-					target="_blank"
-					rel="noopener">KofferX</a
-				>
-			</p>
+	<div class="flex flex-col gap-12">
+		<section id="main" class="flex flex-col gap-4">
+			<div class="flex flex-col items-center gap-6 md:flex-row">
+				<!-- <img src="/images/profile.jpg" alt="Aman Varshney" class="rounded-full w-32 h-32 object-cover" /> -->
+				<div>
+					<h1>Aman Varshney</h1>
+					<p class="mt-2">
+						B.Tech CSE student | Web & app developer | Ex-intern @
+						<a
+							href="https://kofferx.com/"
+							target="_blank"
+							rel="noopener"
+							class="text-primary hover:underline"
+						>
+							KofferX
+						</a>
+					</p>
+				</div>
+			</div>
 			<div class="flex flex-row flex-wrap gap-2 md:gap-4">
 				<button
 					data-cal-link="amanvarshney01/15min"
 					data-cal-namespace="15min"
 					data-cal-config='{"layout":"month_view"}'
-					class="btn btn-sm"
+					class="btn btn-primary btn-sm"
 				>
 					<Icon name="calendar" class="h-4 w-4" />
 					Schedule a meeting
 				</button>
-				<a href="https://github.com/AmanVarshney01" target="_blank" class="btn btn-sm">
+				<a href="https://github.com/AmanVarshney01" target="_blank" class="btn btn-outline btn-sm">
 					<Icon name="github" class="h-4 w-4" />
 					Github
 				</a>
-				<a href="mailto:amanvarshney.work@gmail.com" target="_blank" class="btn btn-sm">
+				<a href="mailto:amanvarshney.work@gmail.com" class="btn btn-outline btn-sm">
 					<Icon name="mail" class="h-4 w-4" />
 					Mail
 				</a>
-				<a href="https://x.com/amanvarshney01" target="_blank" class="btn btn-sm">
+				<a href="https://x.com/amanvarshney01" target="_blank" class="btn btn-outline btn-sm">
 					<Icon name="x" class="h-4 w-4" />
 					X.com
 				</a>
-				<a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank" class="btn btn-sm">
+				<a
+					href="https://www.linkedin.com/in/amanvarshney11/"
+					target="_blank"
+					class="btn btn-outline btn-sm"
+				>
 					<Icon name="linkedin" class="h-4 w-4" />
 					LinkedIn
 				</a>
@@ -71,10 +75,10 @@ import Layout from '../layouts/Layout.astro'
 			</div>
 			<ExperienceGrid />
 		</section> -->
-		<section id="projects" class="flex flex-col">
+		<section id="projects" class="flex flex-col gap-4">
 			<div class="flex w-full flex-row items-center justify-between">
-				<h2>Projects</h2>
-				<a href="/projects" class="btn btn-ghost btn-xs mb-6 mt-12">See all projects</a>
+				<h2 class="text-2xl font-semibold">Featured Projects</h2>
+				<a href="/projects" class="btn btn-ghost btn-sm">See all projects →</a>
 			</div>
 			<ProjectCardGrid />
 		</section>
