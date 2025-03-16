@@ -7,34 +7,36 @@ type Props = Project
 const { name, image, loading, alias, subDescription, showImage = true } = Astro.props
 ---
 
-<div transition:name={`${alias}`} class="card card-bordered card-compact hover:bg-base-200">
+<div
+	transition:name={`${alias}`}
+	class="card card-bordered card-compact relative isolate hover:bg-base-200"
+>
 	<a href={`/projects/${alias}`} class="not-prose">
 		{
 			showImage && (
-				<a href={`/projects/${alias}`}>
-					<figure class="m-0 aspect-video cursor-pointer bg-base-100 object-contain">
-						<Image
-							src={image}
-							alt={name}
-							width={1920}
-							height={1080}
-							quality={'low'}
-							loading={loading || 'lazy'}
-							class="m-0 aspect-video object-scale-down transition-transform duration-300 hover:scale-105"
-						/>
-					</figure>
-				</a>
+				<figure class="m-0 aspect-video cursor-pointer bg-base-100 object-contain">
+					<Image
+						src={image}
+						alt={name}
+						width={1920}
+						height={1080}
+						quality={'low'}
+						loading={loading || 'lazy'}
+						class="m-0 aspect-video object-scale-down transition-transform duration-300 hover:scale-105"
+					/>
+				</figure>
 			)
 		}
 		<div class="card-body">
-			<span class="card-title m-0">
-				{name}
-			</span>
+			<a href={`/projects/${alias}`} class="not-prose">
+				<span class="absolute inset-0 z-10"></span>
+				<span class="card-title m-0">
+					{name}
+				</span>
+			</a>
 			<p class="m-0">{subDescription}</p>
 			<div class="card-actions mt-2 items-center justify-between">
-				<a href={`/projects/${alias}`} class="not-prose">
-					<button class="btn btn-xs">Learn More</button>
-				</a>
+				<button class="btn btn-xs">Learn More</button>
 			</div>
 		</div>
 	</a>
