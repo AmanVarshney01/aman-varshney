@@ -1,10 +1,12 @@
 ---
+// pages/projects/[project].astro
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 import Badge from '../../components/Badge.astro'
 import Layout from '../../layouts/Layout.astro'
 import { projects } from '../../lib/projects'
 import type { Project } from '../../lib/types'
+import GitHubStats from '../../components/GithubStats.astro'
 
 export function getStaticPaths() {
 	return projects.flatMap((project) => ({
@@ -37,7 +39,7 @@ const {
 		<div class="card-body">
 			<div class="card-title flex flex-row items-center justify-between">
 				<h3>{name}</h3>
-				{isFeatured && <div class="badge badge-primary badge-sm">NEW</div>}
+				{githubLink && <GitHubStats githubLink={githubLink} />}
 			</div>
 			<p class="py-4">{description}</p>
 			{
@@ -63,8 +65,8 @@ const {
 				}
 				<a href={githubLink} class="btn btn-sm w-full md:w-fit" target="_blank">
 					<Icon name="github" title="github" />
-					GitHub</a
-				>
+					GitHub
+				</a>
 			</div>
 			{
 				note && (

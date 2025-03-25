@@ -1,10 +1,11 @@
 ---
 import { Image } from 'astro:assets'
 import type { Project } from '../lib/types'
+import GitHubStats from './GithubStats.astro'
 
 type Props = Project
 
-const { name, image, loading, alias, subDescription, showImage = true } = Astro.props
+const { name, image, loading, alias, subDescription, showImage = true, githubLink } = Astro.props
 ---
 
 <div
@@ -37,6 +38,7 @@ const { name, image, loading, alias, subDescription, showImage = true } = Astro.
 			<p class="m-0">{subDescription}</p>
 			<div class="card-actions mt-2 items-center justify-between">
 				<button class="btn btn-xs">Learn More</button>
+				{githubLink && <GitHubStats githubLink={githubLink} />}
 			</div>
 		</div>
 	</a>

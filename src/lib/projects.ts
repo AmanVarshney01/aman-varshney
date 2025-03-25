@@ -5,9 +5,35 @@ import hackTrack from '../assets/project/hack-track.webp'
 import oxabags from '../assets/project/oxabags-ecommerce.webp'
 import suggestmeaman from '../assets/project/suggestmeaman.webp'
 import topstudz from '../assets/project/topstudz.webp'
+import bettertstack from '../assets/project/better-t-stack.webp'
 import type { Project } from './types'
 
 export const projects: Project[] = [
+	{
+		image: bettertstack,
+		name: 'Create Better T Stack',
+		description:
+			'An interactive CLI tool to quickly scaffold full-stack TypeScript applications with React, Hono, and tRPC. Provides a modern, type-safe development experience with the best tools from the TypeScript ecosystem.',
+		subDescription: 'CLI for scaffolding modern TypeScript full-stack applications.',
+		githubLink: 'https://github.com/better-t-stack/create-better-t-stack',
+		liveLink: 'https://www.npmjs.com/package/create-better-t-stack',
+		loading: 'eager',
+		isFeatured: true,
+		alias: 'better-t-stack',
+		techUsed: [
+			{ name: 'Typescript', icon: 'typescript' },
+			{ name: 'React', icon: 'react' },
+			{ name: 'Tanstack Router' },
+			{ name: 'tRPC' },
+			{ name: 'Hono' },
+			{ name: 'Tailwind', icon: 'tailwind' },
+			{ name: 'Shadcn/UI', icon: 'shadcn' },
+			{ name: 'Turborepo' },
+			{ name: 'Tauri' },
+			{ name: 'Drizzle' },
+			{ name: 'Prisma' }
+		]
+	},
 	{
 		image: topstudz,
 		name: 'TopStudz',
@@ -57,7 +83,7 @@ export const projects: Project[] = [
 			'A project tracker for team collaboration utilizing Next.js, Shadcn/UI, and Supabase.',
 		githubLink: 'https://github.com/AmanVarshney01/Hack-Track',
 		liveLink: 'https://hack-track.vercel.app/',
-		isFeatured: true,
+		isFeatured: false,
 		loading: 'eager',
 		alias: 'hack-track',
 		techUsed: [

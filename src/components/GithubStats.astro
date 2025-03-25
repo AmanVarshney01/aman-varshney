@@ -1,0 +1,96 @@
+---
+import { Icon } from 'astro-icon/components'
+
+interface Props {
+	githubLink: string
+}
+
+const { githubLink } = Astro.props
+---
+
+{
+	githubLink && (
+		<div class="github-stats flex items-center gap-2 text-xs opacity-75" data-repo-url={githubLink}>
+			<div class="flex items-center gap-1">
+				<Icon name={'star'} class="h-4 w-4" />
+				<span class="star-count" />
+			</div>
+		</div>
+	)
+}
+
+<script>
+	function extractRepoInfo(url: string) {
+		const match = url.match(/github\.com\/([^\/]+)\/([^\/]+)/)
+		if (!match) return null
+		return { owner: match[1], repo: match[2] }
+	}
+
+	const statsCache = new Map()
+
+	async function fetchGitHubStats(repoUrl: string) {
+		if (statsCache.has(repoUrl)) {
+			return statsCache.get(repoUrl)
+		}
+
+		const repoInfo = extractRepoInfo(repoUrl)
+		if (!repoInfo) return null
+
+		try {
+			const cachedData = localStorage.getItem(`gh-stats-${repoInfo.owner}-${repoInfo.repo}`)
+			if (cachedData) {
+				const { data, timestamp } = JSON.parse(cachedData)
+				if (Date.now() - timestamp < 3600000) {
+					statsCache.set(repoUrl, data)
+					return data
+				}
+			}
+
+			const response = await fetch(
+				`https://api.github.com/repos/${repoInfo.owner}/${repoInfo.repo}`
+			)
+			if (!response.ok) {
+				if (response.status === 403 && response.headers.get('X-RateLimit-Remaining') === '0') {
+					console.warn('GitHub API rate limit exceeded')
+					if (cachedData) {
+						const { data } = JSON.parse(cachedData)
+						return data
+					}
+				}
+				return null
+			}
+
+			const data = await response.json()
+			const stats = { stars: data.stargazers_count }
+
+			statsCache.set(repoUrl, stats)
+
+			localStorage.setItem(
+				`gh-stats-${repoInfo.owner}-${repoInfo.repo}`,
+				JSON.stringify({ data: stats, timestamp: Date.now() })
+			)
+
+			return stats
+		} catch (error) {
+			console.error('Error fetching GitHub stats:', error)
+			return null
+		}
+	}
+
+	async function updateGitHubStats() {
+		document.querySelectorAll('.github-stats[data-repo-url]').forEach(async (element) => {
+			const repoUrl = element.getAttribute('data-repo-url')
+			if (!repoUrl) return
+
+			const stats = await fetchGitHubStats(repoUrl)
+			if (!stats) return
+
+			const starCount = element.querySelector('.star-count')
+			if (starCount) starCount.textContent = stats.stars.toString()
+		})
+	}
+
+	updateGitHubStats()
+
+	document.addEventListener('astro:page-load', updateGitHubStats)
+</script>
