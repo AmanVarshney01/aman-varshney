@@ -12,14 +12,14 @@ const { name, icon, link } = Astro.props
 
 {
 	link ? (
-		<a href={link} target="_blank" class="badge gap-2">
-			{icon && <Icon name={icon} class="h-4 w-4" />}
+		<a href={link} target="_blank" class="badge">
+			{icon && <Icon name={icon} class="h-3 w-3" />}
 			{name}
 		</a>
 	) : (
-		<div class="badge gap-2">
-			{icon && <Icon name={icon} class="h-4 w-4" />}
+		<span class="badge">
+			{icon && <Icon name={icon} class="h-3 w-3" />}
 			{name}
-		</div>
+		</span>
 	)
 }

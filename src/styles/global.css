@@ -2,18 +2,211 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+	--background: #fcfcfc;
+	--foreground: #111111;
+	--muted: #666666;
+	--accent: #3b82f6;
+	--soft: #f5f5f5;
+	--border: #eeeeee;
+
+	@media (prefers-color-scheme: dark) {
+		--background: #111111;
+		--foreground: #f5f5f5;
+		--muted: #888888;
+		--accent: #60a5fa;
+		--soft: #1a1a1a;
+		--border: #222222;
+	}
+}
+
+html {
+	background-color: var(--background);
+	color: var(--foreground);
+	font-size: 15px; /* Increased from 14px */
+}
+
 body {
-	font-family: 'Geist Sans', sans-serif;
+	font-family:
+		'Geist Sans',
+		-apple-system,
+		BlinkMacSystemFont,
+		sans-serif;
+	line-height: 1.6;
+	max-width: 720px;
+	margin: 0 auto;
+	padding: 0 1rem;
 }
 
-.step:after {
-	@apply !h-10 !w-10 !bg-primary;
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 500;
+	color: var(--foreground);
+	line-height: 1.3;
 }
 
-.steps-vertical .step:before {
-	@apply !w-[1px];
+h1 {
+	font-size: 1.75rem; /* Increased from 1.5rem */
+	margin-top: 2rem;
+}
+h2 {
+	font-size: 1.5rem; /* Increased from 1.25rem */
+	margin-top: 1.5rem;
+}
+h3 {
+	font-size: 1.25rem; /* Increased from 1.125rem */
+}
+h4,
+h5,
+h6 {
+	font-size: 1.125rem; /* Increased from 1rem */
 }
 
-mark {
-	@apply !rounded-sm !bg-base-content !p-1 !text-base-100;
+p {
+	margin-bottom: 1rem;
+}
+
+a {
+	color: var(--accent);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* UI Elements - with minimal borders */
+.card {
+	padding: 0.5rem 0;
+	margin-bottom: 1.5rem;
+	transition: transform 0.2s ease;
+}
+
+.card:hover {
+	transform: translateY(-2px);
+}
+
+button,
+.btn {
+	background-color: var(--soft);
+	border: none;
+	color: var(--foreground);
+	border-radius: 0;
+	padding: 0.5rem 0.875rem; /* Slightly increased padding */
+	font-size: 0.9375rem; /* Increased from 0.875rem */
+	cursor: pointer;
+	transition: all 0.15s ease;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	height: 36px; /* Increased from 32px */
+}
+
+button:hover,
+.btn:hover {
+	background-color: var(--border);
+}
+
+.btn-primary {
+	background-color: var(--accent);
+	color: white;
+}
+
+.btn-primary:hover {
+	opacity: 0.9;
+}
+
+input,
+textarea {
+	background-color: var(--soft);
+	border: none;
+	border-radius: 0;
+	color: var(--foreground);
+	padding: 0.5rem 0.75rem;
+	font-size: 0.9375rem; /* Increased from 0.875rem */
+	width: 100%;
+	height: 36px; /* Increased from 32px */
+	transition: background-color 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+	outline: none;
+	background-color: var(--background);
+	box-shadow: inset 0 -1px 0 var(--accent);
+}
+
+.link {
+	color: var(--accent);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 2px;
+}
+
+.badge {
+	background-color: var(--soft);
+	color: var(--muted);
+	font-size: 0.8125rem; /* Increased from 0.75rem */
+	padding: 0.15rem 0.5rem;
+	border-radius: 0;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+}
+
+/* Layout */
+main {
+	padding: 1rem 0;
+}
+
+section {
+	margin-bottom: 2rem;
+}
+
+/* Code blocks */
+pre {
+	background-color: var(--soft);
+	padding: 1rem;
+	overflow-x: auto;
+	font-size: 0.9375rem; /* Increased from 0.875rem */
+}
+
+code {
+	font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace;
+	font-size: 0.9375rem; /* Increased from 0.875rem */
+}
+
+/* Table of contents */
+#table-of-contents {
+	padding-left: 0.75rem;
+	font-size: 0.8125rem; /* Increased from 0.75rem */
+}
+
+/* Utilities */
+.text-muted {
+	color: var(--muted);
+}
+
+.text-sm {
+	font-size: 0.9375rem; /* Increased from 0.875rem */
+}
+
+.text-xs {
+	font-size: 0.8125rem; /* Increased from 0.75rem */
+}
+
+hr {
+	border: none;
+	height: 1px;
+	background-color: var(--border);
+	margin: 1.5rem 0;
+}
+
+/* Prose stylings */
+article {
+	max-width: 65ch;
 }

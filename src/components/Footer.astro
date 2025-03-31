@@ -2,28 +2,39 @@
 import { Icon } from 'astro-icon/components'
 ---
 
-<footer class="flex w-full flex-row items-center justify-between px-2 py-8">
-	<span>Aman Varshney</span>
-	<div class="flex flex-row items-center gap-4">
-		<a href="mailto:amanvarshney.work@gmail.com" target="_blank" aria-label="Send email">
-			<Icon name="mail" class="h-5 w-5" title="mail" />
-			<span class="sr-only">Email</span>
-		</a>
-		<a href="https://github.com/AmanVarshney01" target="_blank" aria-label="Visit GitHub profile">
-			<Icon name="github" class="h-4 w-4" title="github" />
-			<span class="sr-only">GitHub</span>
-		</a>
-		<a
-			href="https://www.linkedin.com/in/amanvarshney11/"
-			target="_blank"
-			aria-label="Visit LinkedIn profile"
-		>
-			<Icon name="linkedin" class="h-4 w-4" title="linkedin" />
-			<span class="sr-only">LinkedIn</span>
-		</a>
-		<a href="https://x.com/amanvarshney01" target="_blank" aria-label="Visit X (Twitter) profile">
-			<Icon name="x" class="h-4 w-4" title="x" />
-			<span class="sr-only">X (Twitter)</span>
-		</a>
+<footer class="mt-10 py-6">
+	<hr />
+	<div class="flex flex-row items-center justify-between pt-4">
+		<span class="text-muted text-sm">Aman Varshney</span>
+		<div class="flex gap-4">
+			<a
+				href="mailto:amanvarshney.work@gmail.com"
+				class="text-muted hover:text-foreground"
+				aria-label="Email"
+			>
+				<Icon name="mail" class="h-4 w-4" />
+			</a>
+			<a
+				href="https://github.com/AmanVarshney01"
+				class="text-muted hover:text-foreground"
+				aria-label="GitHub"
+			>
+				<Icon name="github" class="h-4 w-4" />
+			</a>
+			<a
+				href="https://www.linkedin.com/in/amanvarshney11/"
+				class="text-muted hover:text-foreground"
+				aria-label="LinkedIn"
+			>
+				<Icon name="linkedin" class="h-4 w-4" />
+			</a>
+			<a
+				href="https://x.com/amanvarshney01"
+				class="text-muted hover:text-foreground"
+				aria-label="X (Twitter)"
+			>
+				<Icon name="x" class="h-4 w-4" />
+			</a>
+		</div>
 	</div>
 </footer>

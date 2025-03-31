@@ -10,11 +10,9 @@ const { githubLink } = Astro.props
 
 {
 	githubLink && (
-		<div class="github-stats flex items-center gap-2 text-xs opacity-75" data-repo-url={githubLink}>
-			<div class="flex items-center gap-1">
-				<Icon name={'star'} class="h-4 w-4" />
-				<span class="star-count" />
-			</div>
+		<div class="github-stats text-muted flex items-center gap-1 text-xs" data-repo-url={githubLink}>
+			<Icon name="star" class="h-3.5 w-3.5" />
+			<span class="star-count">-</span>
 		</div>
 	)
 }

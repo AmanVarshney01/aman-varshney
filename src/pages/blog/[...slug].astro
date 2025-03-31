@@ -18,112 +18,71 @@ const { Content, headings } = await render(post)
 ---
 
 <Layout title={post.data.title}>
-	<div class="flex flex-col">
-		<h1 transition:name="post-heading" class="mb-0 pb-2">
-			{post.data.title}
-		</h1>
-		<div class="flex flex-row items-center gap-2 pb-4">
-			<FormattedDate date={post.data.pubDate} />
-			{
-				post.data.updatedDate && (
-					<div class="last-updated-on">
-						Last updated on <FormattedDate date={post.data.updatedDate} />
-					</div>
-				)
-			}
+	<article>
+		<div class="mb-8">
+			<h1 transition:name="post-heading" class="mb-2">
+				{post.data.title}
+			</h1>
+			<div class="text-muted flex items-center gap-3 text-xs">
+				<FormattedDate date={post.data.pubDate} />
+				{
+					post.data.updatedDate && (
+						<span>
+							Updated: <FormattedDate date={post.data.updatedDate} />
+						</span>
+					)
+				}
+			</div>
+			<a
+				class="link mt-1 block text-xs"
+				href=`https://amanvarshney.hashnode.dev/${post.id}`
+				target="_blank"
+			>
+				Read on Hashnode →
+			</a>
 		</div>
-		<a class="link" href=`https://amanvarshney.hashnode.dev/${post.id}` target="_blank"
-			>Read on Hashnode</a
-		>
-	</div>
-	<article id="post-content">
-		<Content />
+
+		<div class="article-content">
+			<Content />
+		</div>
 	</article>
-	<div class="not-prose fixed left-5 top-40 hidden flex-row gap-4 lg:flex">
-		<ul class="hidden space-y-1 text-base-content/60" id="table-of-contents">
-			{
-				headings.map((heading) => (
-					<li style={`margin-left: ${(heading.depth - 2) * 20}px;`}>
-						<a href={`#${heading.slug}`} class="text-sm hover:underline">
-							{heading.text}
-						</a>
-					</li>
-				))
-			}
-		</ul>
-	</div>
-	<div class="pt-8">
-		<script
-			is:inline
-			src="https://giscus.app/client.js"
-			data-repo="AmanVarshney01/aman-varshney"
-			data-repo-id="R_kgDOK2jPEQ"
-			data-category="General"
-			data-category-id="DIC_kwDOK2jPEc4CgTww"
-			data-mapping="pathname"
-			data-strict="0"
-			data-reactions-enabled="1"
-			data-emit-metadata="0"
-			data-input-position="top"
-			data-theme="preferred_color_scheme"
-			data-lang="en"
-			data-loading="lazy"
-			crossorigin="anonymous"
-			async></script>
+
+	{
+		headings.length > 0 && (
+			<div class="fixed left-5 top-40 hidden max-w-[160px] lg:block">
+				<div class="text-muted text-xs" id="table-of-contents">
+					{headings.map((heading) => (
+						<div style={`margin-left: ${(heading.depth - 2) * 12}px;`} class="mb-1">
+							<a href={`#${heading.slug}`} class="hover:text-accent">
+								{heading.text}
+							</a>
+						</div>
+					))}
+				</div>
+			</div>
+		)
+	}
+
+	<div class="mt-12 pt-4">
+		<hr />
+		<div class="pt-4">
+			<script
+				is:inline
+				src="https://giscus.app/client.js"
+				data-repo="AmanVarshney01/aman-varshney"
+				data-repo-id="R_kgDOK2jPEQ"
+				data-category="General"
+				data-category-id="DIC_kwDOK2jPEc4CgTww"
+				data-mapping="pathname"
+				data-strict="0"
+				data-reactions-enabled="1"
+				data-emit-metadata="0"
+				data-input-position="top"
+				data-theme="preferred_color_scheme"
+				data-lang="en"
+				data-loading="lazy"
+				crossorigin="anonymous"
+				async></script>
+		</div>
 	</div>
 </Layout>
-
-<script is:inline>
-	function highlightCurrentHeading() {
-		const headings = document.querySelectorAll('h2, h3, h4, h5, h6')
-		const tocLinks = document.querySelectorAll('#table-of-contents a')
-
-		let currentHeadingIndex = 0
-
-		headings.forEach((heading, index) => {
-			const rect = heading.getBoundingClientRect()
-			if (rect.top <= 100) {
-				currentHeadingIndex = index
-			}
-		})
-
-		tocLinks.forEach((link, index) => {
-			if (index === currentHeadingIndex) {
-				link.classList.add('text-base-content', 'font-bold')
-			} else {
-				link.classList.remove('text-base-content', 'font-bold')
-			}
-		})
-	}
-
-	function showTableOfContents() {
-		const firstHeading = document.querySelector('h2, h3, h4, h5, h6')
-		if (!firstHeading) return
-
-		const rect = firstHeading.getBoundingClientRect()
-		const toc = document.getElementById('table-of-contents')
-		if (!toc) return
-
-		if (rect.top <= 0) {
-			toc.classList.remove('hidden')
-		} else {
-			toc.classList.add('hidden')
-		}
-	}
-
-	function updateAll() {
-		highlightCurrentHeading()
-		showTableOfContents()
-	}
-
-	document.addEventListener('astro:page-load', () => {
-		updateAll()
-		window.addEventListener('scroll', updateAll)
-		window.addEventListener('resize', updateAll)
-	})
-
-	document.addEventListener('astro:before-swap', () => {
-		window.removeEventListener('scroll', updateAll)
-		window.removeEventListener('resize', updateAll)
-	})
-</script>

@@ -3,17 +3,19 @@ import { db, desc, Guestbook } from 'astro:db'
 const guestbookData = await db.select().from(Guestbook).orderBy(desc(Guestbook.published))
 ---
 
-<div class="flex flex-col gap-2">
+<div class="mt-6 space-y-3">
 	{
 		guestbookData.map(
 			({ name, message, published }: { name: string; message: string; published: Date }) => {
 				return (
-					<div class="group flex flex-row items-center justify-between">
+					<div class="group flex items-center justify-between py-1">
 						<div>
-							<strong>{name}:</strong>
-							<span>{message}</span>
+							<span class="font-medium">{name}:</span>
+							<span class="text-muted">{message}</span>
 						</div>
-						<span class="hidden group-hover:flex">{new Date(published).toDateString()}</span>
+						<span class="text-muted text-xs opacity-0 transition-opacity group-hover:opacity-100">
+							{new Date(published).toLocaleDateString()}
+						</span>
 					</div>
 				)
 			}
