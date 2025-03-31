@@ -2,11 +2,11 @@ import cloudflare from '@astrojs/cloudflare'
 import db from '@astrojs/db'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
-import tailwind from '@astrojs/tailwind'
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
 import expressiveCode from 'astro-expressive-code'
 import icon from 'astro-icon'
 import { defineConfig } from 'astro/config'
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
 	site: 'https://www.amanvarshney.work/',
@@ -19,7 +19,6 @@ export default defineConfig({
 				themeName === 'vitesse-black' ? '[data-theme="black"]' : '[data-theme="lofi"]'
 		}),
 		mdx(),
-		tailwind(),
 		sitemap(),
 		db(),
 		icon({
@@ -28,5 +27,8 @@ export default defineConfig({
 	],
 	adapter: cloudflare({
 		imageService: 'compile'
-	})
+	}),
+	vite: {
+		plugins: [tailwindcss()]
+	}
 })

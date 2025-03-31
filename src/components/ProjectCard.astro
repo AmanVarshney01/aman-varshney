@@ -8,7 +8,7 @@ type Props = Project
 const { name, image, loading, alias, subDescription, showImage = true, githubLink } = Astro.props
 ---
 
-<a href={`/projects/${alias}`} class="card block no-underline hover:no-underline">
+<a href={`/projects/${alias}`} class="card block">
 	{
 		showImage && (
 			<Image

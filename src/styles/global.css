@@ -1,6 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-gray-200, currentColor);
+	}
+}
 
 :root {
 	--background: #fcfcfc;
@@ -23,7 +33,7 @@
 html {
 	background-color: var(--background);
 	color: var(--foreground);
-	font-size: 15px; /* Increased from 14px */
+	font-size: 15px;
 }
 
 body {
@@ -38,7 +48,6 @@ body {
 	padding: 0 1rem;
 }
 
-/* Typography */
 h1,
 h2,
 h3,
@@ -51,20 +60,20 @@ h6 {
 }
 
 h1 {
-	font-size: 1.75rem; /* Increased from 1.5rem */
+	font-size: 1.75rem;
 	margin-top: 2rem;
 }
 h2 {
-	font-size: 1.5rem; /* Increased from 1.25rem */
+	font-size: 1.5rem;
 	margin-top: 1.5rem;
 }
 h3 {
-	font-size: 1.25rem; /* Increased from 1.125rem */
+	font-size: 1.25rem;
 }
 h4,
 h5,
 h6 {
-	font-size: 1.125rem; /* Increased from 1rem */
+	font-size: 1.125rem;
 }
 
 p {
@@ -76,11 +85,6 @@ a {
 	text-decoration: none;
 }
 
-a:hover {
-	text-decoration: underline;
-}
-
-/* UI Elements - with minimal borders */
 .card {
 	padding: 0.5rem 0;
 	margin-bottom: 1.5rem;
@@ -97,14 +101,14 @@ button,
 	border: none;
 	color: var(--foreground);
 	border-radius: 0;
-	padding: 0.5rem 0.875rem; /* Slightly increased padding */
-	font-size: 0.9375rem; /* Increased from 0.875rem */
+	padding: 0.5rem 0.875rem;
+	font-size: 0.9375rem;
 	cursor: pointer;
 	transition: all 0.15s ease;
 	display: inline-flex;
 	align-items: center;
 	gap: 0.5rem;
-	height: 36px; /* Increased from 32px */
+	height: 36px;
 }
 
 button:hover,
@@ -128,9 +132,9 @@ textarea {
 	border-radius: 0;
 	color: var(--foreground);
 	padding: 0.5rem 0.75rem;
-	font-size: 0.9375rem; /* Increased from 0.875rem */
+	font-size: 0.9375rem;
 	width: 100%;
-	height: 36px; /* Increased from 32px */
+	height: 36px;
 	transition: background-color 0.2s ease;
 }
 
@@ -150,7 +154,7 @@ textarea:focus {
 .badge {
 	background-color: var(--soft);
 	color: var(--muted);
-	font-size: 0.8125rem; /* Increased from 0.75rem */
+	font-size: 0.8125rem;
 	padding: 0.15rem 0.5rem;
 	border-radius: 0;
 	display: inline-flex;
@@ -172,18 +176,17 @@ pre {
 	background-color: var(--soft);
 	padding: 1rem;
 	overflow-x: auto;
-	font-size: 0.9375rem; /* Increased from 0.875rem */
+	font-size: 0.9375rem;
 }
 
 code {
 	font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace;
-	font-size: 0.9375rem; /* Increased from 0.875rem */
+	font-size: 0.9375rem;
 }
 
-/* Table of contents */
 #table-of-contents {
 	padding-left: 0.75rem;
-	font-size: 0.8125rem; /* Increased from 0.75rem */
+	font-size: 0.8125rem;
 }
 
 /* Utilities */
@@ -192,11 +195,11 @@ code {
 }
 
 .text-sm {
-	font-size: 0.9375rem; /* Increased from 0.875rem */
+	font-size: 0.9375rem;
 }
 
 .text-xs {
-	font-size: 0.8125rem; /* Increased from 0.75rem */
+	font-size: 0.8125rem;
 }
 
 hr {
