@@ -5,7 +5,6 @@ import Badge from '../../components/Badge.astro'
 import Layout from '../../layouts/Layout.astro'
 import { projects } from '../../lib/projects'
 import type { Project } from '../../lib/types'
-import GitHubStats from '../../components/GithubStats.astro'
 
 export function getStaticPaths() {
 	return projects.flatMap((project) => ({
@@ -37,7 +36,6 @@ const {
 		<div class="space-y-4">
 			<div class="flex items-center justify-between">
 				<h1 class="text-foreground">{name}</h1>
-				{githubLink && <GitHubStats githubLink={githubLink} />}
 			</div>
 
 			<p class="text-muted">{description}</p>

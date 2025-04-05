@@ -1,14 +1,13 @@
 ---
 import { Image } from 'astro:assets'
 import type { Project } from '../lib/types'
-import GitHubStats from './GithubStats.astro'
 
 type Props = Project
 
 const { name, image, loading, alias, subDescription, showImage = true, githubLink } = Astro.props
 ---
 
-<a href={`/projects/${alias}`} class="card block">
+<a href={`/projects/${alias}`} class="card block p-4">
 	{
 		showImage && (
 			<Image
@@ -18,14 +17,13 @@ const { name, image, loading, alias, subDescription, showImage = true, githubLin
 				height={1080}
 				quality={'low'}
 				loading={loading || 'lazy'}
-				class="mb-3 aspect-video object-cover"
+				class="mb-4 aspect-video object-cover"
 			/>
 		)
 	}
-	<div>
+	<div class="space-y-2">
 		<div class="flex items-center justify-between">
 			<h3 class="text-foreground">{name}</h3>
-			{githubLink && <GitHubStats githubLink={githubLink} />}
 		</div>
 		<p class="text-muted text-sm">{subDescription}</p>
 	</div>

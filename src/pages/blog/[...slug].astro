@@ -49,7 +49,7 @@ const { Content, headings } = await render(post)
 
 	{
 		headings.length > 0 && (
-			<div class="fixed left-5 top-40 hidden max-w-[160px] lg:block">
+			<div class="fixed top-40 left-5 hidden max-w-[160px] lg:block">
 				<div class="text-muted text-xs" id="table-of-contents">
 					{headings.map((heading) => (
 						<div style={`margin-left: ${(heading.depth - 2) * 12}px;`} class="mb-1">

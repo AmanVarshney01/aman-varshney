@@ -1,6 +1,5 @@
 ---
 import { Icon } from 'astro-icon/components'
-// import InteractiveCLI from '../components/InteractiveCLI.astro'
 import ProjectCardGrid from '../components/ProjectCardGrid.astro'
 import Layout from '../layouts/Layout.astro'
 ---
@@ -9,50 +8,58 @@ import Layout from '../layouts/Layout.astro'
 	<div class="space-y-12">
 		<section class="space-y-6">
 			<div>
-				<h1>Aman Varshney</h1>
+				<h1 class="terminal-prompt mb-4">Aman Varshney</h1>
 				<p class="text-muted">
-					B.Tech CSE student | Web & app developer | Ex-intern @
-					<a href="https://kofferx.com/" target="_blank" rel="noopener" class="text-accent"
-						>KofferX</a
-					>
+					<span class="text-accent">$</span> cat about.md
 				</p>
+				<div class="mt-2 ml-4">
+					<p>
+						B.Tech CSE student | Web & app developer | Ex-intern @
+						<a href="https://kofferx.com/" target="_blank" rel="noopener" class="text-accent"
+							>KofferX</a
+						>
+					</p>
+				</div>
 			</div>
 
-			<!-- <InteractiveCLI /> -->
-
-			<div class="flex flex-wrap gap-2">
-				<button
-					data-cal-link="amanvarshney01/15min"
-					data-cal-namespace="15min"
-					data-cal-config='{"layout":"month_view"}'
-					class="btn"
-				>
-					<Icon name="calendar" class="h-3.5 w-3.5" />
-					Schedule a meeting
-				</button>
-				<a href="https://github.com/AmanVarshney01" target="_blank" class="btn">
-					<Icon name="github" class="h-3.5 w-3.5" />
-					Github
-				</a>
-				<a href="mailto:amanvarshney.work@gmail.com" class="btn">
-					<Icon name="mail" class="h-3.5 w-3.5" />
-					Mail
-				</a>
-				<a href="https://x.com/amanvarshney01" target="_blank" class="btn">
-					<Icon name="x" class="h-3.5 w-3.5" />
-					X
-				</a>
-				<a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank" class="btn">
-					<Icon name="linkedin" class="h-3.5 w-3.5" />
-					LinkedIn
-				</a>
+			<div>
+				<p class="text-muted mb-2">
+					<span class="text-accent">$</span> ls ./contact
+				</p>
+				<div class="ml-4 flex flex-wrap gap-2">
+					<button
+						data-cal-link="amanvarshney01/15min"
+						data-cal-namespace="15min"
+						data-cal-config='{"layout":"month_view"}'
+						class="btn"
+					>
+						<Icon name="calendar" class="h-3.5 w-3.5" />
+						calendar.sh
+					</button>
+					<a href="https://github.com/AmanVarshney01" target="_blank" class="btn">
+						<Icon name="github" class="h-3.5 w-3.5" />
+						github.md
+					</a>
+					<a href="mailto:amanvarshney.work@gmail.com" class="btn">
+						<Icon name="mail" class="h-3.5 w-3.5" />
+						mail.txt
+					</a>
+					<a href="https://x.com/amanvarshney01" target="_blank" class="btn">
+						<Icon name="x" class="h-3.5 w-3.5" />
+						x.md
+					</a>
+					<a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank" class="btn">
+						<Icon name="linkedin" class="h-3.5 w-3.5" />
+						linkedin.md
+					</a>
+				</div>
 			</div>
 		</section>
 
 		<section class="space-y-4">
-			<div class="flex items-center justify-between">
-				<h2>Featured Projects</h2>
-			</div>
+			<p class="text-muted">
+				<span class="text-accent">$</span> ls -la ./featured-projects
+			</p>
 			<ProjectCardGrid />
 		</section>
 	</div>

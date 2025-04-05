@@ -11,13 +11,14 @@ const { blog } = Astro.props
 
 <div class="flex items-center justify-between py-1">
 	<a
-		class="text-foreground hover:text-accent"
+		class="text-foreground hover:text-accent flex items-center"
 		transition:name="blog-heading"
 		href=`/blog/${blog.id}`
 	>
+		<span class="text-success mr-2">$</span>
 		{blog.data.title}
 	</a>
-	<span class="text-muted ml-4 whitespace-nowrap text-xs">
+	<span class="text-muted ml-4 text-xs whitespace-nowrap">
 		<FormattedDate date={blog.data.pubDate} />
 	</span>
 </div>

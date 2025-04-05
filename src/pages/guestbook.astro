@@ -19,11 +19,11 @@ if (result?.error) {
 		<form
 			method="POST"
 			action={actions.guestbook}
-			class="grid grid-cols-1 gap-3 md:grid-cols-[1fr_2fr_auto]"
+			class="grid grid-cols-1 gap-4 md:grid-cols-[1fr_2fr_auto]"
 		>
-			<input type="text" name="name" placeholder="Name" required />
-			<input type="text" name="message" placeholder="Message" required />
-			<button type="submit" class="btn">Submit</button>
+			<input type="text" name="name" placeholder="Name" required class="p-2" />
+			<input type="text" name="message" placeholder="Message" required class="p-2" />
+			<button type="submit" class="btn px-4 py-2">Submit</button>
 		</form>
 
 		<GuestbookEntries server:defer>
