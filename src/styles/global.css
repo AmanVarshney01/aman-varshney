@@ -40,7 +40,7 @@ html {
 }
 
 body {
-	font-family: 'Geist Sans', 'Cascadia Code', 'Fira Code', 'Menlo', monospace;
+	font-family: 'Geist Mono', monospace;
 	line-height: 1.6;
 	max-width: 768px;
 	margin: 0 auto;
@@ -64,28 +64,13 @@ h1 {
 	position: relative;
 }
 
-h1::before {
-	content: '# ';
-	opacity: 0.7;
-}
-
 h2 {
 	font-size: 1.5rem;
 	margin-top: 1.5rem;
 }
 
-h2::before {
-	content: '## ';
-	opacity: 0.7;
-}
-
 h3 {
 	font-size: 1.25rem;
-}
-
-h3::before {
-	content: '### ';
-	opacity: 0.7;
 }
 
 h4,
@@ -112,7 +97,7 @@ a:hover {
 
 .card {
 	background-color: var(--soft);
-	border-left: 2px solid var(--accent);
+	/* border-left: 2px solid var(--accent); */
 	padding: var(--space-4);
 	margin-bottom: var(--space-6);
 	transition: all 0.2s ease;
@@ -223,22 +208,8 @@ pre {
 	background-color: var(--soft);
 	border-left: 2px solid var(--accent);
 	padding: 1rem;
-	overflow-x: auto;
 	font-size: 0.9375rem;
-	margin: 1.5rem 0;
-}
-
-code {
-	font-family: 'SF Mono', 'Cascadia Code', 'Fira Code', 'Menlo', monospace;
-	font-size: 0.9375rem;
-	background-color: rgba(122, 162, 247, 0.1);
-	padding: 0.1em 0.3em;
-	border-radius: 0;
-}
-
-pre code {
-	background-color: transparent;
-	padding: 0;
+	margin-bottom: 1rem !important;
 }
 
 #table-of-contents {
@@ -257,12 +228,6 @@ pre code {
 	animation: blink 1s step-start infinite;
 	vertical-align: -0.2em;
 }
-/*
-@keyframes blink {
-	50% {
-		opacity: 0;
-	}
-} */
 
 .text-muted {
 	color: var(--muted);

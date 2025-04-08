@@ -15,7 +15,6 @@ if (result?.error) {
 <Layout title="Guestbook | Aman Varshney">
 	<div class="space-y-6">
 		<h1>Guestbook</h1>
-
 		<form
 			method="POST"
 			action={actions.guestbook}
@@ -23,9 +22,8 @@ if (result?.error) {
 		>
 			<input type="text" name="name" placeholder="Name" required class="p-2" />
 			<input type="text" name="message" placeholder="Message" required class="p-2" />
-			<button type="submit" class="btn px-4 py-2">Submit</button>
+			<button type="submit" class="btn px-4 py-2">Sign</button>
 		</form>
-
 		<GuestbookEntries server:defer>
 			<div slot="fallback" class="space-y-3">
 				<div class="bg-soft h-4 w-3/4 animate-pulse rounded-sm"></div>

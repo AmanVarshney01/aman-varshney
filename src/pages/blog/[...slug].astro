@@ -14,7 +14,7 @@ export const getStaticPaths = async () => {
 type Props = CollectionEntry<'blog'>
 
 const post = Astro.props
-const { Content, headings } = await render(post)
+const { Content } = await render(post)
 ---
 
 <Layout title={post.data.title}>
@@ -46,22 +46,6 @@ const { Content, headings } = await render(post)
 			<Content />
 		</div>
 	</article>
-
-	{
-		headings.length > 0 && (
-			<div class="fixed top-40 left-5 hidden max-w-[160px] lg:block">
-				<div class="text-muted text-xs" id="table-of-contents">
-					{headings.map((heading) => (
-						<div style={`margin-left: ${(heading.depth - 2) * 12}px;`} class="mb-1">
-							<a href={`#${heading.slug}`} class="hover:text-accent">
-								{heading.text}
-							</a>
-						</div>
-					))}
-				</div>
-			</div>
-		)
-	}
 
 	<div class="mt-12 pt-4">
 		<hr />

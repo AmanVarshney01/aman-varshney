@@ -12,13 +12,10 @@ import { projects } from '../../lib/projects'
 			{
 				projects.map((project) => (
 					<ProjectCard
-						image={project.image}
 						name={project.name}
-						subDescription={project.subDescription}
 						description={project.description}
 						githubLink={project.githubLink}
 						liveLink={project.liveLink}
-						isFeatured={project.isFeatured}
 						loading={project.loading}
 						alias={project.alias}
 						techUsed={project.techUsed}

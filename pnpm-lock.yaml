@@ -29,6 +29,9 @@ importers:
       '@expressive-code/plugin-line-numbers':
         specifier: ^0.40.2
         version: 0.40.2
+      '@fontsource/geist-mono':
+        specifier: ^5.2.5
+        version: 5.2.5
       '@fontsource/geist-sans':
         specifier: ^5.2.5
         version: 5.2.5
@@ -561,6 +564,9 @@ packages:
   '@fastify/busboy@2.1.1':
     resolution: {integrity: sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==}
     engines: {node: '>=14'}
+
+  '@fontsource/geist-mono@5.2.5':
+    resolution: {integrity: sha512-7/r9opukyQ3jkAqfhIRnhodWlAc8yVkHogDUAFqBeBSYNpvlpouLJysYO5cIpqyB/lHrazxChiC73Oj8K3+sZg==}
 
   '@fontsource/geist-sans@5.2.5':
     resolution: {integrity: sha512-anllOHyJbElRs9fV15TeDRqAeb1IKm4bSknPl6ZMoyPTx1BBy7logudcUwpNjmQLkzn4Q0JGQLRCUKJYoyST6A==}
@@ -3674,6 +3680,8 @@ snapshots:
       '@expressive-code/core': 0.40.2
 
   '@fastify/busboy@2.1.1': {}
+
+  '@fontsource/geist-mono@5.2.5': {}
 
   '@fontsource/geist-sans@5.2.5': {}
 

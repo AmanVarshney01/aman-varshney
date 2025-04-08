@@ -1,7 +1,15 @@
 ---
 import { Icon } from 'astro-icon/components'
-import ProjectCardGrid from '../components/ProjectCardGrid.astro'
+import Badge from '../components/Badge.astro'
 import Layout from '../layouts/Layout.astro'
+import { projects } from '../lib/projects'
+import { getCollection } from 'astro:content'
+import FormattedDate from '../components/FormattedDate.astro'
+
+// Get blog posts sorted by date
+const posts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3) // Get only the 3 most recent posts
 ---
 
 <Layout title="Aman Varshney">
@@ -57,10 +65,76 @@ import Layout from '../layouts/Layout.astro'
 		</section>
 
 		<section class="space-y-4">
-			<p class="text-muted">
-				<span class="text-accent">$</span> ls -la ./featured-projects
-			</p>
-			<ProjectCardGrid />
+			<h2>Projects</h2>
+			<div class="space-y-4">
+				{
+					projects.map((project) => (
+						<div class="card p-4">
+							<div class="flex items-start justify-between">
+								<div>
+									<h3 class="mb-1">{project.name}</h3>
+									<p class="text-muted text-sm">{project.description}</p>
+								</div>
+								<div class="flex gap-2">
+									{project.githubLink && (
+										<a
+											href={project.githubLink}
+											target="_blank"
+											class="text-muted hover:text-accent"
+										>
+											<Icon name="github" class="h-5 w-5" />
+										</a>
+									)}
+									{project.liveLink && (
+										<a href={project.liveLink} target="_blank" class="text-muted hover:text-accent">
+											<Icon name="external" class="h-5 w-5" />
+										</a>
+									)}
+								</div>
+							</div>
+							<div class="mt-3 flex flex-wrap gap-1">
+								{project.techUsed.map((tech) => (
+									<Badge name={tech.name} />
+								))}
+							</div>
+						</div>
+					))
+				}
+
+				<a href="https://github.com/AmanVarshney01" class="link mt-2 block text-right">
+					View more projects
+				</a>
+			</div>
+		</section>
+
+		<section class="space-y-4">
+			<h2>Blog</h2>
+			<div class="space-y-3">
+				{
+					posts.map((post) => (
+						<div class="flex items-center justify-between">
+							<a
+								href={`/blog/${post.id}`}
+								target="_blank"
+								class="text-foreground hover:text-accent flex items-center"
+							>
+								<span class="text-success mr-2">$</span>
+								{post.data.title}
+							</a>
+							<span class="text-muted ml-4 text-xs whitespace-nowrap">
+								<FormattedDate date={post.data.pubDate} />
+							</span>
+						</div>
+					))
+				}
+				<a
+					href="https://amanvarshney.hashnode.dev/"
+					target="_blank"
+					class="link mt-2 block text-right"
+				>
+					Read more on Hashnode
+				</a>
+			</div>
 		</section>
 	</div>
 </Layout>
@@ -103,7 +177,7 @@ import Layout from '../layouts/Layout.astro'
 
 	Cal.ns['15min']('ui', {
 		theme: 'auto',
-		styles: { branding: { brandColor: '#3b82f6' } },
+		styles: { branding: { brandColor: '#89b4fa' } },
 		hideEventTypeDetails: false,
 		layout: 'month_view'
 	})

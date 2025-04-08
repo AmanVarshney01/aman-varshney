@@ -16,23 +16,13 @@ export function getStaticPaths() {
 
 const { project } = Astro.params
 
-const {
-	name,
-	description,
-	image,
-	githubLink,
-	liveLink,
-	isFeatured,
-	alias,
-	techUsed,
-	note
-}: Project = projects.find((p) => p.alias === project)!
+const { name, description, githubLink, liveLink, alias, techUsed }: Project = projects.find(
+	(p) => p.alias === project
+)!
 ---
 
 <Layout title={`${name} | Aman Varshney`}>
 	<div transition:name={`${alias}`} class="space-y-6">
-		<Image src={image as ImageMetadata} alt={name as string} class="aspect-video object-cover" />
-
 		<div class="space-y-4">
 			<div class="flex items-center justify-between">
 				<h1 class="text-foreground">{name}</h1>
@@ -46,7 +36,7 @@ const {
 						<h3 class="text-sm font-medium">Technologies</h3>
 						<div class="flex flex-wrap gap-2">
 							{techUsed.map((tech) => (
-								<Badge name={tech.name} icon={tech.icon} />
+								<Badge name={tech.name} />
 							))}
 						</div>
 					</div>
@@ -67,14 +57,6 @@ const {
 					View on GitHub
 				</a>
 			</div>
-
-			{
-				note && (
-					<div class="bg-soft mt-4 p-3 text-xs">
-						<span class="font-medium">Note:</span> {note}
-					</div>
-				)
-			}
 		</div>
 	</div>
 </Layout>

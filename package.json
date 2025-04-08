@@ -16,6 +16,7 @@
 		"@astrojs/rss": "4.0.11",
 		"@astrojs/sitemap": "^3.3.0",
 		"@expressive-code/plugin-line-numbers": "^0.40.2",
+		"@fontsource/geist-mono": "^5.2.5",
 		"@fontsource/geist-sans": "^5.2.5",
 		"@shikijs/transformers": "^3.2.1",
 		"@tailwindcss/vite": "^4.0.17",

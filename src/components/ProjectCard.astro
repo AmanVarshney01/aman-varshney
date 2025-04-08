@@ -4,27 +4,13 @@ import type { Project } from '../lib/types'
 
 type Props = Project
 
-const { name, image, loading, alias, subDescription, showImage = true, githubLink } = Astro.props
+const { name, loading, alias, githubLink } = Astro.props
 ---
 
 <a href={`/projects/${alias}`} class="card block p-4">
-	{
-		showImage && (
-			<Image
-				src={image}
-				alt={name}
-				width={1920}
-				height={1080}
-				quality={'low'}
-				loading={loading || 'lazy'}
-				class="mb-4 aspect-video object-cover"
-			/>
-		)
-	}
 	<div class="space-y-2">
 		<div class="flex items-center justify-between">
 			<h3 class="text-foreground">{name}</h3>
 		</div>
-		<p class="text-muted text-sm">{subDescription}</p>
 	</div>
 </a>

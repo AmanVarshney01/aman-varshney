@@ -13,10 +13,7 @@ export default defineConfig({
 	integrations: [
 		expressiveCode({
 			plugins: [pluginLineNumbers()],
-			themes: ['vitesse-dark', 'vitesse-light'],
-			useDarkModeMediaQuery: false,
-			themeCssSelector: (themeName) =>
-				themeName === 'vitesse-black' ? '[data-theme="black"]' : '[data-theme="lofi"]'
+			themes: ['catppuccin-mocha', 'catppuccin-latte']
 		}),
 		mdx(),
 		sitemap(),
