@@ -15,13 +15,36 @@ if (result?.error) {
 <Layout title="Guestbook | Aman Varshney">
 	<div class="space-y-6">
 		<h1>Guestbook</h1>
+		{
+			result?.type === 'failure' && (
+				<div class="text-xs" style="color: var(--error)">
+					{String(result?.error?.message ?? 'Something went wrong. Please try again.')}
+				</div>
+			)
+		}
 		<form
 			method="POST"
 			action={actions.guestbook}
 			class="grid grid-cols-1 gap-4 md:grid-cols-[1fr_2fr_auto]"
 		>
-			<input type="text" name="name" placeholder="Name" required class="p-2" />
-			<input type="text" name="message" placeholder="Message" required class="p-2" />
+			<input
+				type="text"
+				name="name"
+				placeholder="Name"
+				required
+				minlength="2"
+				maxlength="50"
+				class="p-2"
+			/>
+			<input
+				type="text"
+				name="message"
+				placeholder="Message"
+				required
+				minlength="2"
+				maxlength="200"
+				class="p-2"
+			/>
 			<button type="submit" class="btn px-4 py-2">Sign</button>
 		</form>
 		<GuestbookEntries server:defer>
