@@ -14,9 +14,8 @@ if (result?.error) {
 
 <Layout title="Guestbook | Aman Varshney">
 	<div class="space-y-6">
-		<h1>Guestbook</h1>
 		{
-			result?.type === 'failure' && (
+			result?.error && (
 				<div class="text-xs" style="color: var(--error)">
 					{String(result?.error?.message ?? 'Something went wrong. Please try again.')}
 				</div>

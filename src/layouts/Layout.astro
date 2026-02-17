@@ -1,7 +1,7 @@
 ---
+import '@fontsource/geist-sans'
 import '@fontsource/geist-mono'
 import { ClientRouter } from 'astro:transitions'
-// import Footer from '../components/Footer.astro'
 import Header from '../components/Header.astro'
 import '../styles/global.css'
 
@@ -11,7 +11,11 @@ type Props = {
 	author?: string
 }
 
-const { title, description = 'Portfolio of Aman Varshney', author = 'Aman Varshney' } = Astro.props
+const {
+	title,
+	description = 'From India. Junior Developer Advocate at Prisma. Creator of Better T Stack with 10k+ project scaffolds per month. Open source, TypeScript, and AI.',
+	author = 'Aman Varshney'
+} = Astro.props
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 const socialImageURL = new URL('/og-image.webp', Astro.url)
 ---
@@ -20,7 +24,8 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="alternate icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="author" content={author} />
 		<link rel="sitemap" href="/sitemap-index.xml" />
@@ -31,19 +36,20 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 		<meta property="og:title" content={title} />
 		<meta property="og:image" content={socialImageURL.href} />
 		<meta property="twitter:title" content="Aman Varshney" />
-		<meta property="twitter:description" content="Portfolio of Aman Varshney" />
+		<meta property="twitter:description" content={description} />
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:image" content={socialImageURL.href} />
 		<meta property="twitter:creator" content="@amanvarshney01" />
 		<meta property="og:site_name" content="Aman Varshney" />
-		<meta property="og:description" content="Portfolio of Aman Varshney" />
+		<meta property="og:description" content={description} />
 		<ClientRouter fallback={'none'} />
 	</head>
 	<body class="min-h-screen">
-		<Header />
-		<main>
-			<slot />
-		</main>
-		<!-- <Footer /> -->
+		<div class="site-shell">
+			<Header />
+			<main class="stack-lg">
+				<slot />
+			</main>
+		</div>
 	</body>
 </html>

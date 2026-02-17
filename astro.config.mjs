@@ -9,11 +9,11 @@ import { defineConfig } from 'astro/config'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-	site: 'https://www.amanvarshney.work/',
+	site: 'https://amanv.dev/',
 	integrations: [
 		expressiveCode({
 			plugins: [pluginLineNumbers()],
-			themes: ['catppuccin-mocha', 'catppuccin-latte']
+			themes: ['vitesse-dark', 'vitesse-light']
 		}),
 		mdx(),
 		sitemap(),

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Aman Varshney">
+  <rect width="64" height="64" rx="14" fill="#141415" />
+  <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#252530" />
+  <path d="M16 48L28 16h8l12 32h-7l-2.8-8H25.8L23 48h-7zm11.8-14h8.4L32 22.4 27.8 34z" fill="#cdcdcd" />
+  <rect x="26" y="31" width="12" height="3" rx="1.5" fill="#6e94b2" />
+</svg>
