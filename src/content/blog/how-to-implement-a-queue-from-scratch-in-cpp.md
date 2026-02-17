@@ -1,6 +1,7 @@
 ---
 title: 'How to Implement a Queue from Scratch in C++'
-pubDate: "Dec 16 2023"
+slug: 'how-to-implement-a-queue-from-scratch-in-c'
+pubDate: 'Dec 16 2023'
 ---
 
 > **Note:** This is an AI-generated sample post used to test the blog functionality in Astro. Real, original content will be added later.

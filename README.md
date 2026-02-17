@@ -1,15 +1,31 @@
 # Portfolio
 
-![aman-varshney](https://github.com/user-attachments/assets/6aa16e74-bff9-484b-8c65-cf48498f9f35)
+Personal site built with Astro featuring projects, blog posts, and a guestbook.
 
-This is my personal website featuring my projects, blog, and a guestbook.
+## Stack
 
-## Tech Stack
+- Astro 5
+- Tailwind CSS 4
+- Astro DB (guestbook)
+- Cloudflare adapter + Wrangler config
+- Bun (package manager/runtime)
 
-- Astro: Static site generator
-- Tailwind CSS: Utility-first CSS framework
-- DaisyUI: Tailwind CSS component library
-- Astro DB: Used for the guestbook functionality
-- Vercel: Hosting and deployment
+## Local Development
 
-Enjoyed the site? Drop a comment in the guestbook!
+```bash
+bun install
+bun run dev
+```
+
+## Quality Checks
+
+```bash
+bun run check
+bun run build
+bun run format:check
+```
+
+## Theme
+
+The UI uses a Vague-inspired palette and styling direction:
+https://github.com/vague-theme/vague.nvim

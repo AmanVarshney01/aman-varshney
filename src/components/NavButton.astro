@@ -10,7 +10,6 @@ const { name, href, isActive } = Astro.props
 
 <a
 	href={href}
-	rel="noopener noreferrer"
 	class={`text-sm ${isActive ? 'text-accent font-medium' : 'text-muted hover:text-foreground'}`}
 >
 	{name}

@@ -4,19 +4,10 @@ import NavButton from './NavButton.astro'
 const currentPath = Astro.url.pathname
 ---
 
-<header class="pt-6">
-	<div class="border-border pb-3">
-		<div class="mb-2 flex items-center">
-			<span class="text-accent mr-1">~</span>
-			<span class="text-muted text-sm">aman-varshney</span>
-		</div>
-		<div class="flex flex-row gap-4">
-			<NavButton href="/" name="home" isActive={currentPath === '/'} />
-			<NavButton
-				href="/guestbook"
-				name="guestbook"
-				isActive={currentPath.startsWith('/guestbook')}
-			/>
-		</div>
-	</div>
+<header class="pt-4">
+	<nav class="flex flex-row gap-4 font-mono text-sm tracking-[0.08em]">
+		<NavButton href="/" name="home" isActive={currentPath === '/'} />
+		<NavButton href="/blog" name="blog" isActive={currentPath.startsWith('/blog')} />
+		<NavButton href="/guestbook" name="guestbook" isActive={currentPath.startsWith('/guestbook')} />
+	</nav>
 </header>

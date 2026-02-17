@@ -1,66 +1,24 @@
 ---
-import { Icon } from 'astro-icon/components'
-import Badge from '../components/Badge.astro'
 import Layout from '../layouts/Layout.astro'
 import { projects } from '../lib/projects'
-import { getCollection } from 'astro:content'
-import FormattedDate from '../components/FormattedDate.astro'
-
-// Get blog posts sorted by date
-const posts = (await getCollection('blog'))
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-	.slice(0, 3) // Get only the 3 most recent posts
 ---
 
 <Layout title="Aman Varshney">
-	<div class="space-y-12">
-		<section class="space-y-6">
-			<div>
-				<h1 class="terminal-prompt mb-4">Aman Varshney</h1>
-				<p class="text-muted">
-					<span class="text-accent">$</span> cat about.md
-				</p>
-				<div class="mt-2 ml-4">
-					<p>
-						B.Tech CSE student | Web & app developer | Ex-intern @
-						<a href="https://kofferx.com/" target="_blank" rel="noopener" class="text-accent"
-							>KofferX</a
-						>
-					</p>
-				</div>
-			</div>
-
-			<div>
-				<p class="text-muted mb-2">
-					<span class="text-accent">$</span> ls ./contact
-				</p>
-				<div class="ml-4 flex flex-wrap gap-2">
-					<button
-						data-cal-link="amanvarshney01/15min"
-						data-cal-namespace="15min"
-						data-cal-config='{"layout":"month_view"}'
-						class="btn"
-					>
-						<Icon name="calendar" class="h-3.5 w-3.5" />
-						calendar.sh
-					</button>
-					<a href="https://github.com/AmanVarshney01" target="_blank" class="btn">
-						<Icon name="github" class="h-3.5 w-3.5" />
-						github.md
-					</a>
-					<a href="mailto:amanvarshney.work@gmail.com" class="btn">
-						<Icon name="mail" class="h-3.5 w-3.5" />
-						mail.txt
-					</a>
-					<a href="https://x.com/amanvarshney01" target="_blank" class="btn">
-						<Icon name="x" class="h-3.5 w-3.5" />
-						x.md
-					</a>
-					<a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank" class="btn">
-						<Icon name="linkedin" class="h-3.5 w-3.5" />
-						linkedin.md
-					</a>
-				</div>
+	<div class="space-y-8">
+		<section class="space-y-4">
+			<h1>Aman Varshney</h1>
+			<p class="text-muted">
+				From India. Junior Developer Advocate at Prisma. Creator of Better T Stack, powering 10k+
+				project scaffolds per month. I love open source, TypeScript, and everything AI.
+			</p>
+			<div class="flex flex-wrap gap-3 text-sm">
+				<a href="https://cal.com/amanvarshney01/15min" target="_blank" rel="noopener">Book a call</a
+				>
+				<a href="https://github.com/AmanVarshney01" target="_blank" rel="noopener">GitHub</a>
+				<a href="mailto:amanvarshney.work@gmail.com">Email</a>
+				<a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank" rel="noopener"
+					>LinkedIn</a
+				>
 			</div>
 		</section>
 
@@ -68,117 +26,28 @@ const posts = (await getCollection('blog'))
 			<h2>Projects</h2>
 			<div class="space-y-4">
 				{
-					projects.map((project) => (
-						<div class="card p-4">
-							<div class="flex items-start justify-between">
-								<div>
-									<h3 class="mb-1">{project.name}</h3>
-									<p class="text-muted text-sm">{project.description}</p>
-								</div>
-								<div class="flex gap-2">
+					projects.slice(0, 5).map((project) => (
+						<div class="space-y-2">
+							<div class="flex items-center justify-between gap-4">
+								<span class="text-foreground font-medium">{project.name}</span>
+								<div class="flex gap-3 text-sm">
 									{project.githubLink && (
-										<a
-											href={project.githubLink}
-											target="_blank"
-											class="text-muted hover:text-accent"
-										>
-											<Icon name="github" class="h-5 w-5" />
+										<a href={project.githubLink} target="_blank" rel="noopener">
+											Code
 										</a>
 									)}
 									{project.liveLink && (
-										<a href={project.liveLink} target="_blank" class="text-muted hover:text-accent">
-											<Icon name="external" class="h-5 w-5" />
+										<a href={project.liveLink} target="_blank" rel="noopener">
+											Live
 										</a>
 									)}
 								</div>
 							</div>
-							<div class="mt-3 flex flex-wrap gap-1">
-								{project.techUsed.map((tech) => (
-									<Badge name={tech.name} />
-								))}
-							</div>
+							<p class="text-muted text-sm">{project.description}</p>
 						</div>
 					))
 				}
-
-				<a href="https://github.com/AmanVarshney01" class="link mt-2 block text-right">
-					View more projects
-				</a>
-			</div>
-		</section>
-
-		<section class="space-y-4">
-			<h2>Blog</h2>
-			<div class="space-y-3">
-				{
-					posts.map((post) => (
-						<div class="flex items-center justify-between">
-							<a
-								href={`/blog/${post.id}`}
-								target="_blank"
-								class="text-foreground hover:text-accent flex items-center"
-							>
-								<span class="text-success mr-2">$</span>
-								{post.data.title}
-							</a>
-							<span class="text-muted ml-4 text-xs whitespace-nowrap">
-								<FormattedDate date={post.data.pubDate} />
-							</span>
-						</div>
-					))
-				}
-				<a
-					href="https://amanvarshney.hashnode.dev/"
-					target="_blank"
-					class="link mt-2 block text-right"
-				>
-					Read more on Hashnode
-				</a>
 			</div>
 		</section>
 	</div>
 </Layout>
-
-<!-- Cal.com Embed -->
-<script is:inline>
-	;(function (C, A, L) {
-		let p = function (a, ar) {
-			a.q.push(ar)
-		}
-		let d = C.document
-		C.Cal =
-			C.Cal ||
-			function () {
-				let cal = C.Cal
-				let ar = arguments
-				if (!cal.loaded) {
-					cal.ns = {}
-					cal.q = cal.q || []
-					d.head.appendChild(d.createElement('script')).src = A
-					cal.loaded = true
-				}
-				if (ar[0] === L) {
-					const api = function () {
-						p(api, arguments)
-					}
-					const namespace = ar[1]
-					api.q = api.q || []
-					if (typeof namespace === 'string') {
-						cal.ns[namespace] = cal.ns[namespace] || api
-						p(cal.ns[namespace], ar)
-						p(cal, ['initNamespace', namespace])
-					} else p(cal, ar)
-					return
-				}
-				p(cal, ar)
-			}
-	})(window, 'https://app.cal.com/embed/embed.js', 'init')
-	Cal('init', '15min', { origin: 'https://cal.com' })
-
-	Cal.ns['15min']('ui', {
-		theme: 'auto',
-		styles: { branding: { brandColor: '#89b4fa' } },
-		hideEventTypeDetails: false,
-		layout: 'month_view'
-	})
-</script>

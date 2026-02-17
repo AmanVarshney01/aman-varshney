@@ -18,11 +18,9 @@ const { Content } = await render(post)
 ---
 
 <Layout title={post.data.title}>
-	<article>
-		<div class="mb-8">
-			<h1 transition:name="post-heading" class="mb-2">
-				{post.data.title}
-			</h1>
+	<article class="stack-lg">
+		<div class="stack-md">
+			<h1 transition:name="post-heading">{post.data.title}</h1>
 			<div class="text-muted flex items-center gap-3 text-xs">
 				<FormattedDate date={post.data.pubDate} />
 				{
@@ -33,23 +31,19 @@ const { Content } = await render(post)
 					)
 				}
 			</div>
-			<a
-				class="link mt-1 block text-xs"
-				href=`https://amanvarshney.hashnode.dev/${post.id}`
-				target="_blank"
-			>
-				Read on Hashnode →
+			<a class="text-xs" href={`https://amanvarshney.hashnode.dev/${post.id}`} target="_blank">
+				Read on Hashnode
 			</a>
 		</div>
 
-		<div class="article-content">
+		<div class="article-content stack-md">
 			<Content />
 		</div>
 	</article>
 
-	<div class="mt-12 pt-4">
+	<div class="pt-4">
 		<hr />
-		<div class="pt-4">
+		<div class="pt-2">
 			<script
 				is:inline
 				src="https://giscus.app/client.js"
@@ -62,7 +56,7 @@ const { Content } = await render(post)
 				data-reactions-enabled="1"
 				data-emit-metadata="0"
 				data-input-position="top"
-				data-theme="preferred_color_scheme"
+				data-theme="dark"
 				data-lang="en"
 				data-loading="lazy"
 				crossorigin="anonymous"
