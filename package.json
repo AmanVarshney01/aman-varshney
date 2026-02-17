@@ -5,7 +5,7 @@
 	"packageManager": "bun@1.3.9",
 	"scripts": {
 		"dev": "astro dev",
-		"build": "astro build --remote",
+		"build": "bun install --frozen-lockfile && astro build --remote",
 		"preview": "astro preview",
 		"check": "astro check",
 		"format": "prettier --write .",
