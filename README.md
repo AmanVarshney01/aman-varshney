@@ -39,5 +39,5 @@ bun run format:check
 
 ## Theme
 
-The UI uses a Vague-inspired palette and styling direction:
-https://github.com/vague-theme/vague.nvim
+Neutral dark grayscale palette with a CLI-session layout: a clack-style
+prompt rail with node markers per section.

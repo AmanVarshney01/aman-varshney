@@ -1,17 +1,14 @@
 @import 'tailwindcss';
 
 @theme {
-	--color-background: #141415;
-	--color-foreground: #cdcdcd;
-	--color-bright: #c3c3d5;
-	--color-muted: #878787;
-	--color-faint: #606079;
-	--color-accent: #6e94b2;
-	--color-accent-soft: #7e98e8;
-	--color-soft: #1c1c24;
-	--color-border: #252530;
-	--color-success: #7fa563;
-	--color-error: #d8647e;
+	--color-background: #161616;
+	--color-foreground: #d4d4d4;
+	--color-bright: #ededed;
+	--color-muted: #8f8f8f;
+	--color-faint: #5c5c5c;
+	--color-soft: #1e1e1e;
+	--color-border: #2a2a2a;
+	--color-error: #c98a8a;
 	--font-sans: 'Geist Sans', 'Avenir Next', 'Segoe UI', sans-serif;
 	--font-mono: 'Geist Mono', 'Cascadia Code', 'Menlo', monospace;
 }
@@ -19,6 +16,7 @@
 html {
 	background: var(--color-background);
 	color: var(--color-foreground);
+	color-scheme: dark;
 	font-size: 15px;
 	min-height: 100%;
 }
@@ -33,8 +31,7 @@ body {
 }
 
 ::selection {
-	background: rgba(174, 174, 209, 0.3);
-	color: #f2f2f2;
+	background: rgba(255, 255, 255, 0.16);
 }
 
 h1,
@@ -57,19 +54,29 @@ h2 {
 }
 
 a {
-	color: var(--color-accent);
-	text-decoration: none;
-	transition: color 0.15s ease;
+	color: var(--color-bright);
+	text-decoration: underline;
+	text-decoration-color: var(--color-faint);
+	text-underline-offset: 3px;
+	transition:
+		color 0.15s ease,
+		text-decoration-color 0.15s ease;
 }
 
 a:hover {
-	color: var(--color-accent-soft);
+	text-decoration-color: var(--color-bright);
+}
+
+header a,
+h1 a,
+.node-label a {
+	text-decoration: none;
 }
 
 a:focus-visible,
 button:focus-visible,
 input:focus-visible {
-	outline: 2px solid rgba(126, 152, 232, 0.45);
+	outline: 2px solid rgba(255, 255, 255, 0.4);
 	outline-offset: 2px;
 }
 
@@ -165,14 +172,14 @@ input {
 
 input:focus {
 	outline: none;
-	border-color: var(--color-accent-soft);
+	border-color: var(--color-muted);
 }
 
 button {
 	background: transparent;
 	border: none;
 	padding: 0;
-	color: var(--color-accent);
+	color: var(--color-bright);
 	font-family: var(--font-mono);
 	font-size: 0.85rem;
 	cursor: pointer;
@@ -180,7 +187,7 @@ button {
 }
 
 button:hover {
-	color: var(--color-accent-soft);
+	color: #ffffff;
 }
 
 /* ── Article content (blog posts) ───────────────────────── */

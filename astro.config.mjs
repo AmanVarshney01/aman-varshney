@@ -11,22 +11,22 @@ export default defineConfig({
 	integrations: [
 		expressiveCode({
 			plugins: [pluginLineNumbers()],
-			themes: ['vitesse-dark'],
+			themes: ['min-dark'],
 			styleOverrides: {
 				borderRadius: '8px',
-				borderColor: '#252530',
-				codeBackground: '#1c1c24',
+				borderColor: '#2a2a2a',
+				codeBackground: '#1e1e1e',
 				codeFontFamily: "'Geist Mono', 'Cascadia Code', 'Menlo', monospace",
 				codeFontSize: '0.88rem',
 				frames: {
 					shadowColor: 'transparent',
-					editorBackground: '#1c1c24',
-					terminalBackground: '#1c1c24',
-					terminalTitlebarBackground: '#141415',
-					editorTabBarBackground: '#141415'
+					editorBackground: '#1e1e1e',
+					terminalBackground: '#1e1e1e',
+					terminalTitlebarBackground: '#161616',
+					editorTabBarBackground: '#161616'
 				},
 				lineNumbers: {
-					foreground: '#606079'
+					foreground: '#5c5c5c'
 				}
 			}
 		}),

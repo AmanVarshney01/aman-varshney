@@ -10,7 +10,7 @@ const { blog } = Astro.props
 ---
 
 <article class="flex items-baseline justify-between gap-4">
-	<a class="text-foreground hover:text-accent" href={`/blog/${blog.id}`}>
+	<a href={`/blog/${blog.id}`}>
 		{blog.data.title}
 	</a>
 	<span class="text-muted font-mono text-xs">
