@@ -8,9 +8,9 @@ Personal website built with Astro, featuring:
 
 ## Stack
 
-- Astro 5
+- Astro 7
 - Tailwind CSS 4
-- Astro DB (guestbook)
+- Drizzle + Turso/libSQL (guestbook)
 - Cloudflare adapter + Wrangler config
 - Bun (package manager/runtime)
 - TypeScript + Prettier
@@ -35,7 +35,7 @@ bun run format:check
 - `/` - homepage
 - `/blog` - blog index
 - `/blog/[...slug]` - blog post pages
-- `/guestbook` - guestbook page with Astro actions + Astro DB
+- `/guestbook` - guestbook page with Astro actions + Drizzle/Turso
 
 ## Theme
 

@@ -1,13 +1,27 @@
 ---
-import NavButton from './NavButton.astro'
-
 const currentPath = Astro.url.pathname
+
+const links = [
+	{ href: '/', name: 'home', isActive: currentPath === '/' },
+	{ href: '/blog', name: 'blog', isActive: currentPath.startsWith('/blog') },
+	{ href: '/guestbook', name: 'guestbook', isActive: currentPath.startsWith('/guestbook') }
+]
 ---
 
-<header class="pt-4">
-	<nav class="flex flex-row gap-4 font-mono text-sm tracking-[0.08em]">
-		<NavButton href="/" name="home" isActive={currentPath === '/'} />
-		<NavButton href="/blog" name="blog" isActive={currentPath.startsWith('/blog')} />
-		<NavButton href="/guestbook" name="guestbook" isActive={currentPath.startsWith('/guestbook')} />
+<header class="flex items-baseline justify-between py-6 font-mono text-sm">
+	<a href="/" class="text-muted hover:text-foreground">
+		~/aman <span class="text-success">❯</span>
+	</a>
+	<nav class="flex gap-4">
+		{
+			links.map((link) => (
+				<a
+					href={link.href}
+					class={link.isActive ? 'text-bright' : 'text-muted hover:text-foreground'}
+				>
+					{link.name}
+				</a>
+			))
+		}
 	</nav>
 </header>

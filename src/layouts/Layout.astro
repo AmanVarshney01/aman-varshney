@@ -1,6 +1,8 @@
 ---
 import '@fontsource/geist-sans'
+import '@fontsource/geist-sans/500.css'
 import '@fontsource/geist-mono'
+import '@fontsource/geist-mono/500.css'
 import { ClientRouter } from 'astro:transitions'
 import Header from '../components/Header.astro'
 import '../styles/global.css'
@@ -13,7 +15,7 @@ type Props = {
 
 const {
 	title,
-	description = 'From India. Junior Developer Advocate at Prisma. Creator of Better T Stack with 10k+ project scaffolds per month. Open source, TypeScript, and AI.',
+	description = 'Developer Advocate at Prisma. Creator of Better T Stack, a CLI scaffolding 10k+ type-safe TypeScript projects a month.',
 	author = 'Aman Varshney'
 } = Astro.props
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
@@ -35,21 +37,20 @@ const socialImageURL = new URL('/og-image.webp', Astro.url)
 		<meta property="og:type" content="website" />
 		<meta property="og:title" content={title} />
 		<meta property="og:image" content={socialImageURL.href} />
+		<meta property="og:site_name" content="Aman Varshney" />
+		<meta property="og:description" content={description} />
 		<meta property="twitter:title" content="Aman Varshney" />
 		<meta property="twitter:description" content={description} />
 		<meta property="twitter:card" content="summary_large_image" />
 		<meta property="twitter:image" content={socialImageURL.href} />
 		<meta property="twitter:creator" content="@amanvarshney01" />
-		<meta property="og:site_name" content="Aman Varshney" />
-		<meta property="og:description" content={description} />
 		<ClientRouter fallback={'none'} />
 	</head>
-	<body class="min-h-screen">
-		<div class="site-shell">
-			<Header />
-			<main class="stack-lg">
-				<slot />
-			</main>
-		</div>
+	<body>
+		<Header />
+		<main class="session">
+			<slot />
+		</main>
+		<p class="session-end">exit 0</p>
 	</body>
 </html>

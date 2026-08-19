@@ -1,10 +1,8 @@
 import cloudflare from '@astrojs/cloudflare'
-import db from '@astrojs/db'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
 import expressiveCode from 'astro-expressive-code'
-import icon from 'astro-icon'
 import { defineConfig } from 'astro/config'
 import tailwindcss from '@tailwindcss/vite'
 
@@ -13,14 +11,27 @@ export default defineConfig({
 	integrations: [
 		expressiveCode({
 			plugins: [pluginLineNumbers()],
-			themes: ['vitesse-dark', 'vitesse-light']
+			themes: ['vitesse-dark'],
+			styleOverrides: {
+				borderRadius: '8px',
+				borderColor: '#252530',
+				codeBackground: '#1c1c24',
+				codeFontFamily: "'Geist Mono', 'Cascadia Code', 'Menlo', monospace",
+				codeFontSize: '0.88rem',
+				frames: {
+					shadowColor: 'transparent',
+					editorBackground: '#1c1c24',
+					terminalBackground: '#1c1c24',
+					terminalTitlebarBackground: '#141415',
+					editorTabBarBackground: '#141415'
+				},
+				lineNumbers: {
+					foreground: '#606079'
+				}
+			}
 		}),
 		mdx(),
-		sitemap(),
-		db(),
-		icon({
-			iconDir: 'src/assets/icons'
-		})
+		sitemap()
 	],
 	adapter: cloudflare({
 		imageService: 'compile'

@@ -1,6 +1,6 @@
 import { defineAction } from 'astro:actions'
-import { db, Guestbook } from 'astro:db'
-import { z } from 'astro:schema'
+import { z } from 'astro/zod'
+import { getDb, Guestbook } from '../lib/db'
 
 export const server = {
 	guestbook: defineAction({
@@ -16,7 +16,7 @@ export const server = {
 				.max(200, { message: 'Message must be at most 200 characters.' })
 		}),
 		handler: async ({ name, message }) => {
-			await db.insert(Guestbook).values({ name, message })
+			await getDb().insert(Guestbook).values({ name, message })
 		}
 	})
 }

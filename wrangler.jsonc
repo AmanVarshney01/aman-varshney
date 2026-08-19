@@ -1,7 +1,8 @@
 {
-	"main": "dist/_worker.js/index.js",
+	"main": "@astrojs/cloudflare/entrypoints/server",
 	"name": "aman-varshney",
-	"compatibility_date": "2025-10-31",
+	"compatibility_date": "2026-04-15",
+	"routes": [{ "pattern": "amanv.dev/*", "zone_name": "amanv.dev" }],
 	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
 	"assets": {
 		"binding": "ASSETS",

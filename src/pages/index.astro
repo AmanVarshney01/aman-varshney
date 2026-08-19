@@ -1,53 +1,82 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { projects } from '../lib/projects'
+import { funProjects, projects } from '../lib/projects'
 ---
 
 <Layout title="Aman Varshney">
-	<div class="space-y-8">
-		<section class="space-y-4">
-			<h1>Aman Varshney</h1>
-			<p class="text-muted">
-				From India. Junior Developer Advocate at Prisma. Creator of Better T Stack, powering 10k+
-				project scaffolds per month. I love open source, TypeScript, and everything AI.
-			</p>
-			<div class="flex flex-wrap gap-3 text-sm">
-				<a href="https://cal.com/amanvarshney01/15min" target="_blank" rel="noopener">Book a call</a
-				>
-				<a href="https://github.com/AmanVarshney01" target="_blank" rel="noopener">GitHub</a>
-				<a href="mailto:amanvarshney.work@gmail.com">Email</a>
-				<a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank" rel="noopener"
-					>LinkedIn</a
-				>
-			</div>
-		</section>
+	<section class="node">
+		<h1>Aman Varshney</h1>
+		<p class="text-muted mt-3">
+			Developer Advocate at Prisma. I made Better T Stack, a CLI that scaffolds 10k+ type-safe
+			TypeScript projects every month. Open source, terminals, and everything AI — from India.
+		</p>
+	</section>
 
-		<section class="space-y-4">
-			<h2>Projects</h2>
-			<div class="space-y-4">
-				{
-					projects.slice(0, 5).map((project) => (
-						<div class="space-y-2">
-							<div class="flex items-center justify-between gap-4">
-								<span class="text-foreground font-medium">{project.name}</span>
-								<div class="flex gap-3 text-sm">
-									{project.githubLink && (
-										<a href={project.githubLink} target="_blank" rel="noopener">
-											Code
-										</a>
-									)}
-									{project.liveLink && (
-										<a href={project.liveLink} target="_blank" rel="noopener">
-											Live
-										</a>
-									)}
-								</div>
+	<section class="node">
+		<h2 class="node-label">projects</h2>
+		<div class="space-y-4">
+			{
+				projects.map((project) => (
+					<div>
+						<div class="flex items-baseline justify-between gap-4">
+							<span class="text-bright font-mono text-sm">{project.name}</span>
+							<div class="flex gap-3 font-mono text-xs">
+								{project.githubLink && (
+									<a href={project.githubLink} target="_blank" rel="noopener">
+										code
+									</a>
+								)}
+								{project.liveLink && (
+									<a href={project.liveLink} target="_blank" rel="noopener">
+										live
+									</a>
+								)}
 							</div>
-							<p class="text-muted text-sm">{project.description}</p>
 						</div>
-					))
-				}
-			</div>
-		</section>
-	</div>
+						<p class="text-muted text-sm">{project.description}</p>
+					</div>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="node">
+		<h2 class="node-label">memes that shipped</h2>
+		<div class="space-y-4">
+			{
+				funProjects.map((project) => (
+					<div>
+						<div class="flex items-baseline justify-between gap-4">
+							<span class="text-bright font-mono text-sm">{project.name}</span>
+							<div class="flex gap-3 font-mono text-xs">
+								{project.githubLink && (
+									<a href={project.githubLink} target="_blank" rel="noopener">
+										code
+									</a>
+								)}
+								{project.liveLink && (
+									<a href={project.liveLink} target="_blank" rel="noopener">
+										live
+									</a>
+								)}
+							</div>
+						</div>
+						<p class="text-muted text-sm">{project.description}</p>
+					</div>
+				))
+			}
+		</div>
+	</section>
+
+	<section class="node">
+		<h2 class="node-label">elsewhere</h2>
+		<div class="flex flex-wrap gap-4 font-mono text-sm">
+			<a href="https://github.com/AmanVarshney01" target="_blank" rel="noopener">github</a>
+			<a href="https://www.linkedin.com/in/amanvarshney11/" target="_blank" rel="noopener">
+				linkedin
+			</a>
+			<a href="mailto:amanvarshney.work@gmail.com">email</a>
+			<a href="https://cal.com/amanvarshney01/15min" target="_blank" rel="noopener">book a call</a>
+		</div>
+	</section>
 </Layout>

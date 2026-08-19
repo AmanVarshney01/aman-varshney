@@ -12,7 +12,7 @@ export async function GET(context) {
 		site: context.site,
 		items: blogs.map((blog) => ({
 			title: blog.data.title,
-			pubDate: blog.data.date,
+			pubDate: blog.data.pubDate,
 			content: sanitizeHtml(parser.render(blog.body), {
 				allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img'])
 			}),

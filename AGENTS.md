@@ -2,20 +2,19 @@
 
 ## Project Structure & Module Organization
 
-- `src/pages/`: Astro routes (including dynamic routes like `blog/[...slug].astro` and `projects/[project].astro`).
-- `src/components/`: Reusable UI pieces (`Header.astro`, `ProjectCard.astro`, etc.).
+- `src/pages/`: Astro routes (including dynamic routes like `blog/[...slug].astro`).
+- `src/components/`: Reusable UI pieces (`Header.astro`, `Blog.astro`, etc.).
 - `src/layouts/`: Shared page shells.
-- `src/lib/` and `src/actions/`: Typed helpers and server-side actions.
+- `src/lib/` and `src/actions/`: Typed helpers, the Drizzle/Turso guestbook client (`src/lib/db.ts`), and server-side actions.
 - `src/content/blog/`: Markdown blog content.
-- `src/assets/icons/` and `public/`: Bundled icons and static assets.
-- `db/`: Astro DB schema and seed files for guestbook data.
+- `public/`: Static assets.
 - `dist/`: Build output (generated; do not edit manually).
 
 ## Build, Test, and Development Commands
 
 - `bun install`: Install dependencies (Node `22`, from `.nvmrc`).
 - `bun run dev`: Start local dev server.
-- `bun run build`: Production build (`astro build --remote`).
+- `bun run build`: Production build (`astro build`).
 - `bun run preview`: Preview the production build locally.
 - `bun run check`: Type and Astro diagnostics (run before opening a PR).
 - `bun run format:check`: Validate formatting.

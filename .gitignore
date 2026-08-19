@@ -2,6 +2,12 @@
 dist/
 .vercel
 
+# wrangler local state
+.wrangler/
+
+# playwright artifacts
+.playwright-mcp/
+
 # generated types
 .astro/
 

@@ -1,24 +1,22 @@
 ---
-import { db, desc, Guestbook } from 'astro:db'
-const guestbookData = await db.select().from(Guestbook).orderBy(desc(Guestbook.published))
+import { desc } from 'drizzle-orm'
+import { getDb, Guestbook } from '../lib/db'
+
+const guestbookData = await getDb().select().from(Guestbook).orderBy(desc(Guestbook.published))
 ---
 
-<div class="mt-6 space-y-3">
+<div class="space-y-2">
 	{
-		guestbookData.map(
-			({ name, message, published }: { name: string; message: string; published: Date }) => {
-				return (
-					<div class="group flex items-center justify-between py-1">
-						<div>
-							<span class="font-medium">{name}:</span>
-							<span class="text-muted">{message}</span>
-						</div>
-						<span class="text-muted text-xs opacity-0 transition-opacity group-hover:opacity-100">
-							{new Date(published).toLocaleDateString()}
-						</span>
-					</div>
-				)
-			}
-		)
+		guestbookData.map(({ name, message, published }) => (
+			<div class="group flex items-baseline justify-between gap-4 py-0.5">
+				<p class="text-sm">
+					<span class="text-bright font-mono">{name}</span>
+					<span class="text-muted ml-2">{message}</span>
+				</p>
+				<span class="text-faint font-mono text-xs whitespace-nowrap opacity-0 transition-opacity group-hover:opacity-100">
+					{new Date(published.replace(' ', 'T') + 'Z').toLocaleDateString()}
+				</span>
+			</div>
+		))
 	}
 </div>
