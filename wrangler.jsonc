@@ -8,6 +8,13 @@
 		"binding": "ASSETS",
 		"directory": "./dist"
 	},
+	"ratelimits": [
+		{
+			"name": "GUESTBOOK_RATE_LIMIT",
+			"namespace_id": 1001,
+			"simple": { "limit": 2, "period": 60 }
+		}
+	],
 	"observability": {
 		"enabled": true
 	}
