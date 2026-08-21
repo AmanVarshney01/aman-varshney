@@ -1,6 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Aman Varshney">
   <rect width="64" height="64" rx="14" fill="#161616" />
-  <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#2a2a2a" />
-  <path d="M16 48L28 16h8l12 32h-7l-2.8-8H25.8L23 48h-7zm11.8-14h8.4L32 22.4 27.8 34z" fill="#ededed" />
-  <rect x="26" y="31" width="12" height="3" rx="1.5" fill="#8f8f8f" />
+  <rect x="0.5" y="0.5" width="63" height="63" rx="13.5" fill="none" stroke="#2e2e2e" />
+  <path d="M24 18L40 32L24 46" fill="none" stroke="#ededed" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
 </svg>
