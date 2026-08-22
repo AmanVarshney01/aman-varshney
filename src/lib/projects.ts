@@ -8,6 +8,12 @@ export const projects: Project[] = [
 		liveLink: 'https://better-t-stack.dev'
 	},
 	{
+		name: 'tcut',
+		description:
+			'Script terminal sessions in TypeScript and render them to MP4, GIF, SVG or HTML, identical every time.',
+		githubLink: 'https://github.com/AmanVarshney01/tcut'
+	},
+	{
 		name: 'Oxabags',
 		description: 'Production e-commerce storefront with Next.js, Razorpay, and Sanity.',
 		githubLink: 'https://github.com/AmanVarshney01/oxabags',
