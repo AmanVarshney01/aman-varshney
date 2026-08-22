@@ -11,7 +11,8 @@ export const projects: Project[] = [
 		name: 'tcut',
 		description:
 			'Script terminal sessions in TypeScript and render them to MP4, GIF, SVG or HTML, identical every time.',
-		githubLink: 'https://github.com/AmanVarshney01/tcut'
+		githubLink: 'https://github.com/AmanVarshney01/tcut',
+		liveLink: 'https://tcut.amanv.dev'
 	},
 	{
 		name: 'Oxabags',
