@@ -30,6 +30,12 @@ export const projects: Project[] = [
 
 export const funProjects: Project[] = [
 	{
+		name: 'hardtab',
+		description: 'One tab hidden in 100,000 lines of Java. Find it.',
+		githubLink: 'https://github.com/AmanVarshney01/hardtab',
+		liveLink: 'https://hardtab.amanv.dev'
+	},
+	{
 		name: 'Slither Charts',
 		description: 'React charts where every mark is a live snake.',
 		githubLink: 'https://github.com/AmanVarshney01/slither-charts',
